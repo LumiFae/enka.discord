@@ -11,6 +11,12 @@ export default {
     custom_id: "account_disconnect",
     role: "BUTTON",
     run: async (interaction) => {
+        if (interaction.user.id !== interaction.message.interactionMetadata?.user.id) {
+            return interaction.reply({
+                content: "You can not interact with another users command",
+                ephemeral: true,
+            });
+        }
         await interaction.deferUpdate();
 
         const user = await db.query.users.findFirst({ where: eq(users.id, interaction.user.id) });

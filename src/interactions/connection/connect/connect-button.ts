@@ -10,6 +10,12 @@ export default {
     custom_id: "account_connect",
     role: "BUTTON",
     run: async (interaction) => {
+        if (interaction.user.id !== interaction.message.interactionMetadata?.user.id) {
+            return interaction.reply({
+                content: "You can not interact with another users command",
+                ephemeral: true,
+            });
+        }
         await interaction.deferUpdate();
 
         const code = userVerifCodes.get(interaction.user.id);

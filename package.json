@@ -1,0 +1,23 @@
+{
+    "name": "ts-command-handler",
+    "description": "A quick and easy TypeScript command handler for Discord.JS",
+    "scripts": {
+        "start": "tsx src/index.ts",
+        "start:watch": "tsx src/index.ts --watch",
+        "start:shard": "tsc && node dist/shards.js",
+        "build": "tsc"
+    },
+    "devDependencies": {
+        "@types/pg": "^8.11.10",
+        "drizzle-kit": "^0.26.2",
+        "tsx": "^4.7.1",
+        "typescript": "^5.4.3"
+    },
+    "dependencies": {
+        "axios": "^1.7.7",
+        "discord.js": "^14.14.1",
+        "dotenv": "^16.4.5",
+        "drizzle-orm": "^0.35.1",
+        "pg": "^8.13.0"
+    }
+}

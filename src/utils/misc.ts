@@ -79,3 +79,20 @@ export function getPastValues(interaction: StringSelectMenuInteraction<CacheType
 export function getValues(interaction: StringSelectMenuInteraction<CacheType>){
     return [...getPastValues(interaction), ...interaction.values];
 }
+
+export const emojiIds: Record<string, string> = {
+    "GIElectric": "1296433521564454972",
+    "GIFire": "1296433519903375400",
+    "GIGrass": "1296433518707998771",
+    "GIIce": "1296433516250140726",
+    "GIRock": "1296433515277058069",
+    "GIWater": "1296433513955856405",
+    "GIWind": "1296433512391508028",
+    "HSRFire": "1296433551029305404",
+    "HSRIce": "1296433552308834324",
+    "HSRImaginary": "1296433558193180672",
+    "HSRPhysical": "1296433549792247882",
+    "HSRQuantum": "1296433556893204580",
+    "HSRThunder": "1296433553923375135",
+    "HSRWind": "1296433555022282883"
+};

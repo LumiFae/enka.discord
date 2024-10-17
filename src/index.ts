@@ -2,6 +2,7 @@ import { readdirSync } from "fs";
 import { Client, GatewayIntentBits } from "discord.js";
 import dotenv from "dotenv";
 import { Command } from "./types/discord";
+import express from "express";
 dotenv.config();
 
 if (!process.env.TOKEN) throw Error("You need to provide a token");
@@ -37,3 +38,11 @@ for (const folder of eventFolders) {
 }
 
 client.login(process.env.TOKEN);
+
+const app = express();
+
+app.get("/", (req, res) => {
+    res.send("how did you even find this url");
+});
+
+app.listen(process.env.PORT || 3000);

@@ -16,12 +16,12 @@ export default {
         const user = await db.query.users.findFirst({ where: eq(users.id, interaction.user.id) });
 
         if(!user || !user.enka_name) {
-            await interaction.update({ content: "You don't have an account connected", embeds: [], components: [] });
+            await interaction.editReply({ content: "You don't have an account connected", embeds: [], components: [] });
             return;
         }
 
         await db.delete(users).where(eq(users.id, interaction.user.id)).execute();
 
-        await interaction.update({ content: "Account disconnected successfully", embeds: [], components: [] });
+        await interaction.editReply({ content: "Account disconnected successfully", embeds: [], components: [] });
     },
 } satisfies Command;

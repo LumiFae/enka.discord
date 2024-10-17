@@ -26,9 +26,7 @@ export default {
             return;
         }
 
-        const values = getValues(interaction)
-
-        console.log(values)
+        const values = getValues(interaction, ["name_select_profile", "name_select_character"])
 
         const hash = values[0];
         const characterId = values[1];
@@ -60,7 +58,6 @@ export default {
         let components = getSelectsFromMessage(interaction.message.components, ["name_select_profile", "name_select_character", "name_select_build"], values);
 
         const url = `https://cards.enka.network/u/${name}/${hash}/${characterId}/${build.id}/image`;
-        console.log(url)
 
         const image = await getBuffer(url)
 
@@ -69,8 +66,9 @@ export default {
         const attachment = new AttachmentBuilder(image, { name: imgName });
 
         const embed = Embed()
-            .setTitle(`Build: ${build.name || "Unnamed build"}`)
+            .setTitle(`Build: ${build.name || "Current"}`)
             .setImage(`attachment://${imgName}`)
+            .setFooter({ text: `Related account: ${name}`})
 
 
         return await interaction.editReply({ embeds: [embed], components, files: [attachment] });

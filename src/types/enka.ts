@@ -45,3 +45,40 @@ export type HoyoCharacterBuild = {
 export type HoyoCharacterBuilds = HoyoCharacterBuild[];
 
 export type HoyoCharacters = Record<string, HoyoCharacterBuilds>;
+
+export type GIUIDLookup = {
+    playerInfo: {
+        nickname: string;
+        showAvatarInfoList: {
+            avatarId: number;
+            level: number;
+            energyType: number;
+        }[];
+        [k: string]: unknown;
+    };
+    avatarInfoList: {
+        avatarId: number;
+        [k: string]: unknown;
+    }[];
+    uid: string;
+}
+
+export type HSRUIDAPILookup = {
+    detailInfo: {
+        uid: number;
+    }
+    uid: string;
+}
+
+export type HSRUIDLookup = {
+    detailInfo: {
+        uid: number;
+        nickname: string;
+        avatarDetailList: {
+            avatarId: number;
+            [k: string]: unknown;
+        }[];
+        [k: string]: unknown;
+    }
+    uid: string;
+}

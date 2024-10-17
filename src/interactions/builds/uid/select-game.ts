@@ -1,48 +1,39 @@
 import {Command} from "../../../types/discord";
-import {selectCharacter} from "../../../utils/select-menus";
+import {selectCharacter, selectUidCharacter} from "../../../utils/select-menus";
 import {api, get} from "../../../utils/api";
 import {HoyosRecord, NoProfile} from "../../../types/enka";
 import {StringSelectMenuBuilder, ComponentType, ActionRowBuilder, BaseMessageOptions} from "discord.js";
 import {getSelectsFromMessage, makeAllSelectsDisabled} from "../../../utils/misc";
-import {generateBuildEmbed} from "../../../utils/embeds";
+import {generateBuildEmbed, generateUidBuildEmbed} from "../../../utils/embeds";
 
 export default {
-    custom_id: "name_select_profile",
+    custom_id: "uid_select_game",
     role: "SELECT_MENU",
     run: async (interaction) => {
         await interaction.deferUpdate();
 
-        const name = interaction.message.embeds[0].footer?.text.split(": ")[1];
+        const uid = interaction.message.embeds[0].footer?.text.split(": ")[1];
 
-        if(!name) {
+        if(!uid) {
             await interaction.editReply({ content: "An error occurred, please try again", components: [], embeds: [], files: [] });
             return;
         }
 
-        const profile = interaction.values[0];
+        const game = interaction.values[0];
 
-        const apiHoyos = await api.hoyos(name);
-
-        if (!apiHoyos) {
-            await interaction.editReply({ content: "User not found, either reconnect your account or check the account name you entered", components: [], embeds: [], files: [] });
-            return;
-        }
-
-        const hoyos = apiHoyos.data as HoyosRecord;
-
-        const selectMenu = await selectCharacter(interaction, name, hoyos[profile]);
+        const selectMenu = await selectUidCharacter(uid, game);
 
         if(!selectMenu) {
             await interaction.editReply({ content: "An error occurred, please try again", components: [], embeds: [], files: [] });
             return;
         }
 
-        let components = getSelectsFromMessage(interaction.message.components, ["name_select_profile"], interaction.values);
+        let components = getSelectsFromMessage(interaction.message.components, ["uid_select_game"], interaction.values);
 
         const row = new ActionRowBuilder<StringSelectMenuBuilder>().addComponents(selectMenu);
 
         components = [...components, row];
 
-        await interaction.editReply({ embeds: [generateBuildEmbed(name)], components, files: [] });
+        await interaction.editReply({ embeds: [generateUidBuildEmbed(uid)], components, files: [] });
     },
 } as Command;

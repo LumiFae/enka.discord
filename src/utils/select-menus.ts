@@ -14,7 +14,7 @@ function getSortedAvatars(avatarOrder: Record<number, number>): string[] {
         .map(([avatar]) => avatar);
 }
 
-export async function selectCharacter(interaction: Interaction<CacheType>, name: string, profile: Hoyo, selectMenu: StringSelectMenuBuilder = new StringSelectMenuBuilder()) {
+export async function selectCharacter(interaction: Interaction<CacheType>, name: string, profile: Hoyo, selectMenu: StringSelectMenuBuilder = new StringSelectMenuBuilder().setMaxValues(1).setMinValues(1)) {
     const avatars = getSortedAvatars(profile.avatar_order as Record<number, number>);
 
     const characters = profile.hoyo_type === 0 ? await getGICharacters() : await getHSRCharacters();
@@ -38,6 +38,38 @@ export async function selectCharacter(interaction: Interaction<CacheType>, name:
             .setValue(char.character.characterId)
             .setDescription(`Select a build for ${char.character.name}`)
             .setEmoji(char.emojiId)
+    }))
+    return selectMenu;
+}
+
+export async function selectUidCharacter(uid: string, game: string, selectMenu: StringSelectMenuBuilder = new StringSelectMenuBuilder().setMaxValues(1).setMinValues(1)) {
+    const characters = game === "genshin" ? await getGICharacters() : await getHSRCharacters();
+    const characterList = await api.uid(uid, game === "genshin" ? 0 : 1);
+    if(!characterList) {
+        return null;
+    }
+    const profileCharacters: Characters[] = [];
+    if('detailInfo' in characterList.data){
+        for(const char of characterList.data.detailInfo.avatarDetailList){
+            const character = characters.find(character => character.characterId === char.avatarId.toString());
+            if(!character) continue;
+            profileCharacters.push(character);
+        }
+    } else {
+        for(const char of characterList.data.avatarInfoList) {
+            const character = characters.find(character => character.characterId === char.avatarId.toString());
+            if(!character) continue;
+            profileCharacters.push(character);
+        }
+    }
+    selectMenu.setCustomId("uid_select_character")
+    selectMenu.setPlaceholder("Select a character")
+    selectMenu.setOptions(profileCharacters.map((char) => {
+        return new StringSelectMenuOptionBuilder()
+            .setLabel(char.name)
+            .setValue(char.characterId)
+            .setDescription(`Select a build for ${char.name}`)
+            .setEmoji(emojiIds[`${game === "genshin" ? "GI" : "HSR"}${char.element}`])
     }))
     return selectMenu;
 }

@@ -1,5 +1,13 @@
 import axios, {AxiosResponse} from "axios";
-import {HoyoCharacters, HoyosRecord, NoProfile, ProfileInfo} from "../types/enka";
+import {
+    GIUIDLookup,
+    HoyoCharacters,
+    HoyosRecord,
+    HSRUIDAPILookup,
+    HSRUIDLookup,
+    NoProfile,
+    ProfileInfo
+} from "../types/enka";
 
 export async function get<T>(url: string) {
     return await axios.get<T>(url, { headers: { "User-Agent": "enka.discord" } });
@@ -8,6 +16,10 @@ export async function get<T>(url: string) {
 export async function getBuffer(url: string) {
     return await axios.get(url, { responseType: "arraybuffer" }).then((response) => Buffer.from(response.data));
 }
+
+type LookupType<T extends 0 | 1> = T extends 0 ? GIUIDLookup : HSRUIDAPILookup | HSRUIDLookup;
+
+type UIDExists<T extends 0 | 1> = T extends 0 ? GIUIDLookup : HSRUIDLookup;
 
 class EnkaAPI {
     checkInvalid(profile: AxiosResponse<NoProfile | ProfileInfo | HoyosRecord | HoyoCharacters, any> | null) {
@@ -30,6 +42,14 @@ class EnkaAPI {
         const call = await get<NoProfile | HoyoCharacters>(`https://enka.network/api/profile/${name}/hoyos/${hash}/builds/?format=json`).catch(() => null);
         if(this.checkInvalid(call)) return null;
         return call;
+    }
+
+    async uid(uid: string, hoyo_type: 0 | 1): Promise<AxiosResponse<UIDExists<typeof hoyo_type>, any> | null> {
+        const call = await get<LookupType<typeof hoyo_type>>(
+            `https://enka.network/api/${hoyo_type === 0 ? "" : "hsr/"}uid/${uid}?format=json`
+        ).catch(() => null);
+        if(!call || ('detailInfo' in call.data && !('nickname' in call.data.detailInfo))) return null;
+        return call as AxiosResponse<UIDExists<typeof hoyo_type>, any>;
     }
 }
 

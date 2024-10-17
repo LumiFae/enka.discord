@@ -8,6 +8,6 @@ export default {
     role: "BUTTON",
     run: async (interaction) => {
         userVerifCodes.delete(interaction.user.id);
-        await interaction.update({ content: "Connection cancelled", embeds: [], components: [] });
+        await interaction.editReply({ content: "Connection cancelled", embeds: [], components: [] });
     },
 } satisfies Command;

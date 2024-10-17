@@ -10,7 +10,7 @@ import {
     StringSelectMenuOptionBuilder,
     BaseMessageOptions
 } from "discord.js";
-import { Embed } from "../../utils/embeds";
+import {Embed, generateBuildEmbed} from "../../utils/embeds";
 import {api, Characters, get, getGICharacters, getHSRCharacters} from "../../utils/api";
 import {HoyoCharacters, HoyosRecord, NoProfile} from "../../types/enka";
 import {selectCharacter} from "../../utils/select-menus";
@@ -96,10 +96,7 @@ async function nameFunc(interaction: ChatInputCommandInteraction<CacheType>, nam
 
     await interaction.deferReply();
 
-    const embed = Embed()
-        .setTitle(`Select a build`)
-        .setDescription("From the select menus below, choose the builds you want to view")
-        .setFooter({ text: `Related account: ${name}`})
+    const embed = generateBuildEmbed(name);
 
     let selectMenu = new StringSelectMenuBuilder().setMaxValues(1).setMinValues(1);
 

@@ -11,7 +11,7 @@ import {
     Attachment, StringSelectMenuOptionBuilder
 } from "discord.js";
 import {getSelectsFromMessage, getValues, makeAllSelectsDisabled} from "../../../utils/misc";
-import {Embed} from "../../../utils/embeds";
+import {Embed, generateBuildEmbed} from "../../../utils/embeds";
 
 export default {
     custom_id: "name_select_character",
@@ -22,13 +22,11 @@ export default {
         const name = interaction.message.embeds[0].footer?.text.split(": ")[1];
 
         if(!name) {
-            await interaction.editReply({ content: "An error occurred, please try again", components: [], embeds: [] });
+            await interaction.editReply({ content: "An error occurred, please try again", components: [], embeds: [], files: [] });
             return;
         }
 
-        const values = getValues(interaction)
-
-        console.log(values)
+        const values = getValues(interaction, ["name_select_profile"])
 
         const hash = values[0];
         const characterId = values[1];
@@ -36,7 +34,7 @@ export default {
         const apiHoyos = await api.hoyosBuilds(name, hash);
 
         if (!apiHoyos) {
-            await interaction.editReply({ content: "User not found, either reconnect your account or check the account name you entered", components: [], embeds: [] });
+            await interaction.editReply({ content: "User not found, either reconnect your account or check the account name you entered", components: [], embeds: [], files: [] });
             return;
         }
 
@@ -45,7 +43,7 @@ export default {
         const characterBuilds = builds[characterId];
 
         if(!characterBuilds || characterBuilds.length === 0) {
-            await interaction.editReply({ content: "This character has no public builds", components: [], embeds: [] });
+            await interaction.editReply({ content: "This character has no public builds", components: [], embeds: [], files: [] });
             return;
         }
 
@@ -61,8 +59,9 @@ export default {
             const attachment = new AttachmentBuilder(image, { name: imgName });
 
             const embed = Embed()
-                .setTitle(`Build: ${build.name || "Unnamed build"}`)
+                .setTitle(`Build: ${build.name || "Current"}`)
                 .setImage(`attachment://${imgName}`)
+                .setFooter({ text: `Related account: ${name}`});
 
             return await interaction.editReply({ embeds: [embed], components, files: [attachment] });
         }
@@ -75,7 +74,7 @@ export default {
             .addOptions(
                 characterBuilds.map(build => {
                     return new StringSelectMenuOptionBuilder()
-                        .setLabel(build.name || "Unnamed build")
+                        .setLabel(build.name || "Current")
                         .setValue(String(build.id))
                         .setDescription("Select this build")
                 })
@@ -85,6 +84,6 @@ export default {
 
         components = [...components, row];
 
-        await interaction.editReply({ embeds: interaction.message.embeds, components });
+        await interaction.editReply({ embeds: [generateBuildEmbed(name)], components, files: [] });
     },
 } as Command;

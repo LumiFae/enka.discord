@@ -60,15 +60,16 @@ export function getSelectsFromMessage(components: ActionRow<MessageActionRowComp
                 r.addComponents(comp);
             }
         }
-        rows = [...rows, r];
+        if(r.components.length > 0) rows = [...rows, r];
     }
     return rows;
 }
 
-export function getPastValues(interaction: StringSelectMenuInteraction<CacheType>){
+export function getPastValues(interaction: StringSelectMenuInteraction<CacheType>, custom_ids: string[]){
     return interaction.message.components.map(row => {
         return row.components.map(component => {
             if(component.type === ComponentType.StringSelect){
+                if(!custom_ids.includes(component.customId)) return undefined;
                 const options = component.options.filter(option => option.default === true);
                 return options.map(option => option.value);
             }
@@ -76,8 +77,8 @@ export function getPastValues(interaction: StringSelectMenuInteraction<CacheType
     }).flat().filter((value): value is string[] => value !== undefined).flat();
 }
 
-export function getValues(interaction: StringSelectMenuInteraction<CacheType>){
-    return [...getPastValues(interaction), ...interaction.values];
+export function getValues(interaction: StringSelectMenuInteraction<CacheType>, custom_ids: string[]){
+    return [...getPastValues(interaction, custom_ids), ...interaction.values];
 }
 
 export const emojiIds: Record<string, string> = {

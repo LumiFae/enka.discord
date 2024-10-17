@@ -8,8 +8,15 @@ import {
 } from "discord.js";
 import {emojiIds} from "./misc";
 
+function getSortedAvatars(avatarOrder: Record<number, number>): string[] {
+    return Object.entries(avatarOrder)
+        .sort(([, orderA], [, orderB]) => orderA - orderB)
+        .map(([avatar]) => avatar);
+}
+
 export async function selectCharacter(interaction: Interaction<CacheType>, name: string, profile: Hoyo, selectMenu: StringSelectMenuBuilder = new StringSelectMenuBuilder()) {
-    const avatars = Object.keys(profile.avatar_order as Record<number, number>);
+    const avatars = getSortedAvatars(profile.avatar_order as Record<number, number>);
+
     const characters = profile.hoyo_type === 0 ? await getGICharacters() : await getHSRCharacters();
     const builds = await api.hoyosBuilds(name, profile.hash);
     if(!builds) {

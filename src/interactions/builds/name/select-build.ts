@@ -25,7 +25,9 @@ export default {
         }
         await interaction.deferUpdate();
 
-        const name = interaction.message.embeds[0].footer?.text.split(": ")[1];
+        const oldEmbed = interaction.message.embeds[0];
+
+        const name = oldEmbed.footer?.text.split(": ")[1];
 
         if(!name) {
             await interaction.editReply({ content: "An error occurred, please try again", components: [], embeds: [] });
@@ -75,6 +77,7 @@ export default {
             .setTitle(`Build: ${build.name || "Current"}`)
             .setImage(`attachment://${imgName}`)
             .setFooter({ text: `Related account: ${name}`})
+            .setColor(oldEmbed.color);
 
 
         return await interaction.editReply({ embeds: [embed], components, files: [attachment] });

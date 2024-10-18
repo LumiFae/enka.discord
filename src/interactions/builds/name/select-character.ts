@@ -1,6 +1,6 @@
 import {Command} from "../../../types/discord";
 import {selectCharacter} from "../../../utils/select-menus";
-import {api, get, getBuffer} from "../../../utils/api";
+import {api, characters, get, getBuffer} from "../../../utils/api";
 import {HoyoCharacterBuild, HoyoCharacters, HoyosRecord, NoProfile} from "../../../types/enka";
 import {
     StringSelectMenuBuilder,
@@ -10,7 +10,7 @@ import {
     AttachmentBuilder,
     Attachment, StringSelectMenuOptionBuilder
 } from "discord.js";
-import {getSelectsFromMessage, getValues, makeAllSelectsDisabled} from "../../../utils/misc";
+import {colors, getSelectsFromMessage, getValues, makeAllSelectsDisabled} from "../../../utils/misc";
 import {Embed, generateBuildEmbed} from "../../../utils/embeds";
 
 export default {
@@ -64,10 +64,13 @@ export default {
 
             const attachment = new AttachmentBuilder(image, { name: imgName });
 
+            const character = await characters.getCharacterById(build.hoyo_type, characterId);
+
             const embed = Embed()
                 .setTitle(`Build: ${build.name || "Current"}`)
                 .setImage(`attachment://${imgName}`)
-                .setFooter({ text: `Related account: ${name}`});
+                .setFooter({ text: `Related account: ${name}`})
+                .setColor(character ? colors[build.hoyo_type === 0 ? `GI${character.element}` : `HSR${character.element}` ] : "RANDOM");
 
             return await interaction.editReply({ embeds: [embed], components, files: [attachment] });
         }
@@ -90,6 +93,14 @@ export default {
 
         components = [...components, row];
 
-        await interaction.editReply({ embeds: [generateBuildEmbed(name)], components, files: [] });
+        const character = await characters.getCharacterById(characterBuilds[0].hoyo_type, characterId);
+
+        let embed = generateBuildEmbed(name);
+
+        if(character) {
+            embed = generateBuildEmbed(name, colors[characterBuilds[0].hoyo_type === 0 ? `GI${character.element}` : `HSR${character.element}`]);
+        }
+
+        await interaction.editReply({ embeds: [embed], components, files: [] });
     },
 } as Command;

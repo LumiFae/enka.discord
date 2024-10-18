@@ -1,6 +1,6 @@
 import {Command} from "../../../types/discord";
 import {selectCharacter, selectUidCharacter} from "../../../utils/select-menus";
-import {api, get, getBuffer, getGICharacters, getHSRCharacters} from "../../../utils/api";
+import {api, characters, get, getBuffer, getGICharacters, getHSRCharacters} from "../../../utils/api";
 import {HoyosRecord, NoProfile} from "../../../types/enka";
 import {
     StringSelectMenuBuilder,
@@ -9,7 +9,7 @@ import {
     BaseMessageOptions,
     AttachmentBuilder
 } from "discord.js";
-import {getSelectsFromMessage, getValues, makeAllSelectsDisabled} from "../../../utils/misc";
+import {colors, getSelectsFromMessage, getValues, makeAllSelectsDisabled} from "../../../utils/misc";
 import {Embed, generateBuildEmbed, generateUidBuildEmbed} from "../../../utils/embeds";
 
 export default {
@@ -36,7 +36,6 @@ export default {
         const game = values[0];
         const characterId = interaction.values[0];
 
-        const characters = game === "genshin" ? await getGICharacters() : await getHSRCharacters();
         const user = await api.uid(uid, game === "genshin" ? 0 : 1);
         if (!user) {
             await interaction.editReply({ content: "User not found, please try again", components: [], embeds: [], files: [] });
@@ -55,7 +54,7 @@ export default {
 
         const attachment = new AttachmentBuilder(image, { name: imgName });
 
-        const character = characters.find(character => character.characterId === characterId);
+        const character = await characters.getCharacterById(game === "genshin" ? 0 : 1, characterId);
 
         if(!character) {
             await interaction.editReply({ content: "Character not found, please try again", components: [], embeds: [], files: [] });
@@ -65,7 +64,8 @@ export default {
         const embed = Embed()
             .setTitle(`${username}'s ${character.name} Build`)
             .setImage(`attachment://${imgName}`)
-            .setFooter({ text: `Related UID: ${uid}` });
+            .setFooter({ text: `Related UID: ${uid}` })
+            .setColor(colors[game === "genshin" ? `GI${character.element}` : `HSR${character.element}`]);
 
         await interaction.editReply({ embeds: [embed], components, files: [attachment] });
     },

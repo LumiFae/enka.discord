@@ -55,6 +55,53 @@ class EnkaAPI {
 
 export const api = new EnkaAPI();
 
+let giCharacters: {
+    lastUpdated: number;
+    characters: Characters[];
+}
+
+let hsrCharacters: {
+    lastUpdated: number;
+    characters: Characters[];
+}
+
+class GameCharacters {
+    private async generateCharacters(hoyo_type: 0 | 1) {
+        if(hoyo_type === 0) {
+            giCharacters = {
+                lastUpdated: Date.now(),
+                characters: await getGICharacters()
+            }
+        } else {
+            hsrCharacters = {
+                lastUpdated: Date.now(),
+                characters: await getHSRCharacters()
+            }
+        }
+    }
+
+    async getCharacters(hoyo_type: 0 | 1){
+        if(hoyo_type === 0) {
+            if(!giCharacters || Date.now() - giCharacters.lastUpdated > 1000 * 60 * 60) {
+                await this.generateCharacters(0);
+            }
+            return giCharacters.characters;
+        } else {
+            if(!hsrCharacters || Date.now() - hsrCharacters.lastUpdated > 1000 * 60 * 60) {
+                await this.generateCharacters(1);
+            }
+            return hsrCharacters.characters;
+        }
+    }
+
+    async getCharacterById(hoyo_type: 0 | 1, id: string){
+        const characters = await this.getCharacters(hoyo_type);
+        return characters.find(character => character.characterId === id);
+    }
+}
+
+export const characters = new GameCharacters();
+
 
 type GICharactersAPI = Record<
     string,

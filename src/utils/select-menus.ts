@@ -1,5 +1,5 @@
 import {Hoyo, HoyoCharacters, NoProfile} from "../types/enka";
-import {api, Characters, get, getGICharacters, getHSRCharacters} from "./api";
+import {api, characters, Characters, get, getGICharacters, getHSRCharacters} from "./api";
 import {
     CacheType,
     Interaction,
@@ -17,13 +17,12 @@ function getSortedAvatars(avatarOrder: Record<number, number>): string[] {
 export async function selectCharacter(interaction: Interaction<CacheType>, name: string, profile: Hoyo, selectMenu: StringSelectMenuBuilder = new StringSelectMenuBuilder().setMaxValues(1).setMinValues(1)) {
     const avatars = getSortedAvatars(profile.avatar_order as Record<number, number>);
 
-    const characters = profile.hoyo_type === 0 ? await getGICharacters() : await getHSRCharacters();
     const builds = await api.hoyosBuilds(name, profile.hash);
     if(!builds) {
         return null;
     }
     const profileCharacters = (await Promise.all(avatars.map(async char => {
-        const character = characters.find(character => character.characterId === char);
+        const character = await characters.getCharacterById(profile.hoyo_type, char);
         if(!character) return null;
         if(!builds.data[character.characterId] || !builds.data[character.characterId].length) return null;
         const emojiId = emojiIds[`${profile.hoyo_type === 0 ? "GI" : "HSR"}${character.element}`];
@@ -43,7 +42,6 @@ export async function selectCharacter(interaction: Interaction<CacheType>, name:
 }
 
 export async function selectUidCharacter(uid: string, game: string, selectMenu: StringSelectMenuBuilder = new StringSelectMenuBuilder().setMaxValues(1).setMinValues(1)) {
-    const characters = game === "genshin" ? await getGICharacters() : await getHSRCharacters();
     const characterList = await api.uid(uid, game === "genshin" ? 0 : 1);
     if(!characterList) {
         return null;
@@ -51,13 +49,13 @@ export async function selectUidCharacter(uid: string, game: string, selectMenu: 
     const profileCharacters: Characters[] = [];
     if('detailInfo' in characterList.data){
         for(const char of characterList.data.detailInfo.avatarDetailList){
-            const character = characters.find(character => character.characterId === char.avatarId.toString());
+            const character = await characters.getCharacterById(game === "genshin" ? 0 : 1, char.avatarId.toString());
             if(!character) continue;
             profileCharacters.push(character);
         }
     } else {
         for(const char of characterList.data.avatarInfoList) {
-            const character = characters.find(character => character.characterId === char.avatarId.toString());
+            const character = await characters.getCharacterById(game === "genshin" ? 0 : 1, char.avatarId.toString());
             if(!character) continue;
             profileCharacters.push(character);
         }

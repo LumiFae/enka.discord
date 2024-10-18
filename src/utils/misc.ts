@@ -89,6 +89,7 @@ export const emojiIds: Record<string, string> = {
     "GIRock": "1296433515277058069",
     "GIWater": "1296433513955856405",
     "GIWind": "1296433512391508028",
+
     "HSRFire": "1296433551029305404",
     "HSRIce": "1296433552308834324",
     "HSRImaginary": "1296433558193180672",
@@ -97,3 +98,21 @@ export const emojiIds: Record<string, string> = {
     "HSRThunder": "1296433553923375135",
     "HSRWind": "1296433555022282883"
 };
+
+export const colors = {
+    "GIElectric": "#d376f0",
+    "GIFire": "#e2311d",
+    "GIGrass": "#7bb42d",
+    "GIIce": "#98c8e8",
+    "GIRock": "#cfa726",
+    "GIWater": "#1c72fd",
+    "GIWind": "#33ccb3",
+
+    "HSRFire": "#ee473d",
+    "HSRIce": "#2692d3",
+    "HSRImaginary": "#f3e137",
+    "HSRPhysical": "#979797",
+    "HSRQuantum": "#6057c9",
+    "HSRThunder": "#c65ade",
+    "HSRWind": "#61cf93"
+}

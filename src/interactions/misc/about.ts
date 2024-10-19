@@ -16,13 +16,16 @@ export default {
                 value: "[@jxtq](<https://discord.com/users/618689346828238848>) ([@jxtq.bsky.social](<https://bsky.app/profile/jxtq.bsky.social>))"
             },{
                 name: "Ping",
-                value: `${interaction.client.ws.ping}ms`
+                value: `${interaction.client.ws.ping}ms`,
+                inline: true
             },{
                 name: "Uptime",
-                value: `<t:${Math.floor(started / 1000)}:R>`
+                value: `<t:${Math.floor(started / 1000)}:R>`,
+                inline: true
             }, {
                 name: "Server Count",
-                value: `${interaction.client.guilds.cache.size}`
+                value: `${interaction.client.guilds.cache.size}`,
+                inline: true
             })
 
         const ghButton = new ButtonBuilder()

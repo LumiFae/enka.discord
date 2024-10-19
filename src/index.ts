@@ -11,6 +11,8 @@ const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
 export const commands = new Map<string, Command>();
 
+export let started = Date.now();
+
 const eventFolders = readdirSync("./src/events");
 for (const folder of eventFolders) {
     switch (folder) {

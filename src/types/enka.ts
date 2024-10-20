@@ -16,12 +16,27 @@ export type NoProfile = {
 
 type HoyoPlayerInfoBase = {
     nickname: string;
-    [k: string]: unknown;
 };
 
 type HoyoPlayerInfo<T extends 0 | 1> = T extends 0
-    ? HoyoPlayerInfoBase & { profilePicture: { id: number } }
-    : HoyoPlayerInfoBase & { headIcon: number };
+    ? HoyoPlayerInfoBase &
+    {
+        profilePicture: {
+            id: number
+        };
+        showAvatarInfoList?: {
+            level: number;
+            avatarId: number;
+        }[]
+    }
+    : HoyoPlayerInfoBase &
+    {
+        headIcon: number;
+        avatarDetailList?: {
+            level: number;
+            avatarId: number;
+        }[]
+    };
 
 export type Hoyo = {
     hoyo_type: 0 | 1;
@@ -29,7 +44,6 @@ export type Hoyo = {
     uid: string;
     hash: string;
     avatar_order: Record<number, number> | null;
-    [k: string]: unknown;
 };
 
 export type HoyosRecord = Record<string, Hoyo>;
@@ -38,7 +52,6 @@ export type HoyoCharacterBuild = {
     id: number;
     name: string;
     avatar_id: number;
-    [k: string]: unknown;
     hoyo_type: 0 | 1;
 }
 
@@ -54,11 +67,9 @@ export type GIUIDLookup = {
             level: number;
             energyType: number;
         }[];
-        [k: string]: unknown;
     };
     avatarInfoList: {
         avatarId: number;
-        [k: string]: unknown;
     }[];
     uid: string;
 }
@@ -76,9 +87,7 @@ export type HSRUIDLookup = {
         nickname: string;
         avatarDetailList: {
             avatarId: number;
-            [k: string]: unknown;
         }[];
-        [k: string]: unknown;
     }
     uid: string;
 }

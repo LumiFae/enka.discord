@@ -87,7 +87,7 @@ async function nameFunc(interaction: ChatInputCommandInteraction<CacheType>, nam
 
     const hoyos = apiHoyos.data as HoyosRecord;
 
-    const hoyoArray = Object.values(hoyos).filter(profile => profile.avatar_order !== null);
+    const hoyoArray = Object.values(hoyos).filter(profile => 'showAvatarInfoList' in profile.player_info && profile.player_info.showAvatarInfoList && profile.player_info.showAvatarInfoList.length > 0);
 
     if(hoyoArray.length === 0) {
         await interaction.reply({ content: "This user has no public builds", ephemeral: true });

@@ -17,6 +17,6 @@ export default {
                 ephemeral: true,
             });
         }
-        await interaction.editReply({ content: "Disconnect cancelled", embeds: [], components: [] });
+        await interaction.update({ content: "Disconnect cancelled", embeds: [], components: [] });
     },
 } satisfies Command;

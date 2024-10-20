@@ -14,6 +14,6 @@ export default {
             });
         }
         userVerifCodes.delete(interaction.user.id);
-        await interaction.editReply({ content: "Connection cancelled", embeds: [], components: [] });
+        await interaction.update({ content: "Connection cancelled", embeds: [], components: [] });
     },
 } satisfies Command;

@@ -19,6 +19,8 @@ export default {
             required: false,
         },
     ],
+    contexts: [0, 1, 2],
+    integration_types: [0, 1],
     run: async (interaction) =>  {
         const user = interaction.options.getString("name") || await db.query.users.findFirst({ where: eq(users.id, interaction.user.id) }).then(user => user?.enka_name);
         if (!user) {

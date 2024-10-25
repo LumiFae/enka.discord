@@ -7,6 +7,8 @@ export default {
     name: "help",
     role: "CHAT_INPUT",
     description: "Get help with the bot",
+    contexts: [0, 1, 2],
+    integration_types: [0, 1],
     run: async (interaction) => {
         const embed_ = Embed()
             .setTitle("Help")

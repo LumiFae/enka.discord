@@ -7,6 +7,8 @@ export default {
     name: "about",
     role: "CHAT_INPUT",
     description: "Get information about the bot",
+    contexts: [0, 1, 2],
+    integration_types: [0, 1],
     run: async (interaction) => {
         const embed = Embed()
             .setTitle("enka.discord")

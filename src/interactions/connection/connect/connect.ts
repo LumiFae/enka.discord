@@ -18,6 +18,8 @@ export default {
             required: true,
         },
     ],
+    contexts: [0, 1, 2],
+    integration_types: [0, 1],
     run: async (interaction) =>  {
         await interaction.deferReply({ ephemeral: true })
         const name = interaction.options.getString("name", true);

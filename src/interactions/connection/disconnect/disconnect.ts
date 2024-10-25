@@ -13,6 +13,8 @@ export default {
     name: "disconnect",
     role: "CHAT_INPUT",
     description: "Disconnect your enka.network account",
+    contexts: [0, 1, 2],
+    integration_types: [0, 1],
     run: async (interaction) =>  {
         await interaction.deferReply({ ephemeral: true })
 

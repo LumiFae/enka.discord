@@ -33,6 +33,8 @@ export default {
             required: false,
         }
     ],
+    contexts: [0, 1, 2],
+    integration_types: [0, 1],
     run: async (interaction) =>  {
         let name = interaction.options.getString("name");
         const uid = interaction.options.getString("uid");

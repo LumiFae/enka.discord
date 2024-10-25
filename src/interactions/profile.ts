@@ -58,6 +58,6 @@ export default {
             .setStyle(ButtonStyle.Link)
             .setURL(`https://enka.network/u/${profile.username}/`)
 
-        await interaction.reply({ embeds: [embed], components: [new ActionRowBuilder<ButtonBuilder>().addComponents(profileButton)], ephemeral: true });
+        await interaction.reply({ embeds: [embed], components: [new ActionRowBuilder<ButtonBuilder>().addComponents(profileButton)] });
     },
 } satisfies Command;

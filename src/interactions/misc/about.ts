@@ -26,7 +26,7 @@ export default {
                 inline: true
             }, {
                 name: "Install Count (Servers and Users)",
-                value: `Servers: ${interaction.client.guilds.cache.size}\nUsers: ${interaction.client.application.approximateUserInstallCount}`,
+                value: `Servers: ${interaction.client.guilds.cache.size}\nUsers: ${interaction.client.application.approximateUserInstallCount || 0}`,
                 inline: true
             })
 

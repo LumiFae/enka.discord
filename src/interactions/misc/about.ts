@@ -25,8 +25,8 @@ export default {
                 value: `<t:${Math.floor(started / 1000)}:R>`,
                 inline: true
             }, {
-                name: "Server Count",
-                value: `${interaction.client.guilds.cache.size}`,
+                name: "Install Count (Servers and Users)",
+                value: `Servers: ${interaction.client.guilds.cache.size}\nUsers: ${interaction.client.application.approximateUserInstallCount}`,
                 inline: true
             })
 

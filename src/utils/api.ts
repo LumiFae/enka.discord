@@ -6,8 +6,16 @@ import {
     HSRUIDAPILookup,
     HSRUIDLookup,
     NoProfile,
-    ProfileInfo
+    ProfileInfo, ZZZUIDLookup
 } from "../types/enka";
+
+export const hoyo_type = {
+    Genshin: 0,
+    Honkai: 1,
+    Zenless: 2
+} as const;
+
+export type HoyoType = typeof hoyo_type[keyof typeof hoyo_type];
 
 export async function get<T>(url: string) {
     return await axios.get<T>(url, { headers: { "User-Agent": "enka.discord" } });
@@ -17,9 +25,9 @@ export async function getBuffer(url: string) {
     return await axios.get(url, { responseType: "arraybuffer" }).then((response) => Buffer.from(response.data));
 }
 
-type LookupType<T extends 0 | 1> = T extends 0 ? GIUIDLookup : HSRUIDAPILookup | HSRUIDLookup;
+type LookupType<T extends HoyoType> = T extends 0 ? GIUIDLookup : T extends 1 ? HSRUIDAPILookup | HSRUIDLookup : ZZZUIDLookup;
 
-type UIDExists<T extends 0 | 1> = T extends 0 ? GIUIDLookup : HSRUIDLookup;
+type UIDExists<T extends HoyoType> = T extends 0 ? GIUIDLookup : T extends 1 ? HSRUIDLookup : ZZZUIDLookup;
 
 class EnkaAPI {
     checkInvalid(profile: AxiosResponse<NoProfile | ProfileInfo | HoyosRecord | HoyoCharacters, any> | null) {
@@ -44,12 +52,12 @@ class EnkaAPI {
         return call;
     }
 
-    async uid(uid: string, hoyo_type: 0 | 1): Promise<AxiosResponse<UIDExists<typeof hoyo_type>, any> | null> {
-        const call = await get<LookupType<typeof hoyo_type>>(
-            `https://enka.network/api/${hoyo_type === 0 ? "" : "hsr/"}uid/${uid}?format=json`
+    async uid(uid: string, hoyoType: HoyoType): Promise<AxiosResponse<UIDExists<typeof hoyoType>, any> | null> {
+        const call = await get<LookupType<typeof hoyoType>>(
+            `https://enka.network/api/${hoyoType === hoyo_type.Genshin ? "" : hoyoType === hoyo_type.Honkai ? "hsr/" : "zzz/"}uid/${uid}?format=json`
         ).catch(() => null);
         if(!call || ('detailInfo' in call.data && !('nickname' in call.data.detailInfo))) return null;
-        return call as AxiosResponse<UIDExists<typeof hoyo_type>, any>;
+        return call as AxiosResponse<UIDExists<typeof hoyoType>, any>;
     }
 }
 
@@ -65,36 +73,51 @@ let hsrCharacters: {
     characters: Characters[];
 }
 
+let zzzCharacters: {
+    lastUpdated: number;
+    characters: Characters[];
+}
+
 class GameCharacters {
-    private async generateCharacters(hoyo_type: 0 | 1) {
-        if(hoyo_type === 0) {
+    private async generateCharacters(hoyoType: HoyoType) {
+        if(hoyoType === hoyo_type.Genshin) {
             giCharacters = {
                 lastUpdated: Date.now(),
                 characters: await getGICharacters()
             }
-        } else {
+        } else if (hoyoType === hoyo_type.Honkai) {
             hsrCharacters = {
                 lastUpdated: Date.now(),
                 characters: await getHSRCharacters()
             }
+        } else {
+            zzzCharacters = {
+                lastUpdated: Date.now(),
+                characters: await getZZZCharacters()
+            }
         }
     }
 
-    async getCharacters(hoyo_type: 0 | 1){
-        if(hoyo_type === 0) {
+    async getCharacters(hoyoType: HoyoType){
+        if(hoyoType === hoyo_type.Genshin) {
             if(!giCharacters || Date.now() - giCharacters.lastUpdated > 1000 * 60 * 60) {
-                await this.generateCharacters(0);
+                await this.generateCharacters(hoyo_type.Genshin);
             }
             return giCharacters.characters;
-        } else {
+        } else if (hoyoType === hoyo_type.Honkai) {
             if(!hsrCharacters || Date.now() - hsrCharacters.lastUpdated > 1000 * 60 * 60) {
-                await this.generateCharacters(1);
+                await this.generateCharacters(hoyo_type.Honkai);
             }
             return hsrCharacters.characters;
+        } else {
+            if(!zzzCharacters || Date.now() - zzzCharacters.lastUpdated > 1000 * 60 * 60) {
+                await this.generateCharacters(hoyo_type.Zenless);
+            }
+            return zzzCharacters.characters;
         }
     }
 
-    async getCharacterById(hoyo_type: 0 | 1, id: string){
+    async getCharacterById(hoyo_type: HoyoType, id: string){
         const characters = await this.getCharacters(hoyo_type);
         return characters.find(character => character.characterId === id);
     }
@@ -115,7 +138,7 @@ type GICharactersAPI = Record<
 export type Characters = {
     name: string;
     characterId: string;
-    nameHash: number;
+    nameHash: number | string;
     element: string;
 };
 
@@ -184,4 +207,37 @@ export async function getHSRCharacters() {
         });
     }
     return returndata;
+}
+
+type ZZZCharactersAPI = Record<string,
+    {
+        Name: string;
+        ElementTypes: readonly string[];
+    }>
+
+export async function getZZZLocales() {
+    const response = await axios.get<Record<string, Record<string, string>>>(
+        'https://raw.githubusercontent.com/EnkaNetwork/API-docs/refs/heads/master/store/zzz/locs.json',
+    );
+    return response.data;
+}
+
+export async function getZZZCharacters() {
+    const locales = await getZZZLocales();
+    const response = await axios.get<ZZZCharactersAPI>(
+        'https://raw.githubusercontent.com/EnkaNetwork/API-docs/refs/heads/master/store/zzz/avatars.json'
+    )
+    const data = response.data;
+    const returnData: Characters[] = [];
+    const localeData = locales['en'];
+    for(const [key, value] of Object.entries(data)) {
+        const name = localeData[value.Name];
+        returnData.push({
+            name,
+            characterId: key,
+            nameHash: value.Name,
+            element: value.ElementTypes[0]
+        })
+    }
+    return returnData;
 }

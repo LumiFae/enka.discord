@@ -1,3 +1,5 @@
+import {HoyoType} from "../utils/api";
+
 export type ProfileInfo = {
     username: string;
     profile: {
@@ -18,7 +20,7 @@ type HoyoPlayerInfoBase = {
     nickname: string;
 };
 
-type HoyoPlayerInfo<T extends 0 | 1> = T extends 0
+type HoyoPlayerInfo<T extends HoyoType> = T extends 0
     ? HoyoPlayerInfoBase &
     {
         profilePicture: {
@@ -39,8 +41,8 @@ type HoyoPlayerInfo<T extends 0 | 1> = T extends 0
     };
 
 export type Hoyo = {
-    hoyo_type: 0 | 1;
-    player_info: HoyoPlayerInfo<0 | 1>;
+    hoyo_type: HoyoType;
+    player_info: HoyoPlayerInfo<HoyoType>;
     uid: string;
     hash: string;
     avatar_order: Record<number, number> | null;
@@ -52,7 +54,7 @@ export type HoyoCharacterBuild = {
     id: number;
     name: string;
     avatar_id: number;
-    hoyo_type: 0 | 1;
+    hoyo_type: HoyoType;
 }
 
 export type HoyoCharacterBuilds = HoyoCharacterBuild[];
@@ -88,6 +90,20 @@ export type HSRUIDLookup = {
         avatarDetailList: {
             avatarId: number;
         }[];
+    }
+    uid: string;
+}
+
+export type ZZZUIDLookup = {
+    PlayerInfo: {
+        ShowcaseDetail: {
+            AvatarList: {
+                Id: number;
+            }[];
+        }
+        SocialDetail: {
+            Nickname: string;
+        }
     }
     uid: string;
 }

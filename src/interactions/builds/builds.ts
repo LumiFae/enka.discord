@@ -73,6 +73,11 @@ async function uidFunc(interaction: ChatInputCommandInteraction<CacheType>, uid:
                 .setValue("honkai")
                 .setDescription("This UID is a Honkai: Star Rail UID")
                 .setEmoji("1296399188313247774"),
+            new StringSelectMenuOptionBuilder()
+                .setLabel("Zenless Zone Zero (Coming Soon)")
+                .setValue("zenless")
+                .setDescription("This UID is a Zenless Zone Zero UID")
+                .setEmoji("1334169563599863819")
         )
 
     return await interaction.reply({ embeds: [embed], components: [new ActionRowBuilder<StringSelectMenuBuilder>().addComponents(selectMenu)] });
@@ -112,12 +117,12 @@ async function nameFunc(interaction: ChatInputCommandInteraction<CacheType>, nam
         selectMenu.setCustomId("name_select_profile")
         selectMenu.setPlaceholder("Select a profile")
         selectMenu.setOptions(hoyoArray.map(profile => {
-            const gameName = profile.hoyo_type === 0 ? "Genshin Impact" : "Honkai: Star Rail";
+            const gameName = profile.hoyo_type === 0 ? "Genshin Impact" : profile.hoyo_type === 1 ? "Honkai: Star Rail" : "Zenless Zone Zero";
             return new StringSelectMenuOptionBuilder()
                 .setLabel(profile.player_info.nickname)
                 .setValue(profile.hash)
                 .setDescription(gameName)
-                .setEmoji(profile.hoyo_type === 0 ? "1296399185691676734" : "1296399188313247774")
+                .setEmoji(profile.hoyo_type === 0 ? "1296399185691676734" : profile.hoyo_type === 1 ? "1296399188313247774" : "1334169563599863819")
         }))
     } else {
         const selectedProfileMenu = new StringSelectMenuBuilder()
@@ -131,7 +136,7 @@ async function nameFunc(interaction: ChatInputCommandInteraction<CacheType>, nam
                     .setLabel(hoyoArray[0].player_info.nickname)
                     .setValue(hoyoArray[0].hash)
                     .setDescription(hoyoArray[0].hoyo_type === 0 ? "Genshin Impact" : "Honkai: Star Rail")
-                    .setEmoji(hoyoArray[0].hoyo_type === 0 ? "1296399185691676734" : "1296399188313247774")
+                    .setEmoji(hoyoArray[0].hoyo_type === 0 ? "1296399185691676734" : hoyoArray[0].hoyo_type === 1 ? "1296399188313247774" : "1334169563599863819")
                     .setDefault(true)
             );
 

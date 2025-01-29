@@ -27,6 +27,10 @@ export default {
 
         const game = interaction.values[0];
 
+        if(game === "zenless") {
+            return await interaction.editReply({ content: "The chosen game is not supported yet", components: [], embeds: [], files: [] });
+        }
+
         const selectMenu = await selectUidCharacter(uid, game);
 
         if(!selectMenu) {

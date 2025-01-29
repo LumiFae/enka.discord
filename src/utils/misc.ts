@@ -96,7 +96,14 @@ export const emojiIds: Record<string, string> = {
     "HSRPhysical": "1296433549792247882",
     "HSRQuantum": "1296433556893204580",
     "HSRThunder": "1296433553923375135",
-    "HSRWind": "1296433555022282883"
+    "HSRWind": "1296433555022282883",
+
+    "ZZZElec": "Elec",
+    "ZZZEther": "Ether",
+    "ZZZFire": "Fire",
+    "ZZZIce": "Ice",
+    "ZZZPhysics": "Physics",
+    "ZZZFireFrost": "FireFrost",
 };
 
 export const colors = {
@@ -114,5 +121,12 @@ export const colors = {
     "HSRPhysical": "#979797",
     "HSRQuantum": "#6057c9",
     "HSRThunder": "#c65ade",
-    "HSRWind": "#61cf93"
+    "HSRWind": "#61cf93",
+
+    "ZZZElec": "#2eb6ff",
+    "ZZZEther": "#fe437e",
+    "ZZZFire": "#ff5521",
+    "ZZZIce": "#98eff0",
+    "ZZZPhysics": "#f0d12b",
+    "ZZZFireFrost": "#98eff0",
 }

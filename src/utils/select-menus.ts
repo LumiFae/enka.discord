@@ -46,20 +46,20 @@ export async function selectCharacter(interaction: Interaction<CacheType>, name:
 }
 
 export async function selectUidCharacter(uid: string, game: string, selectMenu: StringSelectMenuBuilder = new StringSelectMenuBuilder().setMaxValues(1).setMinValues(1)) {
-    const characterList = await api.uid(uid, game === "genshin" ? 0 : 1);
+    const characterList = await api.uid(uid, game === "genshin" ? 0 : game === "honkai" ? 1 : 2);
     if(!characterList) {
         return null;
     }
     const profileCharacters: Characters[] = [];
     if('detailInfo' in characterList.data){
         for(const char of characterList.data.detailInfo.avatarDetailList){
-            const character = await characters.getCharacterById(game === "genshin" ? 0 : 1, char.avatarId.toString());
+            const character = await characters.getCharacterById(game === "genshin" ? 0 : game === "honkai" ? 1 : 2, char.avatarId.toString());
             if(!character) continue;
             profileCharacters.push(character);
         }
     } else {
         for(const char of characterList.data.avatarInfoList) {
-            const character = await characters.getCharacterById(game === "genshin" ? 0 : 1, char.avatarId.toString());
+            const character = await characters.getCharacterById(game === "genshin" ? 0 : game === "honkai" ? 1 : 2, char.avatarId.toString());
             if(!character) continue;
             profileCharacters.push(character);
         }

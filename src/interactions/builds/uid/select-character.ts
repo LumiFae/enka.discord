@@ -1,16 +1,11 @@
 import {Command} from "../../../types/discord";
-import {selectCharacter, selectUidCharacter} from "../../../utils/select-menus";
-import {api, characters, get, getBuffer, getGICharacters, getHSRCharacters} from "../../../utils/api";
-import {HoyosRecord, NoProfile} from "../../../types/enka";
+import {api, characters, getBuffer} from "../../../utils/api";
 import {
-    StringSelectMenuBuilder,
-    ComponentType,
-    ActionRowBuilder,
-    BaseMessageOptions,
     AttachmentBuilder
 } from "discord.js";
-import {colors, getSelectsFromMessage, getValues, makeAllSelectsDisabled} from "../../../utils/misc";
-import {Embed, generateBuildEmbed, generateUidBuildEmbed} from "../../../utils/embeds";
+import {colors, getSelectsFromMessage, getValues} from "../../../utils/misc";
+import {Embed} from "../../../utils/embeds";
+import {GIUIDLookup, HSRUIDLookup, ZZZUIDLookup} from "../../../types/enka";
 
 export default {
     custom_id: "uid_select_character",
@@ -36,17 +31,30 @@ export default {
         const game = values[0];
         const characterId = interaction.values[0];
 
-        const user = await api.uid(uid, game === "genshin" ? 0 : 1);
+        const user = await api.uid(uid, game === "genshin" ? 0 : game === "honkai" ? 1 : 2);
         if (!user) {
             await interaction.editReply({ content: "User not found, please try again", components: [], embeds: [], files: [] });
             return;
         }
-        const username = 'detailInfo' in user.data ? user.data.detailInfo.nickname : user.data.playerInfo.nickname;
-        const cardNumber = 'detailInfo' in user.data ? user.data.detailInfo.avatarDetailList.findIndex((avatar) => avatar.avatarId === Number(characterId)) : user.data.avatarInfoList.findIndex((avatar) => avatar.avatarId === Number(characterId));
+        let username: string;
+        let cardNumber: number;
+        if(game === "genshin") {
+            const data = user.data as GIUIDLookup;
+            username = data.playerInfo.nickname;
+            cardNumber = data.avatarInfoList.findIndex((avatar) => avatar.avatarId === Number(characterId));
+        } else if (game === "honkai") {
+            const data = user.data as HSRUIDLookup;
+            username = data.detailInfo.nickname;
+            cardNumber = data.detailInfo.avatarDetailList.findIndex((avatar) => avatar.avatarId === Number(characterId));
+        } else {
+            const data = user.data as ZZZUIDLookup;
+            username = data.PlayerInfo.SocialDetail.Nickname;
+            cardNumber = data.PlayerInfo.ShowcaseDetail.AvatarList.findIndex(avatar => avatar.Id === Number(characterId))
+        }
 
         const components = getSelectsFromMessage(interaction.message.components, ["uid_select_game", "uid_select_character"], values);
 
-        const url = `https://cards.enka.network/${game === "genshin" ? "u" : "hsr"}/${uid}/${cardNumber+1}/image`;
+        const url = `https://cards.enka.network/${game === "genshin" ? "u" : game === "honkai" ? "hsr" : "zzz"}/${uid}/${cardNumber+1}/image`;
 
         const image = await getBuffer(url);
 
@@ -54,7 +62,7 @@ export default {
 
         const attachment = new AttachmentBuilder(image, { name: imgName });
 
-        const character = await characters.getCharacterById(game === "genshin" ? 0 : 1, characterId);
+        const character = await characters.getCharacterById(game === "genshin" ? 0 : game === "honkai" ? 1 : 2, characterId);
 
         if(!character) {
             await interaction.editReply({ content: "Character not found, please try again", components: [], embeds: [], files: [] });

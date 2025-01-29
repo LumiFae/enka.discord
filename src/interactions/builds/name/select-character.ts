@@ -1,6 +1,6 @@
 import {Command} from "../../../types/discord";
 import {selectCharacter} from "../../../utils/select-menus";
-import {api, characters, get, getBuffer} from "../../../utils/api";
+import {api, characters, get, getBuffer, hoyo_type} from "../../../utils/api";
 import {HoyoCharacterBuild, HoyoCharacters, HoyosRecord, NoProfile} from "../../../types/enka";
 import {
     StringSelectMenuBuilder,
@@ -98,7 +98,7 @@ export default {
         let embed = generateBuildEmbed(name);
 
         if(character) {
-            embed = generateBuildEmbed(name, colors[characterBuilds[0].hoyo_type === 0 ? `GI${character.element}` : `HSR${character.element}`]);
+            embed = generateBuildEmbed(name, colors[characterBuilds[0].hoyo_type === hoyo_type.Genshin ? `GI${character.element}` : characterBuilds[0].hoyo_type === hoyo_type.Honkai ? `HSR${character.element}` : `ZZZ${character.element}`]);
         }
 
         await interaction.editReply({ embeds: [embed], components, files: [] });

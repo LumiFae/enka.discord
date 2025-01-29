@@ -73,7 +73,7 @@ export default {
             .setTitle(`${username}'s ${character.name} Build`)
             .setImage(`attachment://${imgName}`)
             .setFooter({ text: `Related UID: ${uid}` })
-            .setColor(colors[game === "genshin" ? `GI${character.element}` : `HSR${character.element}`]);
+            .setColor(colors[game === "genshin" ? `GI${character.element}` : game === "honkai" ? `HSR${character.element}` : `ZZZ${character.element}`]);
 
         await interaction.editReply({ embeds: [embed], components, files: [attachment] });
     },

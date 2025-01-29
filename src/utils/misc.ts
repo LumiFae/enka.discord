@@ -98,12 +98,12 @@ export const emojiIds: Record<string, string> = {
     "HSRThunder": "1296433553923375135",
     "HSRWind": "1296433555022282883",
 
-    "ZZZElec": "Elec",
-    "ZZZEther": "Ether",
-    "ZZZFire": "Fire",
-    "ZZZIce": "Ice",
-    "ZZZPhysics": "Physics",
-    "ZZZFireFrost": "FireFrost",
+    "ZZZElec": "1334191977440350248",
+    "ZZZEther": "1334191978648436898",
+    "ZZZFire": "1334191979982094356",
+    "ZZZIce": "1334191982754529301",
+    "ZZZPhysics": "1334191984239312987",
+    "ZZZFireFrost": "1334191981144051832",
 };
 
 export const colors = {

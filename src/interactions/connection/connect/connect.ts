@@ -1,10 +1,9 @@
 import { Command } from "../../../types/discord";
-import {NoProfile, ProfileInfo} from "../../../types/enka";
 import {userVerifCodes} from "../../../utils/temp";
-import {api, get} from "../../../utils/api";
 import {generateRandomCapitalString} from "../../../utils/misc";
-import {ActionRowBuilder, ButtonBuilder, ButtonStyle} from "discord.js";
-import {connectAccountEmbed, Embed} from "../../../utils/embeds";
+import {ActionRowBuilder, ButtonBuilder, ButtonStyle, MessageFlagsBitField} from "discord.js";
+import {connectAccountEmbed} from "../../../utils/embeds";
+import API from "../../../utils/api";
 
 export default {
     name: "connect",
@@ -21,20 +20,19 @@ export default {
     contexts: [0, 1, 2],
     integration_types: [0, 1],
     run: async (interaction) =>  {
-        await interaction.deferReply({ ephemeral: true })
+        await interaction.deferReply({ flags: MessageFlagsBitField.Flags.Ephemeral })
         const name = interaction.options.getString("name", true);
-        const response = await api.profile(name);
+        const response = await API.profile(name);
         if (!response) {
             await interaction.editReply({ content: "User not found" });
             return;
         }
-        const profile = response.data as ProfileInfo;
         const code = generateRandomCapitalString(6);
         userVerifCodes.setCode(interaction.user.id, {
             code,
             name
         });
-        const embed = connectAccountEmbed(profile, code);
+        const embed = connectAccountEmbed(response.username, code);
 
         const verifyButton = new ButtonBuilder()
             .setCustomId("account_connect")

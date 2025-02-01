@@ -1,7 +1,7 @@
 import { ActionRowBuilder, ButtonBuilder, ButtonStyle } from "discord.js";
 import { Command } from "../../types/discord";
-import {Embed} from "../../utils/embeds";
 import { started } from "../../index";
+import {EmbedBuilder} from "../../utils/embeds";
 
 export default {
     name: "about",
@@ -10,12 +10,12 @@ export default {
     contexts: [0, 1, 2],
     integration_types: [0, 1],
     run: async (interaction) => {
-        const embed = Embed()
+        const embed = new EmbedBuilder()
             .setTitle("enka.discord")
             .setDescription("An open-source Discord bot designed to make your gacha life easier with the power of enka.network")
             .addFields({
                 name: "Contributors",
-                value: "[@jxtq](<https://discord.com/users/618689346828238848>) ([@jxtq.bsky.social](<https://bsky.app/profile/jxtq.bsky.social>))"
+                value: "[@jxtq](<https://discord.com/users/618689346828238848>) ([@jxtq.moe](<https://bsky.app/profile/jxtq.moe>))"
             },{
                 name: "Ping",
                 value: `${interaction.client.ws.ping}ms`,

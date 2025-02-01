@@ -1,7 +1,7 @@
-import { ActionRowBuilder, ButtonBuilder, ButtonStyle } from "discord.js";
+import {ActionRowBuilder, ButtonBuilder, ButtonStyle, MessageFlagsBitField} from "discord.js";
 import { Command } from "../../../types/discord";
 import { commands } from "../../../index";
-import {Embed} from "../../../utils/embeds";
+import {EmbedBuilder} from "../../../utils/embeds";
 
 export default {
     custom_id: "next",
@@ -10,7 +10,7 @@ export default {
         if (interaction.user.id !== interaction.message.interactionMetadata?.user.id) {
             return interaction.reply({
                 content: "You can not interact with another users command",
-                ephemeral: true,
+                flags: MessageFlagsBitField.Flags.Ephemeral,
             });
         }
         const originEmbed = interaction.message.embeds[0];
@@ -28,7 +28,7 @@ export default {
 
         fields = fields.slice(pageNumber * 10, (pageNumber + 1) * 10);
 
-        const embed_ = Embed()
+        const embed_ = new EmbedBuilder()
             .setTitle(originEmbed.title)
             .setDescription(originEmbed.description)
             .addFields(fields)

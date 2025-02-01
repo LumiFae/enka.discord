@@ -2,10 +2,9 @@ import { Command } from "../types/discord";
 import {db} from "../utils/db";
 import {eq} from "drizzle-orm";
 import {users} from "../schema";
-import {api, get} from "../utils/api";
-import {NoProfile, ProfileInfo} from "../types/enka";
-import {Embed} from "../utils/embeds";
 import {ActionRowBuilder, ButtonBuilder, ButtonStyle} from "discord.js";
+import API from "../utils/api";
+import {EmbedBuilder} from "../utils/embeds";
 
 export default {
     name: "profile",
@@ -28,35 +27,33 @@ export default {
             return;
         }
 
-        const apiProfile = await api.profile(user);
+        const apiProfile = await API.profile(user);
 
         if (!apiProfile) {
             await interaction.reply({ content: "User not found, either reconnect your account or check the account name you entered", ephemeral: true });
             return;
         }
 
-        const profile = apiProfile.data as ProfileInfo;
+        const embed = new EmbedBuilder()
+            .setTitle(`${apiProfile.username}'s profile`)
 
-        const embed = Embed()
-            .setTitle(`${profile.username}'s profile`)
-
-        if(profile.profile.bio) {
-            embed.setDescription(profile.profile.bio);
+        if(apiProfile.profile.bio) {
+            embed.setDescription(apiProfile.profile.bio);
         }
-        if(profile.profile.level > 0) {
+        if(apiProfile.profile.level > 0) {
             embed.addFields({
                     name: "Patreon Tier",
-                    value: String(profile.profile.level),
+                    value: String(apiProfile.profile.level),
                 })
         }
-        if(profile.profile.avatar && profile.profile.avatar.startsWith("http")) {
-            embed.setThumbnail(profile.profile.avatar);
+        if(apiProfile.profile.avatar && apiProfile.profile.avatar.startsWith("http")) {
+            embed.setThumbnail(apiProfile.profile.avatar);
         }
 
         const profileButton = new ButtonBuilder()
             .setLabel("View profile")
             .setStyle(ButtonStyle.Link)
-            .setURL(`https://enka.network/u/${profile.username}/`)
+            .setURL(`https://enka.network/u/${apiProfile.username}/`)
 
         await interaction.reply({ embeds: [embed], components: [new ActionRowBuilder<ButtonBuilder>().addComponents(profileButton)] });
     },

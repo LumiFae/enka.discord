@@ -1,13 +1,9 @@
 import { Command } from "../../../types/discord";
-import {NoProfile, ProfileInfo} from "../../../types/enka";
-import {userVerifCodes} from "../../../utils/temp";
-import {get} from "../../../utils/api";
-import {generateRandomCapitalString} from "../../../utils/misc";
-import {ActionRowBuilder, ButtonBuilder, ButtonStyle} from "discord.js";
-import {connectAccountEmbed, Embed} from "../../../utils/embeds";
+import {ActionRowBuilder, ButtonBuilder, ButtonStyle, MessageFlagsBitField} from "discord.js";
 import {db} from "../../../utils/db";
 import {users} from "../../../schema";
 import {eq} from "drizzle-orm";
+import {EmbedBuilder} from "../../../utils/embeds";
 
 export default {
     name: "disconnect",
@@ -16,7 +12,7 @@ export default {
     contexts: [0, 1, 2],
     integration_types: [0, 1],
     run: async (interaction) =>  {
-        await interaction.deferReply({ ephemeral: true })
+        await interaction.deferReply({ flags: MessageFlagsBitField.Flags.Ephemeral });
 
         const user = await db.query.users.findFirst({ where: eq(users.id, interaction.user.id) });
 
@@ -25,7 +21,7 @@ export default {
             return;
         }
 
-        const embed = Embed()
+        const embed = new EmbedBuilder()
             .setTitle("Disconnect account")
             .setDescription("Are you sure you want to disconnect your enka.network account?")
 

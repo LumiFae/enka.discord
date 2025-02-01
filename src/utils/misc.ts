@@ -1,11 +1,30 @@
+import {HoyoType, HoyoType_T} from "../types/models";
+import { default as giLocs } from "../resources/gi/locs";
+import { default as hsrLocs } from "../resources/hsr/locs";
+import { default as zzzLocs } from "../resources/zzz/locs";
+import { default as giChars } from "../resources/gi/characters";
+import { default as hsrChars } from "../resources/hsr/characters";
+import { default as zzzChars } from "../resources/zzz/characters";
+import {ExcelAvatar as GIExcelAvatar} from "../types/gi";
+import {ExcelAvatar as HSRExcelAvatar} from "../types/hsr";
+import {ExcelAvatar as ZZZExcelAvatar} from "../types/zzz";
+import Character from "./character";
 import {
     ActionRow,
-    ActionRowBuilder, BaseMessageOptions, CacheType,
-    ComponentType,
-    EmbedBuilder,
+    ActionRowBuilder,
+    AnySelectMenuInteraction,
+    ButtonInteraction,
     MessageActionRowComponent,
-    StringSelectMenuBuilder, StringSelectMenuInteraction
+    ModalSubmitInteraction,
+    StringSelectMenuBuilder,
+    StringSelectMenuComponent,
+    APIActionRowComponent,
+    APIStringSelectComponent,
+    ComponentType,
+    StringSelectMenuInteraction
 } from "discord.js";
+import axios from "axios";
+
 
 export function generateRandomString(length: number): string {
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -23,62 +42,6 @@ export function generateRandomCapitalString(length: number): string {
         result += characters.charAt(Math.floor(Math.random() * characters.length));
     }
     return result;
-}
-
-export function makeAllSelectsDisabled(components: ActionRow<MessageActionRowComponent>[], values: string[]){
-    let rows: BaseMessageOptions["components"] = [];
-    let valueIndex = 0;
-    for(const row of components){
-        const r: ActionRowBuilder<StringSelectMenuBuilder> = new ActionRowBuilder();
-        for(const component of row.components){
-            if(component.type === ComponentType.StringSelect){
-                const comp = StringSelectMenuBuilder.from(component);
-                comp.setDisabled(true);
-                comp.options.find(option => option.data.value === values[valueIndex])?.setDefault(true);
-                valueIndex++;
-                r.addComponents(comp);
-            }
-        }
-        rows = [...rows, r];
-    }
-    return rows;
-}
-
-export function getSelectsFromMessage(components: ActionRow<MessageActionRowComponent>[], custom_ids: string[], values: string[]) {
-    let rows: BaseMessageOptions["components"] = [];
-    let valueIndex = 0;
-    for(const row of components){
-        const r: ActionRowBuilder<StringSelectMenuBuilder> = new ActionRowBuilder();
-        for(const component of row.components){
-            if(!component.customId) continue;
-            if(custom_ids.includes(component.customId) && component.type === ComponentType.StringSelect){
-                const comp = StringSelectMenuBuilder.from(component);
-                comp.options.forEach(option => option.setDefault(false));
-                comp.options.find(option => option.data.value === values[valueIndex])?.setDefault(true).setValue(values[valueIndex]);
-                valueIndex++;
-                comp.setOptions(comp.options)
-                r.addComponents(comp);
-            }
-        }
-        if(r.components.length > 0) rows = [...rows, r];
-    }
-    return rows;
-}
-
-export function getPastValues(interaction: StringSelectMenuInteraction<CacheType>, custom_ids: string[]){
-    return interaction.message.components.map(row => {
-        return row.components.map(component => {
-            if(component.type === ComponentType.StringSelect){
-                if(!custom_ids.includes(component.customId)) return undefined;
-                const options = component.options.filter(option => option.default === true);
-                return options.map(option => option.value);
-            }
-        })
-    }).flat().filter((value): value is string[] => value !== undefined).flat();
-}
-
-export function getValues(interaction: StringSelectMenuInteraction<CacheType>, custom_ids: string[]){
-    return [...getPastValues(interaction, custom_ids), ...interaction.values];
 }
 
 export const emojiIds: Record<string, string> = {
@@ -129,4 +92,91 @@ export const colors = {
     "ZZZIce": "#98eff0",
     "ZZZPhysics": "#f0d12b",
     "ZZZFireFrost": "#98eff0",
+}
+
+export function getFromType<T>(type: HoyoType_T, ...params: T[]) {
+    return params[type];
+}
+
+export function getLocale(type: HoyoType_T, getter: string | number): string {
+    if(typeof getter === "number") getter = getter.toString();
+    switch (type) {
+        case HoyoType.GI:
+            return giLocs.en[getter];
+        case HoyoType.HSR:
+            return hsrLocs.en[getter];
+        case HoyoType.ZZZ:
+            return zzzLocs.en[getter];
+    }
+}
+
+export function getCharacter(type: HoyoType_T, getter: string) {
+    switch (type) {
+        case HoyoType.GI:
+            return new Character(type, giChars[getter], getter);
+        case HoyoType.HSR:
+            return new Character(type, hsrChars[getter], getter);
+        default:
+            return new Character(type, zzzChars[getter], getter);
+    }
+}
+
+export function sameUser(interaction: AnySelectMenuInteraction | ButtonInteraction | ModalSubmitInteraction) {
+    return interaction.user.id === interaction.message?.interactionMetadata?.user.id
+}
+
+export function setDefault(
+    rows: ActionRow<MessageActionRowComponent>[],
+    lastValue: string
+): ActionRowBuilder<StringSelectMenuBuilder>[] {
+    if (rows.length === 0) {
+        return [];
+    }
+
+    const previousRows = rows.slice(0, -1).map(row => {
+        const selectMenu = row.components[0];
+        if (selectMenu.type !== ComponentType.StringSelect) {
+            return null;
+        }
+
+        return new ActionRowBuilder<StringSelectMenuBuilder>().setComponents(
+            new StringSelectMenuBuilder(selectMenu.data)
+                .setOptions(selectMenu.data.options)
+        );
+    }).filter((row): row is ActionRowBuilder<StringSelectMenuBuilder> => row !== null);
+
+    const lastRow = rows[rows.length - 1];
+    const lastSelectMenu = lastRow.components[0] as StringSelectMenuComponent;
+    const newSelectMenu = StringSelectMenuBuilder.from(lastSelectMenu);
+
+    const options = [...newSelectMenu.options];
+    const defaultOptionIndex = options.findIndex(opt => opt.data.value === lastValue);
+
+    if (defaultOptionIndex !== -1) {
+        const existingDefaultOption = options.findIndex(opt => !!opt.data.default)
+        if (existingDefaultOption !== -1) {
+            options[existingDefaultOption] = options[existingDefaultOption].setDefault(false);
+        }
+        options[defaultOptionIndex] = options[defaultOptionIndex].setDefault(true);
+        newSelectMenu.setOptions(options);
+    }
+
+    const lastRowBuilder = new ActionRowBuilder<StringSelectMenuBuilder>()
+        .addComponents(newSelectMenu);
+
+    return [...previousRows, lastRowBuilder];
+}
+
+export function getValues(
+    components: ActionRow<MessageActionRowComponent>[],
+    value: string
+) {
+    return [...components.map((row) => {
+        const component = row.components[0];
+        return component && component.type === ComponentType.StringSelect && component.options.find(opt => opt.default)?.value;
+    }).filter((row): row is string => !!row), value];
+}
+
+export async function getBuffer(url: string) {
+    return await axios.get(url, { responseType: "arraybuffer" }).then((response) => Buffer.from(response.data));
 }

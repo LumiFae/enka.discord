@@ -23,6 +23,7 @@ export type Command =
           nsfw?: boolean;
           integration_types?: number[];
           contexts?: number[];
+          autocomplete?: (interaction: AutocompleteInteraction) => unknown;
       }
     | {
           role: "MESSAGE_CONTEXT_MENU";
@@ -63,10 +64,5 @@ export type Command =
           custom_id: string;
           run: (interaction: ModalSubmitInteraction) => unknown;
       }
-    | {
-          role: "AUTOCOMPLETE";
-          name: `${string}-autocomplete`;
-          run: (interaction: AutocompleteInteraction) => unknown;
-      };
 
 export type CommandNoRun = Omit<Command, "run">;

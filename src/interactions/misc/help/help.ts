@@ -1,7 +1,7 @@
-import { ActionRowBuilder, ButtonBuilder, ButtonStyle } from "discord.js";
+import {ActionRowBuilder, ButtonBuilder, ButtonStyle, MessageFlagsBitField} from "discord.js";
 import { Command } from "../../../types/discord";
 import { commands } from "../../../index";
-import {Embed} from "../../../utils/embeds";
+import {EmbedBuilder} from "../../../utils/embeds";
 
 export default {
     name: "help",
@@ -10,7 +10,7 @@ export default {
     contexts: [0, 1, 2],
     integration_types: [0, 1],
     run: async (interaction) => {
-        const embed_ = Embed()
+        const embed_ = new EmbedBuilder()
             .setTitle("Help")
             .setDescription(
                 "Get help with the bot by navigating through the commands below",
@@ -53,9 +53,10 @@ export default {
             return await interaction.reply({
                 embeds: [embed_],
                 components: [row],
-                ephemeral: true,
+                flags: MessageFlagsBitField.Flags.Ephemeral,
             });
         }
-        await interaction.reply({ embeds: [embed_], ephemeral: true });
+        await interaction.reply({ embeds: [embed_],
+            flags: MessageFlagsBitField.Flags.Ephemeral, });
     },
 } satisfies Command;

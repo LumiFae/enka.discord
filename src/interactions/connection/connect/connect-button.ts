@@ -1,10 +1,10 @@
 import { Command } from "../../../types/discord";
 import {userVerifCodes} from "../../../utils/temp";
-import {get} from "../../../utils/api";
-import {NoProfile, ProfileInfo} from "../../../types/enka";
-import {Embed} from "../../../utils/embeds";
 import {db} from "../../../utils/db";
 import {users} from "../../../schema";
+import axios from "axios";
+import API from "../../../utils/api";
+import {EmbedBuilder} from "../../../utils/embeds";
 
 export default {
     custom_id: "account_connect",
@@ -23,15 +23,13 @@ export default {
             await interaction.editReply({ content: "Your code either expired or there was an error, try again", embeds: [], components: [] });
             return;
         }
-        const response = await get<ProfileInfo | NoProfile>(`https://enka.network/api/profile/${code.name}/?format=json`).catch(() => null);
-        if (!response || ('detail' in response.data && response.data.detail === "Not found.")) {
+        const response = await API.profile(code.name);
+        if (!response) {
             await interaction.editReply({ content: "User not found, try again", embeds: [], components: [] });
             return;
         }
 
-        const profile = response.data as ProfileInfo;
-
-        if(profile.profile.bio.includes(code.code)) {
+        if(response.profile.bio.includes(code.code)) {
             try {
                 await db.insert(users).values({
                     id: interaction.user.id,
@@ -42,7 +40,7 @@ export default {
                 await interaction.editReply({content: "An error occurred while connecting your account, please try again", embeds: [], components: []});
             }
         } else {
-            const embed = Embed()
+            const embed = new EmbedBuilder()
                 .setTitle("Incorrect code")
                 .setDescription("The code you entered is incorrect, please try again. Your code is: " + code.code)
             await interaction.editReply({ embeds: [embed] });

@@ -8,12 +8,15 @@ export default async function (client: Client) {
             finder = interaction.customId;
         } else {
             finder = interaction.commandName;
-            interaction.isAutocomplete() ? (finder += '-autocomplete') : finder;
         }
         const command = commands.get(finder);
         if (!command) return;
         console.log(`Executing interaction ${finder}...`);
         try {
+            if(interaction.isAutocomplete() && command.role === "CHAT_INPUT") {
+                command.autocomplete ? await command.autocomplete(interaction) : console.error("Couldn't complete autocomplete interaction");
+                return;
+            }
             await (command.run as (interaction: Interaction) => unknown)(
                 interaction,
             );

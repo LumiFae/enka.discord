@@ -10,6 +10,7 @@ export default {
     contexts: [0, 1, 2],
     integration_types: [0, 1],
     run: async (interaction) => {
+        await interaction.client.application.fetch();
         const embed = new EmbedBuilder()
             .setTitle("enka.discord")
             .setDescription("An open-source Discord bot designed to make your gacha life easier with the power of enka.network")
@@ -26,14 +27,14 @@ export default {
                 inline: true
             }, {
                 name: "Install Count (Servers and Users)",
-                value: `Servers: ${interaction.client.guilds.cache.size}\nUsers: ${interaction.client.application.approximateUserInstallCount || 0}`,
+                value: `Servers: ${interaction.client.guilds.cache.size}\nUsers: ${interaction.client.application.approximateUserInstallCount ?? 0}`,
                 inline: true
             })
 
         const ghButton = new ButtonBuilder()
             .setLabel("GitHub")
             .setStyle(ButtonStyle.Link)
-            .setURL("https://github.com/JayXTQ/enka.discord")
+            .setURL("https://github.com/LumiFae/enka.discord")
 
         const inviteButton = new ButtonBuilder()
             .setLabel("Invite")

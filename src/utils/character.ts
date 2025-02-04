@@ -1,9 +1,3 @@
-import { default as giLocs } from "../resources/gi/locs";
-import { default as hsrLocs } from "../resources/hsr/locs";
-import { default as zzzLocs } from "../resources/zzz/locs";
-import { default as giChars } from "../resources/gi/characters";
-import { default as hsrChars } from "../resources/hsr/characters";
-import { default as zzzChars } from "../resources/zzz/characters";
 import {ExcelAvatar as GIExcelAvatar} from "../types/gi";
 import {ExcelAvatar as HSRExcelAvatar} from "../types/hsr";
 import {ExcelAvatar as ZZZExcelAvatar} from "../types/zzz";
@@ -14,23 +8,28 @@ import {ColorResolvable} from "discord.js";
 
 type ExcelAvatars = GIExcelAvatar | HSRExcelAvatar | ZZZExcelAvatar;
 
-interface ICharacter {
-    data: ExcelAvatars;
-    hash: string | number;
-    element: string;
-    emojiFromElement: string;
-    colorFromElement: ColorResolvable;
+const games = {
+    0: "GI",
+    1: "HSR",
+    2: "ZZZ"
 }
 
-class GICharacter implements ICharacter {
-    emojiFromElement: string;
-    colorFromElement: ColorResolvable;
+abstract class BaseCharacter<T extends ExcelAvatars> {
+    constructor(public data: T, private hoyoType: HoyoType_T) {}
 
-    constructor(public data: GIExcelAvatar) {
-        this.emojiFromElement = emojiIds[`GI${this.element}`];
-        this.colorFromElement = colors[`GI${this.element}`];
+    abstract get element(): string;
+    abstract get hash(): string | number;
+
+    get emojiFromElement(): string {
+        return emojiIds[`${games[this.hoyoType]}${this.element}`];
     }
 
+    get colorFromElement(): ColorResolvable {
+        return colors[`${games[this.hoyoType]}${this.element}`];
+    }
+}
+
+class GICharacter extends BaseCharacter<GIExcelAvatar> {
     get element() {
         return this.data.Element;
     }
@@ -40,15 +39,7 @@ class GICharacter implements ICharacter {
     }
 }
 
-class HSRCharacter implements ICharacter {
-    emojiFromElement: string;
-    colorFromElement: ColorResolvable;
-
-    constructor(public data: HSRExcelAvatar) {
-        this.emojiFromElement = emojiIds[`HSR${this.element}`];
-        this.colorFromElement = colors[`HSR${this.element}`] as ColorResolvable;
-    }
-
+class HSRCharacter extends BaseCharacter<HSRExcelAvatar> {
     get element() {
         return this.data.Element;
     }
@@ -58,15 +49,7 @@ class HSRCharacter implements ICharacter {
     }
 }
 
-class ZZZCharacter implements ICharacter {
-    emojiFromElement: string;
-    colorFromElement: ColorResolvable;
-
-    constructor(public data: ZZZExcelAvatar) {
-        this.emojiFromElement = emojiIds[`ZZZ${this.element}`];
-        this.colorFromElement = colors[`ZZZ${this.element}`] as ColorResolvable;
-    }
-
+class ZZZCharacter extends BaseCharacter<ZZZExcelAvatar>{
     get element() {
         return this.data.ElementTypes[0];
     }
@@ -77,35 +60,26 @@ class ZZZCharacter implements ICharacter {
 }
 
 export default class Character {
-    hoyo_type: HoyoType_T;
-    data: ExcelAvatars;
-    id: string;
-    name: string;
-    character: ICharacter;
+    private character: BaseCharacter<ExcelAvatars>;
 
-    constructor(hoyo_type: HoyoType_T, data: ExcelAvatars, id: string) {
-        this.data = data;
-        this.hoyo_type = hoyo_type;
-        this.id = id;
+    constructor(
+        public hoyo_type: HoyoType_T,
+        public data: ExcelAvatars,
+        public id: string
+    ) {
+        this.character = this.createCharacter();
+        this.name = getLocale(this.hoyo_type, this.hash)
+    }
 
-        switch (hoyo_type) {
+    private createCharacter(): BaseCharacter<ExcelAvatars> {
+        switch (this.hoyo_type) {
             case HoyoType.GI:
-                const giAvatar = this.data as GIExcelAvatar;
-                this.character = new GICharacter(giAvatar);
-                break;
-
+                return new GICharacter(this.data as GIExcelAvatar, this.hoyo_type);
             case HoyoType.HSR:
-                const hsrAvatar = this.data as HSRExcelAvatar;
-                this.character = new HSRCharacter(hsrAvatar);
-                break;
-
+                return new HSRCharacter(this.data as HSRExcelAvatar, this.hoyo_type);
             case HoyoType.ZZZ:
-                const zzzAvatar = this.data as ZZZExcelAvatar;
-                this.character = new ZZZCharacter(zzzAvatar);
-                break;
+                return new ZZZCharacter(this.data as ZZZExcelAvatar, this.hoyo_type);
         }
-
-        this.name = getLocale(this.hoyo_type, this.hash);
     }
 
     get element() {
@@ -123,4 +97,6 @@ export default class Character {
     get colorFromElement() {
         return this.character.colorFromElement;
     }
+
+    name: string;
 }

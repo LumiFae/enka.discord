@@ -123,7 +123,7 @@ export default class Locales {
         await db.insert(users)
             .values({ id, enka_name: null, locale })
             .onConflictDoUpdate({
-                target: [users.id],
+                target: users.id,
                 set: { locale }
             })
             .execute();

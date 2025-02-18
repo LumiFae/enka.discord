@@ -42,7 +42,7 @@ export default {
 
         const cardNumber = data.avatars.findIndex((character) => character.id === values[1])+1;
 
-        const url = `https://cards.enka.network/${getFromType(hoyo_type, "u", "hsr", "zzz")}/${uid}/${cardNumber}/image`
+        const url = `https://cards.enka.network/${getFromType(hoyo_type, "u", "hsr", "zzz")}/${uid}/${cardNumber}/image?lang=${locale.locale}`
 
         const image = await getBuffer(url);
 

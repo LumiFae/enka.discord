@@ -120,7 +120,13 @@ export default class Locales {
     }
 
     async setLanguage(id: string, locale: string) {
-        await db.update(users).set({ locale }).where(eq(users.id, id)).execute();
+        await db.insert(users)
+            .values({ id, enka_name: null, locale })
+            .onConflictDoUpdate({
+                target: users.id,
+                set: { locale }
+            })
+            .execute();
         const newLocale = Locales.get(locale);
         this.loaded = newLocale.loaded;
         this.locale = locale;

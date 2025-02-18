@@ -32,7 +32,7 @@ export function generateUidBuildEmbed(uid: string, locale: Locales, color?: Colo
 }
 
 export async function generateCardEmbed(name: string, hash: string, build: DjBuild, locale: Locales): Promise<[EmbedBuilder, AttachmentBuilder]> {
-    const card = await getBuffer(`https://cards.enka.network/u/${name}/${hash}/${build.avatar_id}/${build.id}/image`)
+    const card = await getBuffer(`https://cards.enka.network/u/${name}/${hash}/${build.avatar_id}/${build.id}/image?lang=${locale.locale}`)
     const imgName = `${name}-${hash}-${build.avatar_id}-${build.id}.png`;
 
     const attachment = new AttachmentBuilder(card, { name: imgName })

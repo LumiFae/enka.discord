@@ -124,17 +124,17 @@ async function uid(interaction: ChatInputCommandInteraction, locale: Locales) {
             new StringSelectMenuOptionBuilder()
                 .setLabel("Genshin Impact")
                 .setValue("0")
-                .setDescription("This UID is a Genshin Impact UID")
+                .setDescription(locale.get(l => l.build.uid.genshin_uid))
                 .setEmoji("1296399185691676734"),
             new StringSelectMenuOptionBuilder()
                 .setLabel("Honkai: Star Rail")
                 .setValue("1")
-                .setDescription("This UID is a Honkai: Star Rail UID")
+                .setDescription(locale.get(l => l.build.uid.honkai_uid))
                 .setEmoji("1296399188313247774"),
             new StringSelectMenuOptionBuilder()
                 .setLabel("Zenless Zone Zero (Coming Soon)")
                 .setValue("2")
-                .setDescription("This UID is a Zenless Zone Zero UID")
+                .setDescription(locale.get(l => l.build.uid.zenless_uid))
                 .setEmoji("1334169563599863819")
         )
 

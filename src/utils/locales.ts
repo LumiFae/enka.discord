@@ -31,6 +31,9 @@ type LocalizationConfig = {
                 description: string;
             };
             character_embed_title: string;
+            genshin_uid: string;
+            honkai_uid: string;
+            zenless_uid: string;
         };
     };
     profile: {

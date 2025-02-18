@@ -22,6 +22,9 @@ build:
       title: "Select a game"
       description: "In the select menu below, choose the game this UID relates to and build you want to view"
     character_embed_title: "{nickname}'s {name} Build"
+    genshin_uid: "This UID is a Genshin Impact UID"
+    honkai_uid: "This UID is a Honkai: Star Rail UID"
+    zenless_uid: "This UID is a Zenless Zone Zero UID"
 profile:
   title: "{username}'s profile"
   patreon_tier: "Patreon Tier"

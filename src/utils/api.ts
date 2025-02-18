@@ -5,6 +5,7 @@ import {GIUIDResponse} from "../types/gi";
 import {HSRUIDResponse} from "../types/hsr";
 import {ZZZUIDResponse} from "../types/zzz";
 import UID from "./uid";
+import Locales from "./locales";
 
 export type NoProfile = {
     detail: "Not found."
@@ -35,11 +36,11 @@ export default class API {
         return req.data as Builds;
     }
 
-    static async uid(hoyo_type: HoyoType_T, uid: string) {
+    static async uid(hoyo_type: HoyoType_T, uid: string, locale: Locales) {
         type UIDResponse = GIUIDResponse | HSRUIDResponse | ZZZUIDResponse;
         const req = await axios.get<NoProfile | UIDResponse>(`https://enka.network/api${getFromType(hoyo_type, "/", "/hsr/", "/zzz/")}uid/${uid}`)
         if(this.isNotValid(req)) return null;
-        return new UID(hoyo_type, req.data as UIDResponse);
+        return new UID(hoyo_type, req.data as UIDResponse, locale);
     }
 
     static async profile(name: string) {

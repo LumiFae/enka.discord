@@ -9,15 +9,15 @@ import {generateUidBuildEmbed} from "../../../utils/embeds";
 export default {
     role: "SELECT_MENU",
     custom_id: "uid_select_game",
-    run: async (interaction) => {
+    run: async (interaction, locale) => {
         if(!sameUser(interaction)) {
             return await interaction.reply({
-                content: "You can not interact with another users command",
+                content: locale.get(l => l.incorrect_interaction),
                 flags: MessageFlagsBitField.Flags.Ephemeral
             });
         }
 
-        const errorMsg = "An error occurred whilst trying to complete this. Try again."
+        const errorMsg = locale.get(l => l.error)
 
         const uid = interaction.message.embeds[0].footer?.text;
         if(!uid) return await interaction.reply({
@@ -29,25 +29,25 @@ export default {
 
         if(hoyo_type === HoyoType.ZZZ) {
             return await interaction.reply({
-                content: "This game is unsupported until enka fully releases it.",
+                content: locale.get(l => l.build.uid.unsupported_game),
                 flags: MessageFlagsBitField.Flags.Ephemeral
             })
         }
 
         await interaction.deferUpdate();
 
-        const data = await API.uid(Number(interaction.values[0]) as HoyoType_T, uid);
+        const data = await API.uid(Number(interaction.values[0]) as HoyoType_T, uid, locale);
         if(!data) return await interaction.editReply({
-            content: "This UID does not exist, or couldn't be fetched."
+            content: locale.get(l => l.build.uid.no_found_uid)
         })
 
         const rows = setDefault(interaction.message.components.slice(0,1), interaction.values[0])
 
-        const selectMenu = selectUidCharacter(data);
+        const selectMenu = selectUidCharacter(data, locale);
 
         await interaction.editReply({
             files: [],
-            embeds: [generateUidBuildEmbed(uid)],
+            embeds: [generateUidBuildEmbed(uid, locale)],
             components: [...rows, new ActionRowBuilder<StringSelectMenuBuilder>().addComponents(selectMenu)]
         })
     }

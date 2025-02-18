@@ -13,6 +13,7 @@ import {eq} from "drizzle-orm";
 import {users} from "../../schema";
 import {getFromType} from "../../utils/misc";
 import {selectCharacter} from "../../utils/select-menus";
+import Locales from "../../utils/locales";
 
 export default {
     name: "build",
@@ -48,21 +49,20 @@ export default {
     ],
     contexts: [0, 1, 2],
     integration_types: [0, 1],
-    run: async (interaction: ChatInputCommandInteraction) => {
+    run: async (interaction: ChatInputCommandInteraction, locale) => {
         const subcommand = interaction.options.getSubcommand()
-        console.log(subcommand)
         switch (subcommand) {
             case "uid":
-                return await uid(interaction);
+                return await uid(interaction, locale);
             default:
-                return await profile(interaction);
+                return await profile(interaction, locale);
         }
     }
 } satisfies Command;
 
-async function profile(interaction: ChatInputCommandInteraction) {
+async function profile(interaction: ChatInputCommandInteraction, locale: Locales) {
     const userNotFound: InteractionReplyOptions = {
-        content: "User not found, either connect your account or check the account name you entered",
+        content: locale.get(l => l.user_not_found),
         flags: MessageFlagsBitField.Flags.Ephemeral
     }
     const name = interaction.options.getString("name") ?? (await db.query.users.findFirst({where: eq(users.id, interaction.user.id)}))?.enka_name ?? null;
@@ -78,14 +78,14 @@ async function profile(interaction: ChatInputCommandInteraction) {
     const arr = Object.values(hoyos).filter((h) => Object.keys(h.avatar_order ?? {}).length > 0);
     if (arr.length === 0) {
         await interaction.reply({
-            content: "This user either has no publicly accessible profiles, or has no characters on any profiles.",
+            content: locale.get(l => l.build.name.no_profiles),
             flags: MessageFlagsBitField.Flags.Ephemeral
         });
         return;
     }
     await interaction.deferReply();
 
-    const embed = generateBuildEmbed(name);
+    const embed = generateBuildEmbed(name, locale);
 
     const rows: ActionRowBuilder<StringSelectMenuBuilder>[] = []
 
@@ -93,7 +93,7 @@ async function profile(interaction: ChatInputCommandInteraction) {
         .setMinValues(1)
         .setMaxValues(1)
         .setCustomId("select_profile")
-        .setPlaceholder("Select a profile")
+        .setPlaceholder(locale.get(l => l.build.name.select_profile))
         .setOptions(arr.map(h =>
             new StringSelectMenuOptionBuilder()
                 .setLabel('nickname' in h.player_info ? h.player_info.nickname : h.player_info.ProfileDetail.Nickname)
@@ -106,7 +106,7 @@ async function profile(interaction: ChatInputCommandInteraction) {
         selectMenu.setDisabled(true);
         rows.push(new ActionRowBuilder<StringSelectMenuBuilder>().addComponents(selectMenu))
 
-        const selectCharacterSelect = selectCharacter(arr[0]);
+        const selectCharacterSelect = selectCharacter(arr[0], locale);
 
         rows.push(new ActionRowBuilder<StringSelectMenuBuilder>().addComponents(selectCharacterSelect))
     } else {
@@ -116,10 +116,10 @@ async function profile(interaction: ChatInputCommandInteraction) {
     await interaction.editReply({ embeds: [embed], components: rows })
 }
 
-async function uid(interaction: ChatInputCommandInteraction) {
+async function uid(interaction: ChatInputCommandInteraction, locale: Locales) {
     const selectMenu = new StringSelectMenuBuilder().setMaxValues(1).setMinValues(1)
         .setCustomId("uid_select_game")
-        .setPlaceholder("Select a game")
+        .setPlaceholder(locale.get(l => l.build.uid.select_game))
         .addOptions(
             new StringSelectMenuOptionBuilder()
                 .setLabel("Genshin Impact")
@@ -140,5 +140,5 @@ async function uid(interaction: ChatInputCommandInteraction) {
 
     const row = new ActionRowBuilder<StringSelectMenuBuilder>().addComponents(selectMenu);
 
-    return await interaction.reply({ embeds: [generateUidBuildEmbed(interaction.options.getString("uid", true))], components: [row] })
+    return await interaction.reply({ embeds: [generateUidBuildEmbed(interaction.options.getString("uid", true), locale)], components: [row] })
 }

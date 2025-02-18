@@ -9,15 +9,15 @@ import {EmbedBuilder, generateUidBuildEmbed} from "../../../utils/embeds";
 export default {
     role: "SELECT_MENU",
     custom_id: "uid_select_character",
-    run: async (interaction) => {
+    run: async (interaction, locale) => {
         if(!sameUser(interaction)) {
             return await interaction.reply({
-                content: "You can not interact with another users command",
+                content: locale.get(l => l.incorrect_interaction),
                 flags: MessageFlagsBitField.Flags.Ephemeral
             });
         }
 
-        const errorMsg = "An error occurred whilst trying to complete this. Try again."
+        const errorMsg = locale.get(l => l.error)
 
         const uid = interaction.message.embeds[0].footer?.text;
         if(!uid) return await interaction.reply({
@@ -33,9 +33,9 @@ export default {
 
         await interaction.deferUpdate();
 
-        const data = await API.uid(hoyo_type, uid);
+        const data = await API.uid(hoyo_type, uid, locale);
         if(!data) return await interaction.editReply({
-            content: "This UID does not exist, or couldn't be fetched."
+            content: locale.get(l => l.build.uid.no_found_uid)
         })
 
         const rows = setDefault(interaction.message.components.slice(0,2), characterId);
@@ -57,7 +57,7 @@ export default {
         })
 
         const embed = new EmbedBuilder()
-            .setTitle(`${data.nickname}'s ${character.name} Build`)
+            .setTitle(locale.get(l => l.build.uid.character_embed_title).replace("{nickname}", data.nickname).replace("{name}", character.name))
             .setColor(character.colorFromElement)
             .setImage(`attachment://${imgName}`)
             .setFooter({ text: uid })

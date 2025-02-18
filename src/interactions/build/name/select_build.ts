@@ -9,15 +9,15 @@ import { selectCharacter} from "../../../utils/select-menus";
 export default {
     role: "SELECT_MENU",
     custom_id: "select_build",
-    run: async (interaction) => {
+    run: async (interaction, locale) => {
         if(!sameUser(interaction)) {
             return await interaction.reply({
-                content: "You can not interact with another users command",
+                content: locale.get((lang) => lang.incorrect_interaction),
                 flags: MessageFlagsBitField.Flags.Ephemeral
             });
         }
 
-        const errorMsg = "An error occurred whilst trying to complete this. Try again."
+        const errorMsg = locale.get((lang) => lang.error)
 
         const values = getValues(interaction.message.components.slice(0,2), interaction.values[0]);
 
@@ -38,7 +38,7 @@ export default {
             content: errorMsg
         })
 
-        const [embed, attachment] = await generateCardEmbed(name, values[0], build);
+        const [embed, attachment] = await generateCardEmbed(name, values[0], build, locale);
 
         const components = setDefault(interaction.message.components.slice(0,3), values[2])
 

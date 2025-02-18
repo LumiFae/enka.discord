@@ -1,5 +1,9 @@
 import { Client, Interaction } from 'discord.js';
 import { commands } from '../..';
+import {db} from "../../utils/db";
+import {eq} from "drizzle-orm";
+import {users} from "../../schema";
+import Locales from "../../utils/locales";
 
 export default async function (client: Client) {
     client.on('interactionCreate', async (interaction) => {
@@ -17,8 +21,9 @@ export default async function (client: Client) {
                 command.autocomplete ? await command.autocomplete(interaction) : console.error("Couldn't complete autocomplete interaction");
                 return;
             }
-            await (command.run as (interaction: Interaction) => unknown)(
-                interaction,
+            await command.run(
+                interaction as never,
+                Locales.get((await db.query.users.findFirst({where: eq(users.id, interaction.user.id)}))?.locale ?? "en")
             );
             console.log(`Interaction ${finder} executed successfully!`);
         } catch (error) {

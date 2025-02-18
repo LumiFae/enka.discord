@@ -4,6 +4,7 @@ import {ExcelAvatar as ZZZExcelAvatar} from "../types/zzz";
 import {HoyoType, HoyoType_T} from "../types/models";
 import {colors, emojiIds, getLocale} from "./misc";
 import {ColorResolvable} from "discord.js";
+import Locales from "./locales";
 
 
 type ExcelAvatars = GIExcelAvatar | HSRExcelAvatar | ZZZExcelAvatar;
@@ -65,10 +66,11 @@ export default class Character {
     constructor(
         public hoyo_type: HoyoType_T,
         public data: ExcelAvatars,
-        public id: string
+        public id: string,
+        locale: Locales
     ) {
         this.character = this.createCharacter();
-        this.name = getLocale(this.hoyo_type, this.hash)
+        this.name = getLocale(locale, this.hoyo_type, this.hash)
     }
 
     private createCharacter(): BaseCharacter<ExcelAvatars> {

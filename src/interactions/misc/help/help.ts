@@ -9,11 +9,11 @@ export default {
     description: "Get help with the bot",
     contexts: [0, 1, 2],
     integration_types: [0, 1],
-    run: async (interaction) => {
+    run: async (interaction, locale) => {
         const embed_ = new EmbedBuilder()
-            .setTitle("Help")
+            .setTitle(locale.get(l => l.help.title))
             .setDescription(
-                "Get help with the bot by navigating through the commands below",
+                locale.get(l => l.help.description),
             );
 
         let fields: { name: string; value: string }[] = [];
@@ -30,7 +30,7 @@ export default {
             pagify = true;
             fields = fields.slice(0, 10);
             embed_.setFooter({
-                text: `Page 1 out of ${pageCount}`
+                text: locale.get(l => l.help.page_count).replace("{current}", "1").replace("{max}", pageCount.toString())
             });
         }
 
@@ -39,12 +39,12 @@ export default {
         if (pagify) {
             const previous = new ButtonBuilder()
                 .setCustomId("previous")
-                .setLabel("Previous")
+                .setLabel(locale.get(l => l.help.previous))
                 .setStyle(ButtonStyle.Primary)
                 .setDisabled(true);
             const next = new ButtonBuilder()
                 .setCustomId("next")
-                .setLabel("Next")
+                .setLabel(locale.get(l => l.help.next))
                 .setStyle(ButtonStyle.Primary);
             const row = new ActionRowBuilder<ButtonBuilder>().setComponents(
                 previous,

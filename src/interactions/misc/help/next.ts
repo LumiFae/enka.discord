@@ -6,10 +6,10 @@ import {EmbedBuilder} from "../../../utils/embeds";
 export default {
     custom_id: "next",
     role: "BUTTON",
-    run: async (interaction) => {
+    run: async (interaction, locale) => {
         if (interaction.user.id !== interaction.message.interactionMetadata?.user.id) {
             return interaction.reply({
-                content: "You can not interact with another users command",
+                content: locale.get(l => l.incorrect_interaction),
                 flags: MessageFlagsBitField.Flags.Ephemeral,
             });
         }
@@ -24,7 +24,7 @@ export default {
                 fields.push({ name: name, value: command.description });
         }
         const pageCount = Math.ceil(fields.length / 10);
-        const footer = `Page ${(pageNumber + 1).toString()} out of ${pageCount.toString()}`
+        const footer = locale.get(l => l.help.page_count).replace("{current}", (pageNumber+1).toString()).replace("{max}", pageCount.toString())
 
         fields = fields.slice(pageNumber * 10, (pageNumber + 1) * 10);
 
@@ -36,12 +36,12 @@ export default {
 
         const previous = new ButtonBuilder()
             .setCustomId("previous")
-            .setLabel("Previous")
+            .setLabel(locale.get(l => l.help.previous))
             .setStyle(ButtonStyle.Primary);
 
         let next = new ButtonBuilder()
             .setCustomId("next")
-            .setLabel("Next")
+            .setLabel(locale.get(l => l.help.next))
             .setStyle(ButtonStyle.Primary);
 
         if (pageNumber + 1 === pageCount) {

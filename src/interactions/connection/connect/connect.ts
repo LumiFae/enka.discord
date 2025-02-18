@@ -19,12 +19,12 @@ export default {
     ],
     contexts: [0, 1, 2],
     integration_types: [0, 1],
-    run: async (interaction) =>  {
+    run: async (interaction, locale) =>  {
         await interaction.deferReply({ flags: MessageFlagsBitField.Flags.Ephemeral })
         const name = interaction.options.getString("name", true);
         const response = await API.profile(name);
         if (!response) {
-            await interaction.editReply({ content: "User not found" });
+            await interaction.editReply({ content: locale.get(l => l.connect.not_found) });
             return;
         }
         const code = generateRandomCapitalString(6);
@@ -32,16 +32,16 @@ export default {
             code,
             name
         });
-        const embed = connectAccountEmbed(response.username, code);
+        const embed = connectAccountEmbed(response.username, code, locale);
 
         const verifyButton = new ButtonBuilder()
             .setCustomId("account_connect")
-            .setLabel("Verify")
+            .setLabel(locale.get(l => l.connect.verify))
             .setStyle(ButtonStyle.Success)
 
         const cancelButton = new ButtonBuilder()
             .setCustomId("account_connect_cancel")
-            .setLabel("Cancel")
+            .setLabel(locale.get(l => l.connect.cancel))
             .setStyle(ButtonStyle.Danger)
 
         await interaction.editReply({ embeds: [embed], components: [new ActionRowBuilder<ButtonBuilder>().setComponents(verifyButton, cancelButton)] });

@@ -9,11 +9,12 @@ import type {
     UserContextMenuCommandInteraction,
     StringSelectMenuInteraction,
 } from "discord.js";
+import Locales from "../utils/locales";
 
 export type Command =
     | {
           role: "CHAT_INPUT";
-          run: (interaction: ChatInputCommandInteraction) => unknown;
+          run: (interaction: ChatInputCommandInteraction, locale: Locales) => unknown;
           name: string;
           name_localizations?: Record<string, string>;
           description: string;
@@ -27,7 +28,7 @@ export type Command =
       }
     | {
           role: "MESSAGE_CONTEXT_MENU";
-          run: (interaction: MessageContextMenuCommandInteraction) => unknown;
+          run: (interaction: MessageContextMenuCommandInteraction, locale: Locales) => unknown;
           name: string;
           name_localizations?: Record<string, string>;
           description_localizations?: Record<string, string>;
@@ -39,7 +40,7 @@ export type Command =
       }
     | {
           role: "USER_CONTEXT_MENU";
-          run: (interaction: UserContextMenuCommandInteraction) => unknown;
+          run: (interaction: UserContextMenuCommandInteraction, locale: Locales) => unknown;
           name: string;
           name_localizations?: Record<string, string>;
           description_localizations?: Record<string, string>;
@@ -52,17 +53,17 @@ export type Command =
     | {
           role: "SELECT_MENU";
           custom_id: string;
-          run: (interaction: StringSelectMenuInteraction) => unknown;
+          run: (interaction: StringSelectMenuInteraction, locale: Locales) => unknown;
       }
     | {
           role: "BUTTON";
           custom_id: string;
-          run: (interaction: ButtonInteraction) => unknown;
+          run: (interaction: ButtonInteraction, locale: Locales) => unknown;
       }
     | {
           role: "MODAL_SUBMIT";
           custom_id: string;
-          run: (interaction: ModalSubmitInteraction) => unknown;
+          run: (interaction: ModalSubmitInteraction, locale: Locales) => unknown;
       }
 
 export type CommandNoRun = Omit<Command, "run">;

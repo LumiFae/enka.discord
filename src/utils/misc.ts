@@ -24,6 +24,7 @@ import {
     StringSelectMenuInteraction
 } from "discord.js";
 import axios from "axios";
+import Locales from "./locales";
 
 
 export function generateRandomString(length: number): string {
@@ -98,26 +99,26 @@ export function getFromType<T>(type: HoyoType_T, ...params: T[]) {
     return params[type];
 }
 
-export function getLocale(type: HoyoType_T, getter: string | number): string {
+export function getLocale(locale: Locales, type: HoyoType_T, getter: string | number): string {
     if(typeof getter === "number") getter = getter.toString();
     switch (type) {
         case HoyoType.GI:
-            return giLocs.en[getter];
+            return giLocs[locale.locale][getter];
         case HoyoType.HSR:
-            return hsrLocs.en[getter];
+            return hsrLocs[locale.locale][getter];
         case HoyoType.ZZZ:
-            return zzzLocs.en[getter];
+            return zzzLocs[locale.locale][getter];
     }
 }
 
-export function getCharacter(type: HoyoType_T, getter: string) {
+export function getCharacter(locale: Locales, type: HoyoType_T, getter: string) {
     switch (type) {
         case HoyoType.GI:
-            return new Character(type, giChars[getter], getter);
+            return new Character(type, giChars[getter], getter, locale);
         case HoyoType.HSR:
-            return new Character(type, hsrChars[getter], getter);
+            return new Character(type, hsrChars[getter], getter, locale);
         default:
-            return new Character(type, zzzChars[getter], getter);
+            return new Character(type, zzzChars[getter], getter, locale);
     }
 }
 

@@ -12,8 +12,6 @@ RUN npm install
 
 COPY . .
 
-RUN npx drizzle-kit push
-
 EXPOSE 8000
 
-CMD ["npm", "start"]
+CMD npx drizzle-kit push && npm start

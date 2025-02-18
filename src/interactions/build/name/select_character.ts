@@ -12,15 +12,15 @@ import {generateBuildEmbed, generateCardEmbed} from "../../../utils/embeds";
 export default {
     role: "SELECT_MENU",
     custom_id: "select_character",
-    run: async (interaction) => {
+    run: async (interaction, locale) => {
         if(!sameUser(interaction)) {
             return await interaction.reply({
-                content: "You can not interact with another users command",
+                content: locale.get((lang) => lang.incorrect_interaction),
                 flags: MessageFlagsBitField.Flags.Ephemeral
             });
         }
 
-        const errorMsg = "An error occurred whilst trying to complete this. Try again."
+        const errorMsg = locale.get((lang) => lang.error)
 
         const values = getValues(interaction.message.components.slice(0,1), interaction.values[0]);
 
@@ -44,7 +44,7 @@ export default {
         const components = setDefault(interaction.message.components.slice(0,2), values[1])
 
         if(characterBuilds.length === 1) {
-            const [embed, attachment] = await generateCardEmbed(name, values[0], characterBuilds[0])
+            const [embed, attachment] = await generateCardEmbed(name, values[0], characterBuilds[0], locale)
 
             return await interaction.editReply({
                 embeds: [embed],
@@ -52,16 +52,16 @@ export default {
                 components
             })
         } else {
-            const embed = generateBuildEmbed(name, getCharacter(characterBuilds[0].hoyo_type, values[1]).colorFromElement)
+            const embed = generateBuildEmbed(name, locale, getCharacter(locale, characterBuilds[0].hoyo_type, values[1]).colorFromElement)
 
             const selectMenu = new StringSelectMenuBuilder()
                 .setMinValues(1)
                 .setMaxValues(1)
                 .setCustomId("select_build")
-                .setPlaceholder("Select a build")
+                .setPlaceholder(locale.get((lang) => lang.build.name.select_build))
                 .setOptions(characterBuilds.map(build => {
                     return new StringSelectMenuOptionBuilder()
-                        .setLabel(build.name || "Live")
+                        .setLabel(build.name || locale.get(lang => lang.build.live_build))
                         .setValue(String(build.id))
                 }))
 

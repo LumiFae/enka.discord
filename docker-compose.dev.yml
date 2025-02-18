@@ -8,6 +8,12 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: postgres
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}" ]
+      interval: 10s
+      retries: 5
+      start_period: 30s
+      timeout: 10s
   bot:
     build:
       context: .
@@ -21,6 +27,6 @@ services:
       DATABASE_URL: postgres://postgres:postgres@database:5432/postgres
     depends_on:
       database:
-        condition: service_started
+        condition: service_healthy
     volumes:
       - "./src:/app/src"

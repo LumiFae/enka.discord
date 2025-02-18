@@ -7,10 +7,10 @@ import {MessageFlagsBitField} from "discord.js";
 export default {
     custom_id: "account_disconnect",
     role: "BUTTON",
-    run: async (interaction) => {
+    run: async (interaction, locale) => {
         if (interaction.user.id !== interaction.message.interactionMetadata?.user.id) {
             return interaction.reply({
-                content: "You can not interact with another users command",
+                content: locale.get(l => l.incorrect_interaction),
                 flags: MessageFlagsBitField.Flags.Ephemeral,
             });
         }
@@ -19,12 +19,12 @@ export default {
         const user = await db.query.users.findFirst({ where: eq(users.id, interaction.user.id) });
 
         if(!user || !user.enka_name) {
-            await interaction.editReply({ content: "You don't have an account connected", embeds: [], components: [] });
+            await interaction.editReply({ content: locale.get(l => l.disconnect.no_account), embeds: [], components: [] });
             return;
         }
 
         await db.delete(users).where(eq(users.id, interaction.user.id)).execute();
 
-        await interaction.editReply({ content: "Account disconnected successfully", embeds: [], components: [] });
+        await interaction.editReply({ content: locale.get(l => l.disconnect.success), embeds: [], components: [] });
     },
 } satisfies Command;

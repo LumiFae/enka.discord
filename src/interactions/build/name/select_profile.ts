@@ -9,15 +9,15 @@ import { selectCharacter} from "../../../utils/select-menus";
 export default {
     role: "SELECT_MENU",
     custom_id: "select_profile",
-    run: async (interaction) => {
+    run: async (interaction, locale) => {
         if(!sameUser(interaction)) {
             return await interaction.reply({
-                content: "You can not interact with another users command",
+                content: locale.get(lang => lang.incorrect_interaction),
                 flags: MessageFlagsBitField.Flags.Ephemeral
             });
         }
 
-        const errorMsg = "An error occurred whilst trying to complete this. Try again."
+        const errorMsg = locale.get(lang => lang.error)
 
         const value = interaction.values[0];
 
@@ -34,10 +34,10 @@ export default {
 
         const oldComponents = setDefault(interaction.message.components.slice(0, 1), value);
 
-        const selectMenu = selectCharacter(hoyo);
+        const selectMenu = selectCharacter(hoyo, locale);
 
         const components = [...oldComponents, new ActionRowBuilder<StringSelectMenuBuilder>().addComponents(selectMenu)];
 
-        interaction.editReply({ components, embeds: [generateBuildEmbed(name)], files: [] })
+        interaction.editReply({ components, embeds: [generateBuildEmbed(name, locale)], files: [] })
     }
 } satisfies Command;

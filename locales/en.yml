@@ -1,0 +1,79 @@
+# don't change placeholders lol
+
+user_not_found: "User not found, either connect your account or check the account name you entered"
+incorrect_interaction: "You can not interact with another users command"
+error: "An error occurred whilst trying to complete this. Try again."
+build:
+  select_character: "Select a character"
+  live_build: "Live"
+  card_embed_title: "Build: {name}" # will use live_build if no name
+  name:
+    no_profiles: "This user either has no publicly accessible profiles, or has no characters on any profiles."
+    select_profile: "Select a profile"
+    select_build: "Select a build"
+    build_select_embed:
+      title: "Select a build"
+      description: "From the select menus below, choose the builds you want to view"
+  uid:
+    select_game: "Select a game"
+    no_found_uid: "This UID does not exist, or couldn't be fetched."
+    unsupported_game: "This game is unsupported until enka fully releases it."
+    game_select_embed:
+      title: "Select a game"
+      description: "In the select menu below, choose the game this UID relates to and build you want to view"
+    character_embed_title: "{nickname}'s {name} Build"
+profile:
+  title: "{username}'s profile"
+  patreon_tier: "Patreon Tier"
+  view_profile: "View profile"
+about:
+  description: "An open-source Discord bot designed to make your gacha life easier with the power of enka.network."
+  contributors: "Contributors"
+  ping: "Ping"
+  uptime: "Uptime"
+  install_count:
+    title: "Install Count (Servers and Users)"
+    description: | 
+      Servers: {guilds}
+      Users: {users}
+  translators: "Translators"
+  github: "GitHub"
+  invite: "Invite"
+  donate: "Donate"
+help:
+  title: "Help"
+  description: "Get help with the bot by navigating through the commands below."
+  page_count: "Page {current} out of {max}"
+  previous: "Previous"
+  next: "Next"
+connect:
+  verify: "Verify"
+  cancel: "Cancel"
+  code_expire: "Your code either expired or there was an error, try again"
+  not_found: "User not found, try again"
+  success: "Account connected successfully"
+  error: "An error occurred while connecting your account, please try again"
+  fail: "The code you entered is incorrect, please try again. Your code is: {code}"
+  cancelled: "Connection cancelled"
+  incorrect: "Incorrect code"
+  embed:
+    title: "Connect your account"
+    description: |
+      To connect your Discord account to {username}, please include the following code inside your bio ([User Settings](https://enka.network/profile/settings/)): {code}
+      
+      Once this has been completed, click the `Verify` button below.
+      To cancel, click the `Cancel` button."
+    footer: "This code will expire in 5 minutes."
+disconnect:
+  no_account: "You don't have an account connected"
+  embed:
+    title: "Disconnect account"
+    description: "Are you sure you want to disconnect your enka.network account?"
+  disconnect: "Disconnect"
+  cancel: "Cancel"
+  success: "Account disconnected successfully"
+  cancelled: "Disconnect cancelled"
+config:
+  language:
+    set: "Successfully set language to English"
+

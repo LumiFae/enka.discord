@@ -31,7 +31,7 @@ export default {
                 inline: true
             }, {
                 name: locale.get(l => l.about.translators),
-                value: "English: [@jxtq](<https://discord.com/users/618689346828238848>)\nRussian: [@lunyslasher](<https://discord.com/users/324832697233178627>)\nVietnamese: [@syaorandesu](<https://discord.com/users/883031349370437703>)\n\nWant to help translate? [Translate here](<https://crowdin.com/project/enka-discord>)",
+                value: `English: [@jxtq](<https://discord.com/users/618689346828238848>)\nRussian: [@lunyslasher](<https://discord.com/users/324832697233178627>)\nVietnamese: [@syaorandesu](<https://discord.com/users/883031349370437703>)\n\n${locale.get(l => l.about.help_translate)}`,
                 inline: true
             })
 

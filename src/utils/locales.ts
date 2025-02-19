@@ -54,6 +54,7 @@ type LocalizationConfig = {
         github: string;
         invite: string;
         donate: string;
+        help_translate: string;
     };
     help: {
         title: string;

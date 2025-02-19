@@ -43,6 +43,7 @@ about:
   github: "GitHub"
   invite: "Mời"
   donate: "Ủng hộ"
+  help_translate: "Muốn hỗ trợ dịch thuật? [Dịch tại đây](<https://crowdin.com/project/enka-discord>)"
 help:
   title: "Hỗ trợ"
   description: "Nhận hỗ trợ của bot bằng cách sử dụng các lệnh bên dưới."

@@ -43,6 +43,7 @@ about:
   github: "GitHub"
   invite: "Invite"
   donate: "Donate"
+  help_translate: "Want to help translate? [Translate here](<https://crowdin.com/project/enka-discord>)"
 help:
   title: "Help"
   description: "Get help with the bot by navigating through the commands below."

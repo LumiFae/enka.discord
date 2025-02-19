@@ -104,6 +104,7 @@ async function profile(interaction: ChatInputCommandInteraction, locale: Locales
 
     if(arr.length === 1) {
         selectMenu.setDisabled(true);
+        selectMenu.options[0].setDefault(true);
         rows.push(new ActionRowBuilder<StringSelectMenuBuilder>().addComponents(selectMenu))
 
         const selectCharacterSelect = selectCharacter(arr[0], locale);

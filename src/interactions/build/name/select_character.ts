@@ -37,7 +37,7 @@ export default {
         })
 
         const characterBuilds = builds[values[1]].filter((build) => build.public);
-        if(!characterBuilds) return await interaction.editReply({
+        if(characterBuilds.length === 0) return await interaction.editReply({
             content: errorMsg
         })
 

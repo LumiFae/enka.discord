@@ -22,6 +22,9 @@ build:
       title: "Выберите игру"
       description: "В меню ниже выберите игру, к которой относится этот UID, и сборку, которую хотите просмотреть."
     character_embed_title: "{name} пользователя {nickname}"
+    genshin_uid: "Этот UID относится к Genshin Impact"
+    honkai_uid: "Этот UID относится к Honkai: Star Rail"
+    zenless_uid: "Этот UID относится к Zenless Zone Zero"
 profile:
   title: "Профиль {username}"
   patreon_tier: "Уровень Patreon"

@@ -6,5 +6,9 @@
   {
     "code": "ru",
     "name": "Русский"
+  },
+  {
+    "code": "vi",
+    "name": "Tiếng Việt"
   }
 ]

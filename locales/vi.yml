@@ -31,11 +31,11 @@ profile:
   view_profile: "Xem hồ sơ"
 about:
   description: "Một bot Discord mã nguồn mở được thiết kế để giúp cuộc sống gacha của bạn dễ dàng hơn với sức mạnh của enka.network."
-  contributors: "Người đóng góp"
+  contributors: "Nhà phát triển"
   ping: "Ping"
   uptime: "Thời gian hoạt động"
   install_count:
-    title: "Số lượng cài đặt (Servers and Users)"
+    title: "Số lượng cài đặt (Máy chủ và Người dùng)"
     description: | 
       Máy chủ: {guilds}
       Người dùng: {users}

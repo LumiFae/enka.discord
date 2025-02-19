@@ -22,6 +22,8 @@ export default {
             ]
         }
     ],
+    contexts: [0, 1, 2],
+    integration_types: [0, 1],
     run: async (interaction, locale) => {
         const subcommand = interaction.options.getSubcommand();
         switch(subcommand) {

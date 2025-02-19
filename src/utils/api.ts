@@ -12,13 +12,14 @@ export type NoProfile = {
 }
 
 export default class API {
-    private static isNotValid(response: AxiosResponse<any>): response is AxiosResponse<NoProfile> {
+    private static isNotValid(response: AxiosResponse<any> | null): response is AxiosResponse<NoProfile> | null {
+        if(!response) return true;
         if(response.status !== 200) return true;
         return !!response.data.detail;
     }
     static async hoyos(name: string) {
         type Hoyos = Record<string, DjHoyoProfile>
-        const req = await axios.get<NoProfile | Hoyos>(`https://enka.network/api/profile/${name}/hoyos/?format=json`)
+        const req = await axios.get<NoProfile | Hoyos>(`https://enka.network/api/profile/${name}/hoyos/?format=json`).catch(() => null)
         if(this.isNotValid(req)) return null;
         return req.data as Hoyos;
     }
@@ -31,20 +32,20 @@ export default class API {
 
     static async builds(name: string, hoyo: string) {
         type Builds = Record<string, DjBuild[]>
-        const req = await axios.get<NoProfile | Builds>(`https://enka.network/api/profile/${name}/hoyos/${hoyo}/builds/?format=json`)
+        const req = await axios.get<NoProfile | Builds>(`https://enka.network/api/profile/${name}/hoyos/${hoyo}/builds/?format=json`).catch(() => null)
         if(this.isNotValid(req)) return null;
         return req.data as Builds;
     }
 
     static async uid(hoyo_type: HoyoType_T, uid: string, locale: Locales) {
         type UIDResponse = GIUIDResponse | HSRUIDResponse | ZZZUIDResponse;
-        const req = await axios.get<NoProfile | UIDResponse>(`https://enka.network/api${getFromType(hoyo_type, "/", "/hsr/", "/zzz/")}uid/${uid}`)
+        const req = await axios.get<NoProfile | UIDResponse>(`https://enka.network/api${getFromType(hoyo_type, "/", "/hsr/", "/zzz/")}uid/${uid}`).catch(() => null)
         if(this.isNotValid(req)) return null;
         return new UID(hoyo_type, req.data as UIDResponse, locale);
     }
 
     static async profile(name: string) {
-        const req = await axios.get<NoProfile | UIDOwner>(`https://enka.network/api/profile/${name}/?format=json`)
+        const req = await axios.get<NoProfile | UIDOwner>(`https://enka.network/api/profile/${name}/?format=json`).catch(() => null)
         if(this.isNotValid(req)) return null;
         return req.data as UIDOwner;
     }

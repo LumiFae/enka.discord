@@ -3,7 +3,7 @@ import { commands } from '../..';
 import {db} from "../../utils/db";
 import {eq} from "drizzle-orm";
 import {users} from "../../schema";
-import Locales from "../../utils/locales";
+import Locales, {getFromInteraction} from "../../utils/locales";
 
 export default async function (client: Client) {
     client.on('interactionCreate', async (interaction) => {
@@ -23,13 +23,13 @@ export default async function (client: Client) {
             }
             await command.run(
                 interaction as never,
-                Locales.get((await db.query.users.findFirst({where: eq(users.id, interaction.user.id)}))?.locale ?? "en")
+                Locales.get((await db.query.users.findFirst({where: eq(users.id, interaction.user.id)}))?.locale ?? getFromInteraction(interaction))
             );
             console.log(`Interaction ${finder} executed successfully!`);
         } catch (error) {
             console.log(`Error while executing interaction ${finder}:`);
             console.error(error);
-            if (interaction.isCommand()) {
+            if (interaction.isCommand() || interaction.isRepliable()) {
                 if (interaction.deferred || interaction.replied)
                     await interaction.editReply({
                         content:

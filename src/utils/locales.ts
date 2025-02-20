@@ -4,6 +4,7 @@ import {parse} from "yaml";
 import {db} from "./db";
 import {eq} from "drizzle-orm";
 import {users} from "../schema";
+import {Interaction} from "discord.js";
 
 type LocalizationConfig = {
     user_not_found: string;
@@ -102,6 +103,16 @@ function loadLocale(locale: string) {
     return parse(content) as LocalizationConfig;
 }
 
+const localeConverts = {
+    "en-GB": "en",
+    "en-US": "en",
+    "es-ES": "es"
+} as const;
+
+export function getFromInteraction(interaction: Interaction): string {
+    return localeConverts[interaction.locale] ?? interaction.locale ?? "en";
+}
+
 export default class Locales {
     private static loaded: Record<string, LocalizationConfig> = {}
     private loaded: LocalizationConfig
@@ -137,7 +148,12 @@ export default class Locales {
     }
 
     static get(locale: string) {
+        if(!Locales.exists(locale)) return new Locales("en", Locales.loaded.en ?? loadLocale("en"))
         if(!Locales.loaded[locale]) return new Locales(locale, loadLocale(locale))
         return new Locales(locale, Locales.loaded[locale])
+    }
+
+    private static exists(locale: string) {
+        return fs.existsSync(path.resolve(__dirname, `../../locales/${locale}.yml`))
     }
 }

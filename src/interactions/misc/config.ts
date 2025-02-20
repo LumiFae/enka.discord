@@ -17,7 +17,15 @@ export default {
                     name: "language",
                     description: "The language you want to set.",
                     required: true,
-                    choices: languages.map(l => ({ name: l.name, value: l.code }))
+                    choices: [
+                        {
+                            name: "Automatic",
+                            value: "Auto"
+                        },
+                        ...languages.map(l =>
+                            ({ name: l.name, value: l.code })
+                        )
+                    ]
                 }
             ]
         }
@@ -29,7 +37,7 @@ export default {
         switch(subcommand) {
             case "language":
                 const language = interaction.options.getString("language", true);
-                await locale.setLanguage(interaction.user.id, language);
+                await locale.setLanguage(interaction.user.id, language === "Auto" ? interaction.locale : language, language === "Auto");
                 await interaction.reply({ content: locale.get(l => l.config.language.set).replace("{language}", language), flags: MessageFlagsBitField.Flags.Ephemeral });
                 break;
         }

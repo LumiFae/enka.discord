@@ -80,4 +80,5 @@ disconnect:
 config:
   language:
     set: "Successfully set language to English."
+    set_auto: "Successfully set language to automatic, all future responses will be in your Discord language, if we have it."
 

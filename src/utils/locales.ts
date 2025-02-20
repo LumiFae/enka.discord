@@ -94,6 +94,7 @@ type LocalizationConfig = {
     config: {
         language: {
             set: string;
+            set_auto: string;
         }
     }
 };

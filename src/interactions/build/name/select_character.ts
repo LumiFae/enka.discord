@@ -43,17 +43,9 @@ export default {
 
         const components = setDefault(interaction.message.components.slice(0,2), values[1])
 
-        if(characterBuilds.length === 1) {
-            const [embed, attachment] = await generateCardEmbed(name, values[0], characterBuilds[0], locale)
+        const [embed, attachment] = await generateCardEmbed(name, values[0], characterBuilds[0], locale)
 
-            return await interaction.editReply({
-                embeds: [embed],
-                files: [attachment],
-                components
-            })
-        } else {
-            const embed = generateBuildEmbed(name, locale, getCharacter(locale, characterBuilds[0].hoyo_type, values[1]).colorFromElement)
-
+        if(characterBuilds.length > 1) {
             const selectMenu = new StringSelectMenuBuilder()
                 .setMinValues(1)
                 .setMaxValues(1)
@@ -65,11 +57,18 @@ export default {
                         .setValue(String(build.id))
                 }))
 
-            return await interaction.editReply({
-                embeds: [embed],
-                files: [],
-                components: [...components, new ActionRowBuilder<StringSelectMenuBuilder>().addComponents(selectMenu)]
-            })
+            selectMenu.options[0].setDefault(true)
+
+            const row = new ActionRowBuilder<StringSelectMenuBuilder>().addComponents(selectMenu)
+
+            components.push(row)
         }
+
+        return await interaction.editReply({
+            embeds: [embed],
+            files: [attachment],
+            components
+        })
+
     }
 } satisfies Command;

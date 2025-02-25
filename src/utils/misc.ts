@@ -181,3 +181,31 @@ export function getValues(
 export async function getBuffer(url: string) {
     return await axios.get(url, { responseType: "arraybuffer" }).then((response) => Buffer.from(response.data));
 }
+
+export class ExpireMap<V> extends Map<string, V> {
+    private expires: Map<string, Date>
+
+    constructor(
+        private expireTime: number
+    ) {
+        super();
+        this.expires = new Map();
+    }
+
+    get(key: string) {
+        if (!this.has(key)) return undefined;
+        if (this.expires.get(key)! < new Date()) {
+            this.delete(key);
+            this.expires.delete(key.toString());
+            return undefined;
+        }
+        return super.get(key);
+    }
+
+    set(key: string, value: V) {
+        this.expires.set(key.toString(), new Date(Date.now() + this.expireTime));
+        return super.set(key, value);
+    }
+}
+
+export const minuteInMillis = 60000;

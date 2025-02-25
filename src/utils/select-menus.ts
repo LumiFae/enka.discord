@@ -1,18 +1,18 @@
-import {DjHoyoProfile} from "../types/models";
+import {DjBuild, DjHoyoProfile} from "../types/models";
 import {StringSelectMenuBuilder, StringSelectMenuOptionBuilder} from "discord.js";
 import {getCharacter} from "./misc";
 import UID from "./uid";
 import Locales from "./locales";
 
-export function selectCharacter(profile: DjHoyoProfile, locale: Locales){
+export function selectCharacter(builds: Record<string, DjBuild[]>, locale: Locales){
     return new StringSelectMenuBuilder()
         .setMinValues(1)
         .setMaxValues(1)
         .setCustomId("select_character")
         .setPlaceholder(locale.get(l => l.build.select_character))
-        .setOptions(Object.keys(profile.avatar_order!).map((x) => {
-            const str = String(x);
-            const char = getCharacter(locale, profile.hoyo_type, str);
+        .setOptions(Object.keys(builds).map((build) => {
+            const hoyoType = builds[build][0].hoyo_type;
+            const char = getCharacter(locale, hoyoType, build);
 
             return new StringSelectMenuOptionBuilder()
                 .setLabel(char.name)

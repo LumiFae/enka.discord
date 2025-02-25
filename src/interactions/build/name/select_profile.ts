@@ -29,12 +29,12 @@ export default {
 
         await interaction.deferUpdate()
 
-        const hoyo = await API.hoyo(name, value);
-        if(!hoyo) return await interaction.editReply({ content: errorMsg });
+        const builds = await API.builds(name, value);
+        if(!builds) return await interaction.editReply({ content: errorMsg });
 
         const oldComponents = setDefault(interaction.message.components.slice(0, 1), value);
 
-        const selectMenu = selectCharacter(hoyo, locale);
+        const selectMenu = selectCharacter(builds, locale);
 
         const components = [...oldComponents, new ActionRowBuilder<StringSelectMenuBuilder>().addComponents(selectMenu)];
 

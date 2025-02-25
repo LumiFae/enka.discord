@@ -14,6 +14,7 @@ import {users} from "../../schema";
 import {getFromType} from "../../utils/misc";
 import {selectCharacter} from "../../utils/select-menus";
 import Locales from "../../utils/locales";
+import {DjHoyoProfile, HoyoType} from "../../types/models";
 
 export default {
     name: "build",
@@ -75,7 +76,16 @@ async function profile(interaction: ChatInputCommandInteraction, locale: Locales
         await interaction.reply(userNotFound);
         return;
     }
-    const arr = Object.values(hoyos).filter((h) => Object.keys(h.avatar_order ?? {}).length > 0);
+    const arr: DjHoyoProfile[] = [];
+    for (let [hoyo, hoyoInfo] of Object.entries(hoyos)) {
+        if(hoyoInfo.hoyo_type === HoyoType.ZZZ) continue;
+        const builds = await API.builds(name, hoyo);
+        if(!builds) continue;
+        console.log(builds)
+        if(Object.keys(builds).length === 0) continue;
+        arr.push(hoyoInfo);
+    }
+
     if (arr.length === 0) {
         await interaction.reply({
             content: locale.get(l => l.build.name.no_profiles),

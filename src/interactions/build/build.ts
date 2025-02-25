@@ -14,7 +14,7 @@ import {users} from "../../schema";
 import {getFromType} from "../../utils/misc";
 import {selectCharacter} from "../../utils/select-menus";
 import Locales from "../../utils/locales";
-import {DjHoyoProfile, HoyoType} from "../../types/models";
+import {DjBuild, DjHoyoProfile, HoyoType} from "../../types/models";
 
 export default {
     name: "build",
@@ -77,12 +77,13 @@ async function profile(interaction: ChatInputCommandInteraction, locale: Locales
         return;
     }
     const arr: DjHoyoProfile[] = [];
+    const buildsSaved: Record<string, DjBuild[]>[] = [];
     for (let [hoyo, hoyoInfo] of Object.entries(hoyos)) {
         if(hoyoInfo.hoyo_type === HoyoType.ZZZ) continue;
         const builds = await API.builds(name, hoyo);
         if(!builds) continue;
-        console.log(builds)
         if(Object.keys(builds).length === 0) continue;
+        buildsSaved.push(builds);
         arr.push(hoyoInfo);
     }
 
@@ -117,7 +118,7 @@ async function profile(interaction: ChatInputCommandInteraction, locale: Locales
         selectMenu.options[0].setDefault(true);
         rows.push(new ActionRowBuilder<StringSelectMenuBuilder>().addComponents(selectMenu))
 
-        const selectCharacterSelect = selectCharacter(arr[0], locale);
+        const selectCharacterSelect = selectCharacter(buildsSaved[0], locale);
 
         rows.push(new ActionRowBuilder<StringSelectMenuBuilder>().addComponents(selectCharacterSelect))
     } else {

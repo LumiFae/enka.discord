@@ -79,7 +79,6 @@ async function profile(interaction: ChatInputCommandInteraction, locale: Locales
     const arr: DjHoyoProfile[] = [];
     const buildsSaved: Record<string, DjBuild[]>[] = [];
     for (let [hoyo, hoyoInfo] of Object.entries(hoyos)) {
-        if(hoyoInfo.hoyo_type === HoyoType.ZZZ) continue;
         const builds = await API.builds(name, hoyo);
         if(!builds) continue;
         if(Object.keys(builds).length === 0) continue;
@@ -144,7 +143,7 @@ async function uid(interaction: ChatInputCommandInteraction, locale: Locales) {
                 .setDescription(locale.get(l => l.build.uid.honkai_uid))
                 .setEmoji("1296399188313247774"),
             new StringSelectMenuOptionBuilder()
-                .setLabel("Zenless Zone Zero (Coming Soon)")
+                .setLabel("Zenless Zone Zero")
                 .setValue("2")
                 .setDescription(locale.get(l => l.build.uid.zenless_uid))
                 .setEmoji("1334169563599863819")

@@ -27,16 +27,9 @@ export default {
 
         const hoyo_type = Number(interaction.values[0]) as HoyoType_T;
 
-        if(hoyo_type === HoyoType.ZZZ) {
-            return await interaction.reply({
-                content: locale.get(l => l.build.uid.unsupported_game),
-                flags: MessageFlagsBitField.Flags.Ephemeral
-            })
-        }
-
         await interaction.deferUpdate();
 
-        const data = await API.uid(Number(interaction.values[0]) as HoyoType_T, uid, locale);
+        const data = await API.uid(hoyo_type, uid, locale);
         if(!data) return await interaction.editReply({
             content: locale.get(l => l.build.uid.no_found_uid)
         })

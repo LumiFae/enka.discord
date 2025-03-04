@@ -39,6 +39,7 @@ export default {
         const selectMenu = selectUidCharacter(data, locale);
 
         await interaction.editReply({
+            content: '',
             files: [],
             embeds: [generateUidBuildEmbed(uid, locale)],
             components: [...rows, new ActionRowBuilder<StringSelectMenuBuilder>().addComponents(selectMenu)]

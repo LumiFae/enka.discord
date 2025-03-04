@@ -40,9 +40,7 @@ export default {
 
         const rows = setDefault(interaction.message.components.slice(0,2), characterId);
 
-        const cardNumber = data.avatars.findIndex((character) => character.id === values[1])+1;
-
-        const url = `https://cards.enka.network/${getFromType(hoyo_type, "u", "hsr", "zzz")}/${uid}/${cardNumber}/image?lang=${locale.locale}`
+        const url = `https://cards.enka.network/${getFromType(hoyo_type, "u", "hsr", "zzz")}/${uid}/${characterId}/image?lang=${locale.locale}`
 
         const image = await getBuffer(url);
 
@@ -63,6 +61,7 @@ export default {
             .setFooter({ text: uid })
 
         await interaction.editReply({
+            content: '',
             files: [attachment],
             embeds: [embed],
             components: rows

@@ -53,10 +53,8 @@ export default class API {
     }
 
     static async profile(name: string) {
-        if(profileMap.has(name)) return profileMap.get(name)!;
         const req = await axios.get<NoProfile | UIDOwner>(`https://enka.network/api/profile/${name}/?format=json`).catch(() => null)
         if(this.isNotValid(req)) return null;
-        profileMap.set(name, req.data as UIDOwner);
         return req.data as UIDOwner;
     }
 }
@@ -64,4 +62,3 @@ export default class API {
 const hoyosMap = new ExpireMap<Record<string, DjHoyoProfile>>(minuteInMillis*5);
 const buildsMap = new ExpireMap<Record<string, DjBuild[]>>(minuteInMillis*5);
 const uidMap = new ExpireMap<UID>(minuteInMillis*5);
-const profileMap = new ExpireMap<UIDOwner>(minuteInMillis*5);

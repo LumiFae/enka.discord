@@ -1,0 +1,83 @@
+# don't change placeholders lol
+user_not_found: "未找到用户，请连接你的账户或检查你输入的账户名。"
+incorrect_interaction: "你无法与其他用户的命令交互。"
+error: "尝试完成此操作时出错。请重试。"
+build:
+  select_character: "选择角色"
+  live_build: "Live"
+  card_embed_title: "Build: {name}" # will use live_build if no name
+  name:
+    no_profiles: "此用户未公开个人资料，或未放置角色。"
+    select_profile: "选择个人资料"
+    select_build: "选择角色面板"
+    build_select_embed:
+      title: "选择角色面板"
+      description: "从下方菜单中，选择你想要查看的角色面板。"
+  uid:
+    select_game: "选择游戏"
+    no_found_uid: "该UID不存在，或无法获取。"
+    unsupported_game: "在enka完全公开之前，此游戏不受支持。"
+    game_select_embed:
+      title: "选择游戏"
+      description: "在下方菜单中，选择与游戏相关的UID，查看你想要的角色面板。"
+    character_embed_title: "{nickname}的{name}面板"
+    genshin_uid: "原神UID"
+    honkai_uid: "崩坏：星穹铁道UID"
+    zenless_uid: "绝区零UID"
+profile:
+  title: "{username}的个人资料"
+  patreon_tier: "Patreon等阶"
+  view_profile: "查看个人资料"
+about:
+  description: "一款开源的Discord机器人，在与enka.network的力量下，使你的抽卡生活更简单。"
+  contributors: "贡献者"
+  ping: "延迟"
+  uptime: "运行时间"
+  install_count:
+    title: "安装数量（服务器与用户）"
+    description: |
+      服务器数量：{guilds}
+      用户数量：{users}
+  translators: "翻译人员"
+  github: "GitHub"
+  invite: "邀请"
+  donate: "捐献"
+  help_translate: "想要帮忙翻译吗？[在这里翻译](<https://crowdin.com/project/enka-discord>)"
+help:
+  title: "帮助"
+  description: "通过浏览下面的命令获得有关机器人的帮助。"
+  page_count: "第{current}页 共{max}页"
+  previous: "上一页"
+  next: "下一页"
+connect:
+  verify: "验证"
+  cancel: "取消"
+  code_expire: "验证码已过期或出错了，再试一次。"
+  not_found: "未找到用户，请重试。"
+  success: "账户连接成功。"
+  error: "试图连接你的账户时出错了，请重试。"
+  fail: "你输入的验证码不正确，请重试。\n验证码：{code}"
+  cancelled: "已取消连接"
+  incorrect: "验证码不正确"
+  embed:
+    title: "连接你的账户"
+    description: |
+      要将你的Discord账户连接到{username}，请在你的个人简介中包含以下验证码([用户设置](https://enka.network/profile/settings/))：{code}
+
+      完成此操作后，单击下面的“验证”按钮。
+      要取消，请单击“取消”按钮。
+    footer: "This code will expire in 5 minutes."
+disconnect:
+  no_account: "You don't have an account connected."
+  embed:
+    title: "Disconnect account"
+    description: "Are you sure you want to disconnect your enka.network account?"
+  disconnect: "Disconnect"
+  cancel: "Cancel"
+  success: "Account disconnected successfully"
+  cancelled: "Disconnect cancelled"
+config:
+  language:
+    set: "Successfully set language to English."
+    set_auto: "Successfully set language to automatic, all future responses will be in your Discord language, if we have it."
+

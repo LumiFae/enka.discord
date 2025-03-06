@@ -10,5 +10,9 @@
   {
     "code": "vi",
     "name": "Tiếng Việt"
+  },
+  {
+    "code": "zh-cn",
+    "name": "简体中文"
   }
 ]

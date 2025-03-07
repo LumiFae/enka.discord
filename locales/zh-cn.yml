@@ -4,8 +4,8 @@ incorrect_interaction: "你无法与其他用户的命令交互。"
 error: "尝试完成此操作时出错。请重试。"
 build:
   select_character: "选择角色"
-  live_build: "Live"
-  card_embed_title: "Build: {name}" # will use live_build if no name
+  live_build: "实时"
+  card_embed_title: "面板状况：{name}" # will use live_build if no name
   name:
     no_profiles: "此用户未公开个人资料，或未放置角色。"
     select_profile: "选择个人资料"
@@ -66,18 +66,18 @@ connect:
 
       完成此操作后，单击下面的“验证”按钮。
       要取消，请单击“取消”按钮。
-    footer: "This code will expire in 5 minutes."
+    footer: "此验证码会在5分钟后过期。"
 disconnect:
-  no_account: "You don't have an account connected."
+  no_account: "你还未连接账户。"
   embed:
-    title: "Disconnect account"
-    description: "Are you sure you want to disconnect your enka.network account?"
-  disconnect: "Disconnect"
-  cancel: "Cancel"
-  success: "Account disconnected successfully"
-  cancelled: "Disconnect cancelled"
+    title: "解除账户关联"
+    description: "你确认想要与enka.network账户断开关联吗？"
+  disconnect: "确认"
+  cancel: "取消"
+  success: "断开成功"
+  cancelled: "已取消断联"
 config:
   language:
-    set: "Successfully set language to English."
-    set_auto: "Successfully set language to automatic, all future responses will be in your Discord language, if we have it."
+    set: "已成功设置语言为简体中文。"
+    set_auto: "已成功设置语言为默认，后面所有的回复都为你Discord设置的语言，如果我们有的话。"
 

@@ -1,8 +1,7 @@
 # don't change placeholders lol
-
-user_not_found: "Không tìm thấy người dùng, hãy kết nối tài khoản của bạn hoặc kiểm tra tên tài khoản bạn đã nhập"
-incorrect_interaction: "Bạn không thể tương tác với lệnh của người dùng khác"
-error: "Đã xảy ra lỗi khi cố gắng hoàn thành việc này. Hãy thử lại"
+user_not_found: "Không tìm thấy người dùng, hãy kết nối tài khoản của bạn hoặc kiểm tra tên tài khoản bạn đã nhập."
+incorrect_interaction: "Bạn không thể tương tác với lệnh của người dùng khác."
+error: "Đã xảy ra lỗi khi cố gắng hoàn thành việc này. Hãy thử lại."
 build:
   select_character: "Chọn nhân vật"
   live_build: "Hiện tại"
@@ -13,21 +12,21 @@ build:
     select_build: "Chọn build"
     build_select_embed:
       title: "Chọn build"
-      description: "Từ các lựa chọn bên dưới, hãy chọn build mà bạn muốn xem"
+      description: "Từ các lựa chọn bên dưới, hãy chọn build mà bạn muốn xem."
   uid:
     select_game: "Chọn trò chơi"
     no_found_uid: "UID này không tồn tại, hoặc không thể lấy được."
     unsupported_game: "Trò chơi này không được hỗ trợ cho đến khi enka phát hành đầy đủ."
     game_select_embed:
       title: "Chọn trò chơi"
-      description: "Trong các lựa chọn bên dưới, hãy chọn trò chơi mà UID này liên quan đến build bạn muốn xem"
+      description: "Trong các lựa chọn bên dưới, hãy chọn trò chơi mà UID này liên quan đến build bạn muốn xem."
     character_embed_title: "{nickname}'s {name} Build"
     genshin_uid: "UID này là UID Genshin Impact"
     honkai_uid: "UID này là UID Honkai: Star Rail"
     zenless_uid: "UID này là UID Zenless Zone Zero"
 profile:
   title: "{username}'s hồ sơ"
-  patreon_tier: "Bậc Patreon"
+  patreon_tier: "Cấp độ Patreon"
   view_profile: "Xem hồ sơ"
 about:
   description: "Một bot Discord mã nguồn mở được thiết kế để giúp cuộc sống gacha của bạn dễ dàng hơn với sức mạnh của enka.network."
@@ -36,27 +35,27 @@ about:
   uptime: "Thời gian hoạt động"
   install_count:
     title: "Số lượng cài đặt (Máy chủ và Người dùng)"
-    description: | 
+    description: |
       Máy chủ: {guilds}
       Người dùng: {users}
   translators: "Dịch giả"
-  github: "GitHub"
+  github: "Github"
   invite: "Mời"
   donate: "Ủng hộ"
   help_translate: "Muốn hỗ trợ dịch thuật? [Dịch tại đây](<https://crowdin.com/project/enka-discord>)"
 help:
-  title: "Hỗ trợ"
-  description: "Nhận hỗ trợ của bot bằng cách sử dụng các lệnh bên dưới."
+  title: "Hướng dẫn"
+  description: "Hướng dẫn tính năng của bot khi sử dụng các lệnh bên dưới."
   page_count: "Trang {current} trong {max}"
   previous: "Trước đó"
   next: "Tiếp theo"
 connect:
   verify: "Xác nhận"
-  cancel: "Hủy bỏ"
-  code_expire: "Mã xác nhận của bạn đã hết hạn hoặc có lỗi, hãy thử lại"
-  not_found: "Người dùng không tìm thấy, hãy thử lại"
-  success: "Tài khoản kết nối thành công"
-  error: "Đã xảy ra lỗi khi kết nối tài khoản của bạn, vui lòng thử lại"
+  cancel: "Hủy"
+  code_expire: "Mã xác nhận của bạn đã hết hạn hoặc có lỗi, hãy thử lại."
+  not_found: "Người dùng không tìm thấy, hãy thử lại."
+  success: "Tài khoản kết nối thành công."
+  error: "Đã xảy ra lỗi khi kết nối tài khoản của bạn, vui lòng thử lại."
   fail: "Mã xác nhận bạn nhập không đúng, vui lòng thử lại. Mã của bạn là: {code}"
   cancelled: "Hủy kết nối"
   incorrect: "Mã xác nhận không đúng"
@@ -64,19 +63,21 @@ connect:
     title: "Kết nối tài khoản của bạn"
     description: |
       Để kết nối tài khoản Discord của bạn với {username}, vui lòng nhập mã sau vào tiểu sử của bạn ([Cài đặt người dùng](https://enka.network/profile/settings/)): {code}
-      
+
       Sau khi hoàn tất, hãy nhấp vào nút `Xác nhận` bên dưới.
       Để hủy, hãy nhấp vào nút `Hủy`."
     footer: "Mã xác nhận sẽ hết hạn trong 5 phút."
 disconnect:
-  no_account: "Bạn không có tài khoản để kết nối"
+  no_account: "Bạn không có tài khoản để kết nối."
   embed:
     title: "Ngắt kết nối tài khoản"
     description: "Bạn có chắc rằng bạn muốn ngắt kết nối với tài khoản enka.network của bạn không?"
   disconnect: "Ngắt kết nối"
-  cancel: "Hủy bỏ"
+  cancel: "Hủy"
   success: "Tài khoản đã ngắt kết nối thành công"
   cancelled: "Hủy bỏ việc ngắt kết nối"
 config:
   language:
-    set: "Thành công cài đặt ngôn ngữ sang Tiếng Việt"
+    set: "Thành công cài đặt ngôn ngữ sang Tiếng Việt."
+    set_auto: "Thành công cài đặt ngôn ngữ tự động, những phản hồi trong tương lai sẽ dựa theo ngôn ngữ Discord của bạn, nếu chúng tôi có nó."
+

@@ -76,6 +76,9 @@ async function profile(interaction: ChatInputCommandInteraction, locale: Locales
         await interaction.reply(userNotFound);
         return;
     }
+
+    await interaction.deferReply();
+
     const arr: DjHoyoProfile[] = [];
     const buildsSaved: Record<string, DjBuild[]>[] = [];
     for (let [hoyo, hoyoInfo] of Object.entries(hoyos)) {
@@ -87,13 +90,11 @@ async function profile(interaction: ChatInputCommandInteraction, locale: Locales
     }
 
     if (arr.length === 0) {
-        await interaction.reply({
+        await interaction.editReply({
             content: locale.get(l => l.build.name.no_profiles),
-            flags: MessageFlagsBitField.Flags.Ephemeral
         });
         return;
     }
-    await interaction.deferReply();
 
     const embed = generateBuildEmbed(name, locale);
 

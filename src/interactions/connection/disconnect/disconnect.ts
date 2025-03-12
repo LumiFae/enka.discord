@@ -12,7 +12,9 @@ export default {
     contexts: [0, 1, 2],
     integration_types: [0, 1],
     run: async (interaction, locale) =>  {
-        await interaction.deferReply({ flags: MessageFlagsBitField.Flags.Ephemeral });
+        await interaction.deferReply({
+            flags: MessageFlagsBitField.Flags.Ephemeral
+        });
 
         const user = await db.query.users.findFirst({ where: eq(users.id, interaction.user.id) });
 

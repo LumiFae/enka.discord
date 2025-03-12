@@ -38,7 +38,10 @@ export default {
             case "language":
                 const language = interaction.options.getString("language", true);
                 await locale.setLanguage(interaction.user.id, language === "Auto" ? interaction.locale : language, language === "Auto");
-                await interaction.reply({ content: locale.get(l => language !== "Auto" ? l.config.language.set : l.config.language.set_auto), flags: MessageFlagsBitField.Flags.Ephemeral });
+                await interaction.reply({
+                    content: locale.get(l => language !== "Auto" ? l.config.language.set : l.config.language.set_auto),
+                    flags: MessageFlagsBitField.Flags.Ephemeral
+                });
                 break;
         }
     }

@@ -20,7 +20,9 @@ export default {
     contexts: [0, 1, 2],
     integration_types: [0, 1],
     run: async (interaction, locale) =>  {
-        await interaction.deferReply({ flags: MessageFlagsBitField.Flags.Ephemeral })
+        await interaction.deferReply({
+            flags: MessageFlagsBitField.Flags.Ephemeral
+        })
         const name = interaction.options.getString("name", true);
         const response = await API.profile(name);
         if (!response) {

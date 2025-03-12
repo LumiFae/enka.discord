@@ -8,7 +8,7 @@ export default {
         if (interaction.user.id !== interaction.message.interactionMetadata?.user.id) {
             return interaction.reply({
                 content: locale.get(l => l.incorrect_interaction),
-                flags: MessageFlagsBitField.Flags.Ephemeral,
+                flags: MessageFlagsBitField.Flags.Ephemeral
             });
         }
         await interaction.update({ content: locale.get(l => l.disconnect.cancelled), embeds: [], components: [] });

@@ -10,7 +10,7 @@ export default {
         if (interaction.user.id !== interaction.message.interactionMetadata?.user.id) {
             return interaction.reply({
                 content: locale.get(l => l.incorrect_interaction),
-                flags: MessageFlagsBitField.Flags.Ephemeral,
+                flags: MessageFlagsBitField.Flags.Ephemeral
             });
         }
         const originEmbed = interaction.message.embeds[0];

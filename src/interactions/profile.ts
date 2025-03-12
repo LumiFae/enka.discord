@@ -23,14 +23,20 @@ export default {
     run: async (interaction, locale) =>  {
         const user = interaction.options.getString("name") || await db.query.users.findFirst({ where: eq(users.id, interaction.user.id) }).then(user => user?.enka_name);
         if (!user) {
-            await interaction.reply({ content: locale.get(l => l.user_not_found), flags: MessageFlagsBitField.Flags.Ephemeral });
+            await interaction.reply({
+                content: locale.get(l => l.user_not_found),
+                flags: MessageFlagsBitField.Flags.Ephemeral
+            });
             return;
         }
 
         const apiProfile = await API.profile(user);
 
         if (!apiProfile) {
-            await interaction.reply({ content: locale.get(l => l.user_not_found), flags: MessageFlagsBitField.Flags.Ephemeral });
+            await interaction.reply({
+                content: locale.get(l => l.user_not_found),
+                flags: MessageFlagsBitField.Flags.Ephemeral
+            });
             return;
         }
 

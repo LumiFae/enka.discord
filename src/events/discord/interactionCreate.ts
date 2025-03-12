@@ -1,4 +1,4 @@
-import { Client, Interaction } from 'discord.js';
+import {Client, Interaction, MessageFlagsBitField} from 'discord.js';
 import { commands } from '../..';
 import {db} from "../../utils/db";
 import {eq} from "drizzle-orm";
@@ -39,7 +39,7 @@ export default async function (client: Client) {
                     await interaction.reply({
                         content:
                             'There was an error while executing this command!',
-                        ephemeral: true,
+                        flags: MessageFlagsBitField.Flags.Ephemeral
                     });
             }
         }

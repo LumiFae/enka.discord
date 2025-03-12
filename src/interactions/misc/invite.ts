@@ -8,6 +8,9 @@ export default {
     contexts: [0, 1, 2],
     integration_types: [0, 1],
     run: async (interaction) => {
-        await interaction.reply({ content: "https://discord.com/oauth2/authorize?client_id=1296584939583701044", flags: MessageFlagsBitField.Flags.Ephemeral })
+        await interaction.reply({
+            content: "https://discord.com/oauth2/authorize?client_id=1296584939583701044",
+            flags: MessageFlagsBitField.Flags.Ephemeral
+        })
     },
 } satisfies Command;

@@ -53,10 +53,12 @@ export default {
             return await interaction.reply({
                 embeds: [embed_],
                 components: [row],
-                flags: MessageFlagsBitField.Flags.Ephemeral,
+                flags: MessageFlagsBitField.Flags.Ephemeral
             });
         }
-        await interaction.reply({ embeds: [embed_],
-            flags: MessageFlagsBitField.Flags.Ephemeral, });
+        await interaction.reply({
+            embeds: [embed_],
+            flags: MessageFlagsBitField.Flags.Ephemeral
+        });
     },
 } satisfies Command;

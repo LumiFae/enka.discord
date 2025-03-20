@@ -213,10 +213,12 @@ export const minuteInMillis = 60000;
 function getEpochNanoseconds() {
     const epochMilliseconds = Date.now();
 
-    const hrTime = process.hrtime.bigint();
+    const hrTime = process.hrtime();
 
-    return BigInt(epochMilliseconds) * 1000000n +
-        (hrTime % 1000000n);
+    const millisToNanos = epochMilliseconds * 1000000;
+    const nanoRemainder = hrTime[1];
+
+    return (millisToNanos + nanoRemainder).toString();
 }
 
 export async function chatInputAnalyticsSend(commandName: string, success: boolean, error?: unknown) {

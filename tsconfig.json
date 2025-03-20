@@ -12,8 +12,6 @@
         "outDir": "./dist",
         "rootDir": "./src",
         "downlevelIteration": true,
-        "target": "es2020",
-        "moduleResolution": "bundler"
     },
     "exclude": ["node_modules", "dist", "drizzle.config.ts"]
 }

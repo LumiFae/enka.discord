@@ -210,6 +210,15 @@ export class ExpireMap<V> extends Map<string, V> {
 
 export const minuteInMillis = 60000;
 
+function getEpochNanoseconds() {
+    const epochMilliseconds = Date.now();
+
+    const hrTime = process.hrtime.bigint();
+
+    return BigInt(epochMilliseconds) * 1000000n +
+        (hrTime % 1000000n);
+}
+
 export async function chatInputAnalyticsSend(commandName: string, success: boolean, error?: unknown) {
     await axios.post(process.env.GRAFANA_URL as string, {
         "streams": [
@@ -220,7 +229,7 @@ export async function chatInputAnalyticsSend(commandName: string, success: boole
                     success
                 },
                 "values": [
-                    [ String(process.hrtime.bigint()), success ? 'Command Succeeded' : error ]
+                    [ getEpochNanoseconds().toString(), success ? 'Command Succeeded' : error ]
                 ]
             }
         ]
@@ -237,7 +246,7 @@ export async function customIdAnalyticsSend(customId: string, error: unknown) {
                     "success": false
                 },
                 "values": [
-                    [ String(process.hrtime.bigint()), error ]
+                    [ getEpochNanoseconds().toString(), error ]
                 ]
             }
         ]

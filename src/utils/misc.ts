@@ -209,3 +209,37 @@ export class ExpireMap<V> extends Map<string, V> {
 }
 
 export const minuteInMillis = 60000;
+
+export async function chatInputAnalyticsSend(commandName: string, success: boolean, error?: unknown) {
+    await axios.post(process.env.GRAFANA_URL as string, {
+        "streams": [
+            {
+                "stream": {
+                    "label": "enka_discord",
+                    "command_name": commandName,
+                    success
+                },
+                "values": [
+                    [ String(process.hrtime.bigint()), success ? 'Command Succeeded' : error ]
+                ]
+            }
+        ]
+    })
+}
+
+export async function customIdAnalyticsSend(customId: string, error: unknown) {
+    await axios.post(process.env.GRAFANA_URL as string, {
+        "streams": [
+            {
+                "stream": {
+                    "label": "enka_discord",
+                    "interaction": customId,
+                    "success": false
+                },
+                "values": [
+                    [ String(process.hrtime.bigint()), error ]
+                ]
+            }
+        ]
+    })
+}

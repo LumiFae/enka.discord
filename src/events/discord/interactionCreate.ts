@@ -4,6 +4,7 @@ import {db} from "../../utils/db";
 import {eq} from "drizzle-orm";
 import {users} from "../../schema";
 import Locales, {getFromInteraction} from "../../utils/locales";
+import {chatInputAnalyticsSend, customIdAnalyticsSend} from "../../utils/misc";
 
 export default async function (client: Client) {
     client.on('interactionCreate', async (interaction) => {
@@ -26,6 +27,9 @@ export default async function (client: Client) {
                 Locales.get((await db.query.users.findFirst({where: eq(users.id, interaction.user.id)}))?.locale ?? getFromInteraction(interaction))
             );
             console.log(`Interaction ${finder} executed successfully!`);
+            if(command.role === "CHAT_INPUT") {
+                chatInputAnalyticsSend(command.name, true).then(() => {})
+            }
         } catch (error) {
             console.log(`Error while executing interaction ${finder}:`);
             console.error(error);
@@ -41,6 +45,11 @@ export default async function (client: Client) {
                             'There was an error while executing this command!',
                         flags: MessageFlagsBitField.Flags.Ephemeral
                     });
+            }
+            if('custom_id' in command) {
+                customIdAnalyticsSend(command.custom_id, error).then(() => {})
+            } else {
+                chatInputAnalyticsSend(command.name, true).then(() => {})
             }
         }
     });

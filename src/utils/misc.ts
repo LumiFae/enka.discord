@@ -238,7 +238,7 @@ export async function chatInputAnalyticsSend(commandName: string, success: boole
     })
 }
 
-export async function customIdAnalyticsSend(customId: string, error: NonNullable<unknown>) {
+export async function customIdAnalyticsSend(customId: string, error: unknown) {
     const data = {
         "streams": [
             {
@@ -248,7 +248,7 @@ export async function customIdAnalyticsSend(customId: string, error: NonNullable
                     "success": false
                 },
                 "values": [
-                    [ getEpochNanoseconds().toString(), typeof error === 'object' ? JSON.stringify(error) : error.toString() ]
+                    [ getEpochNanoseconds().toString(), typeof error === 'object' ? JSON.stringify(error) : error!.toString() ]
                 ]
             }
         ]

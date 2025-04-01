@@ -253,10 +253,10 @@ export async function customIdAnalyticsSend(customId: string, error: unknown) {
             }
         ]
     }
-    console.log(data)
+    console.log(JSON.stringify(data))
     await axios.post(process.env.GRAFANA_URL as string, data, {
         headers: {
             "Content-Type": "application/json"
         }
-    }).catch(error => console.log(error.data))
+    })
 }

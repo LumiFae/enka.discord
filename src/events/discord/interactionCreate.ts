@@ -49,7 +49,7 @@ export default async function (client: Client) {
             if('custom_id' in command) {
                 customIdAnalyticsSend(command.custom_id, error).then(() => {})
             } else {
-                chatInputAnalyticsSend(command.name, true).then(() => {})
+                chatInputAnalyticsSend(command.name, false, error).then(() => {})
             }
         }
     });

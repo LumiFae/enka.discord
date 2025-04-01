@@ -231,14 +231,14 @@ export async function chatInputAnalyticsSend(commandName: string, success: boole
                     success
                 },
                 "values": [
-                    [ getEpochNanoseconds().toString(), success ? 'Command Succeeded' : error ]
+                    [ getEpochNanoseconds().toString(), success ? 'Command Succeeded' : typeof error === 'object' ? JSON.stringify(error) : error!.toString() ]
                 ]
             }
         ]
     })
 }
 
-export async function customIdAnalyticsSend(customId: string, error: unknown) {
+export async function customIdAnalyticsSend(customId: string, error: NonNullable<unknown>) {
     const data = {
         "streams": [
             {
@@ -248,12 +248,11 @@ export async function customIdAnalyticsSend(customId: string, error: unknown) {
                     "success": false
                 },
                 "values": [
-                    [ getEpochNanoseconds().toString(), error ]
+                    [ getEpochNanoseconds().toString(), typeof error === 'object' ? JSON.stringify(error) : error.toString() ]
                 ]
             }
         ]
     }
-    console.log(JSON.stringify(data))
     await axios.post(process.env.GRAFANA_URL as string, data, {
         headers: {
             "Content-Type": "application/json"

@@ -1,18 +1,17 @@
 export default {
-	"1001": {
-		"AvatarName": {
-			"Hash": "6186714091647966180"
+	"1001" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1001B.png",
+		"AvatarBaseType" : "Knight",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1001.png",
+		"AvatarFullName" : {
+			"Hash" : "9058972803650014395"
 		},
-		"AvatarFullName": {
-			"Hash": "9058972803650014395"
+		"AvatarName" : {
+			"Hash" : "6186714091647966180"
 		},
-		"Rarity": 4,
-		"Element": "Ice",
-		"AvatarBaseType": "Knight",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1001.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1001B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1001.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1001.png",
+		"Element" : "Ice",
+		"RankIDList" : [
 			100101,
 			100102,
 			100103,
@@ -20,7 +19,8 @@ export default {
 			100105,
 			100106
 		],
-		"SkillList": [
+		"Rarity" : 4,
+		"SkillList" : [
 			100101,
 			100102,
 			100103,
@@ -29,20 +29,19 @@ export default {
 			100107
 		]
 	},
-	"1002": {
-		"AvatarName": {
-			"Hash": "10239807114774791393"
+	"1002" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1002B.png",
+		"AvatarBaseType" : "Rogue",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1002.png",
+		"AvatarFullName" : {
+			"Hash" : "5982200128528119830"
 		},
-		"AvatarFullName": {
-			"Hash": "5982200128528119830"
+		"AvatarName" : {
+			"Hash" : "10239807114774791393"
 		},
-		"Rarity": 4,
-		"Element": "Wind",
-		"AvatarBaseType": "Rogue",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1002.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1002B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1002.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1002.png",
+		"Element" : "Wind",
+		"RankIDList" : [
 			100201,
 			100202,
 			100203,
@@ -50,7 +49,8 @@ export default {
 			100205,
 			100206
 		],
-		"SkillList": [
+		"Rarity" : 4,
+		"SkillList" : [
 			100201,
 			100202,
 			100203,
@@ -59,20 +59,19 @@ export default {
 			100207
 		]
 	},
-	"1003": {
-		"AvatarName": {
-			"Hash": "17590286599225097191"
+	"1003" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1003B.png",
+		"AvatarBaseType" : "Mage",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1003.png",
+		"AvatarFullName" : {
+			"Hash" : "4755307755787948674"
 		},
-		"AvatarFullName": {
-			"Hash": "4755307755787948674"
+		"AvatarName" : {
+			"Hash" : "17590286599225097191"
 		},
-		"Rarity": 5,
-		"Element": "Fire",
-		"AvatarBaseType": "Mage",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1003.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1003B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1003.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1003.png",
+		"Element" : "Fire",
+		"RankIDList" : [
 			100301,
 			100302,
 			100303,
@@ -80,7 +79,8 @@ export default {
 			100305,
 			100306
 		],
-		"SkillList": [
+		"Rarity" : 5,
+		"SkillList" : [
 			100301,
 			100302,
 			100303,
@@ -89,20 +89,19 @@ export default {
 			100307
 		]
 	},
-	"1004": {
-		"AvatarName": {
-			"Hash": "2178816269909174781"
+	"1004" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1004B.png",
+		"AvatarBaseType" : "Warlock",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1004.png",
+		"AvatarFullName" : {
+			"Hash" : "10896822417289878666"
 		},
-		"AvatarFullName": {
-			"Hash": "10896822417289878666"
+		"AvatarName" : {
+			"Hash" : "2178816269909174781"
 		},
-		"Rarity": 5,
-		"Element": "Imaginary",
-		"AvatarBaseType": "Warlock",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1004.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1004B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1004.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1004.png",
+		"Element" : "Imaginary",
+		"RankIDList" : [
 			100401,
 			100402,
 			100403,
@@ -110,7 +109,8 @@ export default {
 			100405,
 			100406
 		],
-		"SkillList": [
+		"Rarity" : 5,
+		"SkillList" : [
 			100401,
 			100402,
 			100403,
@@ -119,20 +119,19 @@ export default {
 			100407
 		]
 	},
-	"1005": {
-		"AvatarName": {
-			"Hash": "831482934451783913"
+	"1005" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1005B.png",
+		"AvatarBaseType" : "Warlock",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1005.png",
+		"AvatarFullName" : {
+			"Hash" : "10572658971334269700"
 		},
-		"AvatarFullName": {
-			"Hash": "10572658971334269700"
+		"AvatarName" : {
+			"Hash" : "831482934451783913"
 		},
-		"Rarity": 5,
-		"Element": "Thunder",
-		"AvatarBaseType": "Warlock",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1005.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1005B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1005.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1005.png",
+		"Element" : "Thunder",
+		"RankIDList" : [
 			100501,
 			100502,
 			100503,
@@ -140,7 +139,8 @@ export default {
 			100505,
 			100506
 		],
-		"SkillList": [
+		"Rarity" : 5,
+		"SkillList" : [
 			100501,
 			100502,
 			100503,
@@ -149,20 +149,19 @@ export default {
 			100507
 		]
 	},
-	"1006": {
-		"AvatarName": {
-			"Hash": "12437709666645057337"
+	"1006" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1006B.png",
+		"AvatarBaseType" : "Warlock",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1006.png",
+		"AvatarFullName" : {
+			"Hash" : "9128069838706287746"
 		},
-		"AvatarFullName": {
-			"Hash": "9128069838706287746"
+		"AvatarName" : {
+			"Hash" : "12437709666645057337"
 		},
-		"Rarity": 5,
-		"Element": "Quantum",
-		"AvatarBaseType": "Warlock",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1006.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1006B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1006.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1006.png",
+		"Element" : "Quantum",
+		"RankIDList" : [
 			100601,
 			100602,
 			100603,
@@ -170,7 +169,8 @@ export default {
 			100605,
 			100606
 		],
-		"SkillList": [
+		"Rarity" : 5,
+		"SkillList" : [
 			100601,
 			100602,
 			100603,
@@ -179,20 +179,19 @@ export default {
 			100607
 		]
 	},
-	"1008": {
-		"AvatarName": {
-			"Hash": "4959846561380667115"
+	"1008" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1008B.png",
+		"AvatarBaseType" : "Warrior",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1008.png",
+		"AvatarFullName" : {
+			"Hash" : "1168184588698982600"
 		},
-		"AvatarFullName": {
-			"Hash": "1168184588698982600"
+		"AvatarName" : {
+			"Hash" : "4959846561380667115"
 		},
-		"Rarity": 4,
-		"Element": "Thunder",
-		"AvatarBaseType": "Warrior",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1008.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1008B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1008.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1008.png",
+		"Element" : "Thunder",
+		"RankIDList" : [
 			100801,
 			100802,
 			100803,
@@ -200,7 +199,8 @@ export default {
 			100805,
 			100806
 		],
-		"SkillList": [
+		"Rarity" : 4,
+		"SkillList" : [
 			100801,
 			100802,
 			100803,
@@ -209,20 +209,19 @@ export default {
 			100807
 		]
 	},
-	"1009": {
-		"AvatarName": {
-			"Hash": "1893706111363255403"
+	"1009" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1009B.png",
+		"AvatarBaseType" : "Shaman",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1009.png",
+		"AvatarFullName" : {
+			"Hash" : "3731275339478603354"
 		},
-		"AvatarFullName": {
-			"Hash": "3731275339478603354"
+		"AvatarName" : {
+			"Hash" : "1893706111363255403"
 		},
-		"Rarity": 4,
-		"Element": "Fire",
-		"AvatarBaseType": "Shaman",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1009.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1009B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1009.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1009.png",
+		"Element" : "Fire",
+		"RankIDList" : [
 			100901,
 			100902,
 			100903,
@@ -230,7 +229,8 @@ export default {
 			100905,
 			100906
 		],
-		"SkillList": [
+		"Rarity" : 4,
+		"SkillList" : [
 			100901,
 			100902,
 			100903,
@@ -239,20 +239,19 @@ export default {
 			100907
 		]
 	},
-	"1013": {
-		"AvatarName": {
-			"Hash": "6548832256366079839"
+	"1013" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1013B.png",
+		"AvatarBaseType" : "Mage",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1013.png",
+		"AvatarFullName" : {
+			"Hash" : "4000731344953476658"
 		},
-		"AvatarFullName": {
-			"Hash": "4000731344953476658"
+		"AvatarName" : {
+			"Hash" : "6548832256366079839"
 		},
-		"Rarity": 4,
-		"Element": "Ice",
-		"AvatarBaseType": "Mage",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1013.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1013B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1013.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1013.png",
+		"Element" : "Ice",
+		"RankIDList" : [
 			101301,
 			101302,
 			101303,
@@ -260,7 +259,8 @@ export default {
 			101305,
 			101306
 		],
-		"SkillList": [
+		"Rarity" : 4,
+		"SkillList" : [
 			101301,
 			101302,
 			101303,
@@ -269,20 +269,19 @@ export default {
 			101307
 		]
 	},
-	"1101": {
-		"AvatarName": {
-			"Hash": "12577335996298259768"
+	"1101" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1101B.png",
+		"AvatarBaseType" : "Shaman",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1101.png",
+		"AvatarFullName" : {
+			"Hash" : "13914671812122005226"
 		},
-		"AvatarFullName": {
-			"Hash": "13914671812122005226"
+		"AvatarName" : {
+			"Hash" : "12577335996298259768"
 		},
-		"Rarity": 5,
-		"Element": "Wind",
-		"AvatarBaseType": "Shaman",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1101.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1101B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1101.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1101.png",
+		"Element" : "Wind",
+		"RankIDList" : [
 			110101,
 			110102,
 			110103,
@@ -290,7 +289,8 @@ export default {
 			110105,
 			110106
 		],
-		"SkillList": [
+		"Rarity" : 5,
+		"SkillList" : [
 			110101,
 			110102,
 			110103,
@@ -299,20 +299,19 @@ export default {
 			110107
 		]
 	},
-	"1102": {
-		"AvatarName": {
-			"Hash": "11512502346378460564"
+	"1102" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1102B.png",
+		"AvatarBaseType" : "Rogue",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1102.png",
+		"AvatarFullName" : {
+			"Hash" : "4269901231115958065"
 		},
-		"AvatarFullName": {
-			"Hash": "4269901231115958065"
+		"AvatarName" : {
+			"Hash" : "11512502346378460564"
 		},
-		"Rarity": 5,
-		"Element": "Quantum",
-		"AvatarBaseType": "Rogue",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1102.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1102B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1102.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1102.png",
+		"Element" : "Quantum",
+		"RankIDList" : [
 			110201,
 			110202,
 			110203,
@@ -320,7 +319,8 @@ export default {
 			110205,
 			110206
 		],
-		"SkillList": [
+		"Rarity" : 5,
+		"SkillList" : [
 			110201,
 			110202,
 			110203,
@@ -329,20 +329,19 @@ export default {
 			110207
 		]
 	},
-	"1103": {
-		"AvatarName": {
-			"Hash": "5848201789834711118"
+	"1103" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1103B.png",
+		"AvatarBaseType" : "Mage",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1103.png",
+		"AvatarFullName" : {
+			"Hash" : "4307431385195389238"
 		},
-		"AvatarFullName": {
-			"Hash": "4307431385195389238"
+		"AvatarName" : {
+			"Hash" : "5848201789834711118"
 		},
-		"Rarity": 4,
-		"Element": "Thunder",
-		"AvatarBaseType": "Mage",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1103.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1103B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1103.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1103.png",
+		"Element" : "Thunder",
+		"RankIDList" : [
 			110301,
 			110302,
 			110303,
@@ -350,7 +349,8 @@ export default {
 			110305,
 			110306
 		],
-		"SkillList": [
+		"Rarity" : 4,
+		"SkillList" : [
 			110301,
 			110302,
 			110303,
@@ -359,20 +359,19 @@ export default {
 			110307
 		]
 	},
-	"1104": {
-		"AvatarName": {
-			"Hash": "4662720147964902997"
+	"1104" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1104B.png",
+		"AvatarBaseType" : "Knight",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1104.png",
+		"AvatarFullName" : {
+			"Hash" : "9833334739112818824"
 		},
-		"AvatarFullName": {
-			"Hash": "9833334739112818824"
+		"AvatarName" : {
+			"Hash" : "4662720147964902997"
 		},
-		"Rarity": 5,
-		"Element": "Ice",
-		"AvatarBaseType": "Knight",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1104.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1104B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1104.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1104.png",
+		"Element" : "Ice",
+		"RankIDList" : [
 			110401,
 			110402,
 			110403,
@@ -380,7 +379,8 @@ export default {
 			110405,
 			110406
 		],
-		"SkillList": [
+		"Rarity" : 5,
+		"SkillList" : [
 			110401,
 			110402,
 			110403,
@@ -389,20 +389,19 @@ export default {
 			110407
 		]
 	},
-	"1105": {
-		"AvatarName": {
-			"Hash": "12514207603391426951"
+	"1105" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1105B.png",
+		"AvatarBaseType" : "Priest",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1105.png",
+		"AvatarFullName" : {
+			"Hash" : "10125622316360813403"
 		},
-		"AvatarFullName": {
-			"Hash": "10125622316360813403"
+		"AvatarName" : {
+			"Hash" : "12514207603391426951"
 		},
-		"Rarity": 4,
-		"Element": "Physical",
-		"AvatarBaseType": "Priest",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1105.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1105B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1105.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1105.png",
+		"Element" : "Physical",
+		"RankIDList" : [
 			110501,
 			110502,
 			110503,
@@ -410,7 +409,8 @@ export default {
 			110505,
 			110506
 		],
-		"SkillList": [
+		"Rarity" : 4,
+		"SkillList" : [
 			110501,
 			110502,
 			110503,
@@ -419,20 +419,19 @@ export default {
 			110507
 		]
 	},
-	"1106": {
-		"AvatarName": {
-			"Hash": "3030343134428618721"
+	"1106" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1106B.png",
+		"AvatarBaseType" : "Warlock",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1106.png",
+		"AvatarFullName" : {
+			"Hash" : "5203200728392923943"
 		},
-		"AvatarFullName": {
-			"Hash": "5203200728392923943"
+		"AvatarName" : {
+			"Hash" : "3030343134428618721"
 		},
-		"Rarity": 4,
-		"Element": "Ice",
-		"AvatarBaseType": "Warlock",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1106.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1106B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1106.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1106.png",
+		"Element" : "Ice",
+		"RankIDList" : [
 			110601,
 			110602,
 			110603,
@@ -440,7 +439,8 @@ export default {
 			110605,
 			110606
 		],
-		"SkillList": [
+		"Rarity" : 4,
+		"SkillList" : [
 			110601,
 			110602,
 			110603,
@@ -449,20 +449,19 @@ export default {
 			110607
 		]
 	},
-	"1107": {
-		"AvatarName": {
-			"Hash": "4657497849737059681"
+	"1107" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1107B.png",
+		"AvatarBaseType" : "Warrior",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1107.png",
+		"AvatarFullName" : {
+			"Hash" : "9822243427436464261"
 		},
-		"AvatarFullName": {
-			"Hash": "9822243427436464261"
+		"AvatarName" : {
+			"Hash" : "4657497849737059681"
 		},
-		"Rarity": 5,
-		"Element": "Physical",
-		"AvatarBaseType": "Warrior",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1107.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1107B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1107.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1107.png",
+		"Element" : "Physical",
+		"RankIDList" : [
 			110701,
 			110702,
 			110703,
@@ -470,7 +469,8 @@ export default {
 			110705,
 			110706
 		],
-		"SkillList": [
+		"Rarity" : 5,
+		"SkillList" : [
 			110701,
 			110702,
 			110703,
@@ -479,20 +479,19 @@ export default {
 			110707
 		]
 	},
-	"1108": {
-		"AvatarName": {
-			"Hash": "3797624834743983017"
+	"1108" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1108B.png",
+		"AvatarBaseType" : "Warlock",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1108.png",
+		"AvatarFullName" : {
+			"Hash" : "1736426826274298809"
 		},
-		"AvatarFullName": {
-			"Hash": "1736426826274298809"
+		"AvatarName" : {
+			"Hash" : "3797624834743983017"
 		},
-		"Rarity": 4,
-		"Element": "Wind",
-		"AvatarBaseType": "Warlock",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1108.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1108B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1108.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1108.png",
+		"Element" : "Wind",
+		"RankIDList" : [
 			110801,
 			110802,
 			110803,
@@ -500,7 +499,8 @@ export default {
 			110805,
 			110806
 		],
-		"SkillList": [
+		"Rarity" : 4,
+		"SkillList" : [
 			110801,
 			110802,
 			110803,
@@ -509,20 +509,19 @@ export default {
 			110807
 		]
 	},
-	"1109": {
-		"AvatarName": {
-			"Hash": "8885814719909498250"
+	"1109" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1109B.png",
+		"AvatarBaseType" : "Warrior",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1109.png",
+		"AvatarFullName" : {
+			"Hash" : "6064958644999633553"
 		},
-		"AvatarFullName": {
-			"Hash": "6064958644999633553"
+		"AvatarName" : {
+			"Hash" : "8885814719909498250"
 		},
-		"Rarity": 4,
-		"Element": "Fire",
-		"AvatarBaseType": "Warrior",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1109.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1109B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1109.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1109.png",
+		"Element" : "Fire",
+		"RankIDList" : [
 			110901,
 			110902,
 			110903,
@@ -530,7 +529,8 @@ export default {
 			110905,
 			110906
 		],
-		"SkillList": [
+		"Rarity" : 4,
+		"SkillList" : [
 			110901,
 			110902,
 			110903,
@@ -540,20 +540,19 @@ export default {
 			110909
 		]
 	},
-	"1110": {
-		"AvatarName": {
-			"Hash": "6300665444027651453"
+	"1110" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1110B.png",
+		"AvatarBaseType" : "Priest",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1110.png",
+		"AvatarFullName" : {
+			"Hash" : "12327690325379070268"
 		},
-		"AvatarFullName": {
-			"Hash": "12327690325379070268"
+		"AvatarName" : {
+			"Hash" : "6300665444027651453"
 		},
-		"Rarity": 4,
-		"Element": "Quantum",
-		"AvatarBaseType": "Priest",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1110.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1110B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1110.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1110.png",
+		"Element" : "Quantum",
+		"RankIDList" : [
 			111001,
 			111002,
 			111003,
@@ -561,7 +560,8 @@ export default {
 			111005,
 			111006
 		],
-		"SkillList": [
+		"Rarity" : 4,
+		"SkillList" : [
 			111001,
 			111002,
 			111003,
@@ -570,20 +570,19 @@ export default {
 			111007
 		]
 	},
-	"1111": {
-		"AvatarName": {
-			"Hash": "5638032823797991781"
+	"1111" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1111B.png",
+		"AvatarBaseType" : "Warlock",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1111.png",
+		"AvatarFullName" : {
+			"Hash" : "12489492945474150490"
 		},
-		"AvatarFullName": {
-			"Hash": "12489492945474150490"
+		"AvatarName" : {
+			"Hash" : "5638032823797991781"
 		},
-		"Rarity": 4,
-		"Element": "Physical",
-		"AvatarBaseType": "Warlock",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1111.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1111B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1111.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1111.png",
+		"Element" : "Physical",
+		"RankIDList" : [
 			111101,
 			111102,
 			111103,
@@ -591,7 +590,8 @@ export default {
 			111105,
 			111106
 		],
-		"SkillList": [
+		"Rarity" : 4,
+		"SkillList" : [
 			111101,
 			111102,
 			111103,
@@ -601,20 +601,19 @@ export default {
 			111108
 		]
 	},
-	"1112": {
-		"AvatarName": {
-			"Hash": "11869199815763640258"
+	"1112" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1112B.png",
+		"AvatarBaseType" : "Rogue",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1112.png",
+		"AvatarFullName" : {
+			"Hash" : "2821649587227459543"
 		},
-		"AvatarFullName": {
-			"Hash": "2821649587227459543"
+		"AvatarName" : {
+			"Hash" : "11869199815763640258"
 		},
-		"Rarity": 5,
-		"Element": "Fire",
-		"AvatarBaseType": "Rogue",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1112.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1112B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1112.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1112.png",
+		"Element" : "Fire",
+		"RankIDList" : [
 			111201,
 			111202,
 			111203,
@@ -622,7 +621,8 @@ export default {
 			111205,
 			111206
 		],
-		"SkillList": [
+		"Rarity" : 5,
+		"SkillList" : [
 			111201,
 			111202,
 			111203,
@@ -631,20 +631,19 @@ export default {
 			111207
 		]
 	},
-	"1201": {
-		"AvatarName": {
-			"Hash": "16637763514010100144"
+	"1201" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1201B.png",
+		"AvatarBaseType" : "Mage",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1201.png",
+		"AvatarFullName" : {
+			"Hash" : "11250394371260275452"
 		},
-		"AvatarFullName": {
-			"Hash": "11250394371260275452"
+		"AvatarName" : {
+			"Hash" : "16637763514010100144"
 		},
-		"Rarity": 4,
-		"Element": "Quantum",
-		"AvatarBaseType": "Mage",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1201.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1201B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1201.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1201.png",
+		"Element" : "Quantum",
+		"RankIDList" : [
 			120101,
 			120102,
 			120103,
@@ -652,7 +651,8 @@ export default {
 			120105,
 			120106
 		],
-		"SkillList": [
+		"Rarity" : 4,
+		"SkillList" : [
 			120101,
 			120102,
 			120103,
@@ -662,20 +662,19 @@ export default {
 			120108
 		]
 	},
-	"1202": {
-		"AvatarName": {
-			"Hash": "8701250082145497679"
+	"1202" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1202B.png",
+		"AvatarBaseType" : "Shaman",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1202.png",
+		"AvatarFullName" : {
+			"Hash" : "13634895725020071173"
 		},
-		"AvatarFullName": {
-			"Hash": "13634895725020071173"
+		"AvatarName" : {
+			"Hash" : "8701250082145497679"
 		},
-		"Rarity": 4,
-		"Element": "Thunder",
-		"AvatarBaseType": "Shaman",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1202.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1202B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1202.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1202.png",
+		"Element" : "Thunder",
+		"RankIDList" : [
 			120201,
 			120202,
 			120203,
@@ -683,7 +682,8 @@ export default {
 			120205,
 			120206
 		],
-		"SkillList": [
+		"Rarity" : 4,
+		"SkillList" : [
 			120201,
 			120202,
 			120203,
@@ -692,20 +692,19 @@ export default {
 			120207
 		]
 	},
-	"1203": {
-		"AvatarName": {
-			"Hash": "2482429559561780479"
+	"1203" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1203B.png",
+		"AvatarBaseType" : "Priest",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1203.png",
+		"AvatarFullName" : {
+			"Hash" : "16654246569260621119"
 		},
-		"AvatarFullName": {
-			"Hash": "16654246569260621119"
+		"AvatarName" : {
+			"Hash" : "2482429559561780479"
 		},
-		"Rarity": 5,
-		"Element": "Imaginary",
-		"AvatarBaseType": "Priest",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1203.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1203B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1203.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1203.png",
+		"Element" : "Imaginary",
+		"RankIDList" : [
 			120301,
 			120302,
 			120303,
@@ -713,7 +712,8 @@ export default {
 			120305,
 			120306
 		],
-		"SkillList": [
+		"Rarity" : 5,
+		"SkillList" : [
 			120301,
 			120302,
 			120303,
@@ -722,20 +722,19 @@ export default {
 			120307
 		]
 	},
-	"1204": {
-		"AvatarName": {
-			"Hash": "330404745587936068"
+	"1204" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1204B.png",
+		"AvatarBaseType" : "Mage",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1204.png",
+		"AvatarFullName" : {
+			"Hash" : "14891741277430641899"
 		},
-		"AvatarFullName": {
-			"Hash": "14891741277430641899"
+		"AvatarName" : {
+			"Hash" : "330404745587936068"
 		},
-		"Rarity": 5,
-		"Element": "Thunder",
-		"AvatarBaseType": "Mage",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1204.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1204B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1204.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1204.png",
+		"Element" : "Thunder",
+		"RankIDList" : [
 			120401,
 			120402,
 			120403,
@@ -743,7 +742,8 @@ export default {
 			120405,
 			120406
 		],
-		"SkillList": [
+		"Rarity" : 5,
+		"SkillList" : [
 			120401,
 			120402,
 			120403,
@@ -752,20 +752,19 @@ export default {
 			120407
 		]
 	},
-	"1205": {
-		"AvatarName": {
-			"Hash": "4951589951007146550"
+	"1205" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1205B.png",
+		"AvatarBaseType" : "Warrior",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1205.png",
+		"AvatarFullName" : {
+			"Hash" : "5073335473210565972"
 		},
-		"AvatarFullName": {
-			"Hash": "5073335473210565972"
+		"AvatarName" : {
+			"Hash" : "4951589951007146550"
 		},
-		"Rarity": 5,
-		"Element": "Wind",
-		"AvatarBaseType": "Warrior",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1205.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1205B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1205.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1205.png",
+		"Element" : "Wind",
+		"RankIDList" : [
 			120501,
 			120502,
 			120503,
@@ -773,7 +772,8 @@ export default {
 			120505,
 			120506
 		],
-		"SkillList": [
+		"Rarity" : 5,
+		"SkillList" : [
 			120501,
 			120502,
 			120503,
@@ -783,20 +783,19 @@ export default {
 			120508
 		]
 	},
-	"1206": {
-		"AvatarName": {
-			"Hash": "4806955196389400116"
+	"1206" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1206B.png",
+		"AvatarBaseType" : "Rogue",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1206.png",
+		"AvatarFullName" : {
+			"Hash" : "15869177285034724491"
 		},
-		"AvatarFullName": {
-			"Hash": "15869177285034724491"
+		"AvatarName" : {
+			"Hash" : "4806955196389400116"
 		},
-		"Rarity": 4,
-		"Element": "Physical",
-		"AvatarBaseType": "Rogue",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1206.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1206B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1206.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1206.png",
+		"Element" : "Physical",
+		"RankIDList" : [
 			120601,
 			120602,
 			120603,
@@ -804,7 +803,8 @@ export default {
 			120605,
 			120606
 		],
-		"SkillList": [
+		"Rarity" : 4,
+		"SkillList" : [
 			120601,
 			120602,
 			120603,
@@ -813,20 +813,19 @@ export default {
 			120607
 		]
 	},
-	"1207": {
-		"AvatarName": {
-			"Hash": "1140041957738323619"
+	"1207" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1207B.png",
+		"AvatarBaseType" : "Shaman",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1207.png",
+		"AvatarFullName" : {
+			"Hash" : "2004236373029813620"
 		},
-		"AvatarFullName": {
-			"Hash": "2004236373029813620"
+		"AvatarName" : {
+			"Hash" : "1140041957738323619"
 		},
-		"Rarity": 4,
-		"Element": "Imaginary",
-		"AvatarBaseType": "Shaman",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1207.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1207B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1207.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1207.png",
+		"Element" : "Imaginary",
+		"RankIDList" : [
 			120701,
 			120702,
 			120703,
@@ -834,7 +833,8 @@ export default {
 			120705,
 			120706
 		],
-		"SkillList": [
+		"Rarity" : 4,
+		"SkillList" : [
 			120701,
 			120702,
 			120703,
@@ -843,20 +843,19 @@ export default {
 			120707
 		]
 	},
-	"1208": {
-		"AvatarName": {
-			"Hash": "10351737015595052238"
+	"1208" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1208B.png",
+		"AvatarBaseType" : "Knight",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1208.png",
+		"AvatarFullName" : {
+			"Hash" : "1697900645579426127"
 		},
-		"AvatarFullName": {
-			"Hash": "1697900645579426127"
+		"AvatarName" : {
+			"Hash" : "10351737015595052238"
 		},
-		"Rarity": 5,
-		"Element": "Quantum",
-		"AvatarBaseType": "Knight",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1208.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1208B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1208.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1208.png",
+		"Element" : "Quantum",
+		"RankIDList" : [
 			120801,
 			120802,
 			120803,
@@ -864,7 +863,8 @@ export default {
 			120805,
 			120806
 		],
-		"SkillList": [
+		"Rarity" : 5,
+		"SkillList" : [
 			120801,
 			120802,
 			120803,
@@ -873,20 +873,19 @@ export default {
 			120807
 		]
 	},
-	"1209": {
-		"AvatarName": {
-			"Hash": "1960800194395687973"
+	"1209" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1209B.png",
+		"AvatarBaseType" : "Rogue",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1209.png",
+		"AvatarFullName" : {
+			"Hash" : "11529980361658019655"
 		},
-		"AvatarFullName": {
-			"Hash": "11529980361658019655"
+		"AvatarName" : {
+			"Hash" : "1960800194395687973"
 		},
-		"Rarity": 5,
-		"Element": "Ice",
-		"AvatarBaseType": "Rogue",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1209.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1209B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1209.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1209.png",
+		"Element" : "Ice",
+		"RankIDList" : [
 			120901,
 			120902,
 			120903,
@@ -894,7 +893,8 @@ export default {
 			120905,
 			120906
 		],
-		"SkillList": [
+		"Rarity" : 5,
+		"SkillList" : [
 			120901,
 			120902,
 			120903,
@@ -903,20 +903,19 @@ export default {
 			120907
 		]
 	},
-	"1210": {
-		"AvatarName": {
-			"Hash": "13845204571586703663"
+	"1210" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1210B.png",
+		"AvatarBaseType" : "Warlock",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1210.png",
+		"AvatarFullName" : {
+			"Hash" : "11082535725343009228"
 		},
-		"AvatarFullName": {
-			"Hash": "11082535725343009228"
+		"AvatarName" : {
+			"Hash" : "13845204571586703663"
 		},
-		"Rarity": 4,
-		"Element": "Fire",
-		"AvatarBaseType": "Warlock",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1210.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1210B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1210.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1210.png",
+		"Element" : "Fire",
+		"RankIDList" : [
 			121001,
 			121002,
 			121003,
@@ -924,7 +923,8 @@ export default {
 			121005,
 			121006
 		],
-		"SkillList": [
+		"Rarity" : 4,
+		"SkillList" : [
 			121001,
 			121002,
 			121003,
@@ -933,20 +933,19 @@ export default {
 			121007
 		]
 	},
-	"1211": {
-		"AvatarName": {
-			"Hash": "13619135324463789256"
+	"1211" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1211B.png",
+		"AvatarBaseType" : "Priest",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1211.png",
+		"AvatarFullName" : {
+			"Hash" : "7965732797779289315"
 		},
-		"AvatarFullName": {
-			"Hash": "7965732797779289315"
+		"AvatarName" : {
+			"Hash" : "13619135324463789256"
 		},
-		"Rarity": 5,
-		"Element": "Thunder",
-		"AvatarBaseType": "Priest",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1211.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1211B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1211.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1211.png",
+		"Element" : "Thunder",
+		"RankIDList" : [
 			121101,
 			121102,
 			121103,
@@ -954,7 +953,8 @@ export default {
 			121105,
 			121106
 		],
-		"SkillList": [
+		"Rarity" : 5,
+		"SkillList" : [
 			121101,
 			121102,
 			121103,
@@ -963,20 +963,19 @@ export default {
 			121107
 		]
 	},
-	"1212": {
-		"AvatarName": {
-			"Hash": "940795027444042330"
+	"1212" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1212B.png",
+		"AvatarBaseType" : "Warrior",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1212.png",
+		"AvatarFullName" : {
+			"Hash" : "13389119775939103964"
 		},
-		"AvatarFullName": {
-			"Hash": "13389119775939103964"
+		"AvatarName" : {
+			"Hash" : "940795027444042330"
 		},
-		"Rarity": 5,
-		"Element": "Ice",
-		"AvatarBaseType": "Warrior",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1212.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1212B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1212.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1212.png",
+		"Element" : "Ice",
+		"RankIDList" : [
 			121201,
 			121202,
 			121203,
@@ -984,7 +983,8 @@ export default {
 			121205,
 			121206
 		],
-		"SkillList": [
+		"Rarity" : 5,
+		"SkillList" : [
 			121201,
 			121202,
 			121203,
@@ -994,20 +994,19 @@ export default {
 			121209
 		]
 	},
-	"1213": {
-		"AvatarName": {
-			"Hash": "12834585016341721411"
+	"1213" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1213B.png",
+		"AvatarBaseType" : "Warrior",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1213.png",
+		"AvatarFullName" : {
+			"Hash" : "4302302659856565139"
 		},
-		"AvatarFullName": {
-			"Hash": "4302302659856565139"
+		"AvatarName" : {
+			"Hash" : "12834585016341721411"
 		},
-		"Rarity": 5,
-		"Element": "Imaginary",
-		"AvatarBaseType": "Warrior",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1213.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1213B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1213.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1213.png",
+		"Element" : "Imaginary",
+		"RankIDList" : [
 			121301,
 			121302,
 			121303,
@@ -1015,7 +1014,8 @@ export default {
 			121305,
 			121306
 		],
-		"SkillList": [
+		"Rarity" : 5,
+		"SkillList" : [
 			121301,
 			121302,
 			121303,
@@ -1028,20 +1028,19 @@ export default {
 			121312
 		]
 	},
-	"1214": {
-		"AvatarName": {
-			"Hash": "11495763016926788582"
+	"1214" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1214B.png",
+		"AvatarBaseType" : "Warrior",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1214.png",
+		"AvatarFullName" : {
+			"Hash" : "12226349380891955506"
 		},
-		"AvatarFullName": {
-			"Hash": "12226349380891955506"
+		"AvatarName" : {
+			"Hash" : "11495763016926788582"
 		},
-		"Rarity": 4,
-		"Element": "Quantum",
-		"AvatarBaseType": "Warrior",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1214.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1214B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1214.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1214.png",
+		"Element" : "Quantum",
+		"RankIDList" : [
 			121401,
 			121402,
 			121403,
@@ -1049,7 +1048,8 @@ export default {
 			121405,
 			121406
 		],
-		"SkillList": [
+		"Rarity" : 4,
+		"SkillList" : [
 			121401,
 			121402,
 			121403,
@@ -1058,20 +1058,19 @@ export default {
 			121407
 		]
 	},
-	"1215": {
-		"AvatarName": {
-			"Hash": "8944718300027499818"
+	"1215" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1215B.png",
+		"AvatarBaseType" : "Shaman",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1215.png",
+		"AvatarFullName" : {
+			"Hash" : "8591881960586679467"
 		},
-		"AvatarFullName": {
-			"Hash": "8591881960586679467"
+		"AvatarName" : {
+			"Hash" : "8944718300027499818"
 		},
-		"Rarity": 4,
-		"Element": "Physical",
-		"AvatarBaseType": "Shaman",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1215.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1215B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1215.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1215.png",
+		"Element" : "Physical",
+		"RankIDList" : [
 			121501,
 			121502,
 			121503,
@@ -1079,7 +1078,8 @@ export default {
 			121505,
 			121506
 		],
-		"SkillList": [
+		"Rarity" : 4,
+		"SkillList" : [
 			121501,
 			121502,
 			121503,
@@ -1088,20 +1088,19 @@ export default {
 			121507
 		]
 	},
-	"1217": {
-		"AvatarName": {
-			"Hash": "12871454551122846403"
+	"1217" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1217B.png",
+		"AvatarBaseType" : "Priest",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1217.png",
+		"AvatarFullName" : {
+			"Hash" : "9165625096386234328"
 		},
-		"AvatarFullName": {
-			"Hash": "9165625096386234328"
+		"AvatarName" : {
+			"Hash" : "12871454551122846403"
 		},
-		"Rarity": 5,
-		"Element": "Wind",
-		"AvatarBaseType": "Priest",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1217.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1217B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1217.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1217.png",
+		"Element" : "Wind",
+		"RankIDList" : [
 			121701,
 			121702,
 			121703,
@@ -1109,7 +1108,8 @@ export default {
 			121705,
 			121706
 		],
-		"SkillList": [
+		"Rarity" : 5,
+		"SkillList" : [
 			121701,
 			121702,
 			121703,
@@ -1118,20 +1118,19 @@ export default {
 			121707
 		]
 	},
-	"1218": {
-		"AvatarName": {
-			"Hash": "8300000119407817972"
+	"1218" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1218B.png",
+		"AvatarBaseType" : "Warlock",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1218.png",
+		"AvatarFullName" : {
+			"Hash" : "6241750003545954645"
 		},
-		"AvatarFullName": {
-			"Hash": "6241750003545954645"
+		"AvatarName" : {
+			"Hash" : "8300000119407817972"
 		},
-		"Rarity": 5,
-		"Element": "Fire",
-		"AvatarBaseType": "Warlock",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1218.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1218B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1218.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1218.png",
+		"Element" : "Fire",
+		"RankIDList" : [
 			121801,
 			121802,
 			121803,
@@ -1139,7 +1138,8 @@ export default {
 			121805,
 			121806
 		],
-		"SkillList": [
+		"Rarity" : 5,
+		"SkillList" : [
 			121801,
 			121802,
 			121803,
@@ -1148,20 +1148,19 @@ export default {
 			121807
 		]
 	},
-	"1220": {
-		"AvatarName": {
-			"Hash": "640945362161159110"
+	"1220" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1220B.png",
+		"AvatarBaseType" : "Rogue",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1220.png",
+		"AvatarFullName" : {
+			"Hash" : "14359009101684242945"
 		},
-		"AvatarFullName": {
-			"Hash": "14359009101684242945"
+		"AvatarName" : {
+			"Hash" : "640945362161159110"
 		},
-		"Rarity": 5,
-		"Element": "Wind",
-		"AvatarBaseType": "Rogue",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1220.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1220B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1220.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1220.png",
+		"Element" : "Wind",
+		"RankIDList" : [
 			122001,
 			122002,
 			122003,
@@ -1169,7 +1168,8 @@ export default {
 			122005,
 			122006
 		],
-		"SkillList": [
+		"Rarity" : 5,
+		"SkillList" : [
 			122001,
 			122002,
 			122003,
@@ -1181,20 +1181,19 @@ export default {
 			122014
 		]
 	},
-	"1221": {
-		"AvatarName": {
-			"Hash": "15084362025105138520"
+	"1221" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1221B.png",
+		"AvatarBaseType" : "Warrior",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1221.png",
+		"AvatarFullName" : {
+			"Hash" : "8234014467756005628"
 		},
-		"AvatarFullName": {
-			"Hash": "8234014467756005628"
+		"AvatarName" : {
+			"Hash" : "15084362025105138520"
 		},
-		"Rarity": 5,
-		"Element": "Physical",
-		"AvatarBaseType": "Warrior",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1221.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1221B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1221.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1221.png",
+		"Element" : "Physical",
+		"RankIDList" : [
 			122101,
 			122102,
 			122103,
@@ -1202,7 +1201,8 @@ export default {
 			122105,
 			122106
 		],
-		"SkillList": [
+		"Rarity" : 5,
+		"SkillList" : [
 			122101,
 			122102,
 			122103,
@@ -1211,20 +1211,19 @@ export default {
 			122107
 		]
 	},
-	"1222": {
-		"AvatarName": {
-			"Hash": "1890772581194122354"
+	"1222" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1222B.png",
+		"AvatarBaseType" : "Priest",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1222.png",
+		"AvatarFullName" : {
+			"Hash" : "3464068633614138322"
 		},
-		"AvatarFullName": {
-			"Hash": "3464068633614138322"
+		"AvatarName" : {
+			"Hash" : "1890772581194122354"
 		},
-		"Rarity": 5,
-		"Element": "Fire",
-		"AvatarBaseType": "Priest",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1222.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1222B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1222.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1222.png",
+		"Element" : "Fire",
+		"RankIDList" : [
 			122201,
 			122202,
 			122203,
@@ -1232,7 +1231,8 @@ export default {
 			122205,
 			122206
 		],
-		"SkillList": [
+		"Rarity" : 5,
+		"SkillList" : [
 			122201,
 			122202,
 			122203,
@@ -1241,20 +1241,19 @@ export default {
 			122207
 		]
 	},
-	"1223": {
-		"AvatarName": {
-			"Hash": "581825062468630609"
+	"1223" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1223B.png",
+		"AvatarBaseType" : "Rogue",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1223.png",
+		"AvatarFullName" : {
+			"Hash" : "4816180736143290215"
 		},
-		"AvatarFullName": {
-			"Hash": "4816180736143290215"
+		"AvatarName" : {
+			"Hash" : "581825062468630609"
 		},
-		"Rarity": 4,
-		"Element": "Thunder",
-		"AvatarBaseType": "Rogue",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1223.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1223B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1223.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1223.png",
+		"Element" : "Thunder",
+		"RankIDList" : [
 			122301,
 			122302,
 			122303,
@@ -1262,7 +1261,8 @@ export default {
 			122305,
 			122306
 		],
-		"SkillList": [
+		"Rarity" : 4,
+		"SkillList" : [
 			122301,
 			122302,
 			122303,
@@ -1271,20 +1271,19 @@ export default {
 			122307
 		]
 	},
-	"1224": {
-		"AvatarName": {
-			"Hash": "16417870574330506928"
+	"1224" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1224B.png",
+		"AvatarBaseType" : "Rogue",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1224.png",
+		"AvatarFullName" : {
+			"Hash" : "9058972803650014395"
 		},
-		"AvatarFullName": {
-			"Hash": "9058972803650014395"
+		"AvatarName" : {
+			"Hash" : "16417870574330506928"
 		},
-		"Rarity": 4,
-		"Element": "Imaginary",
-		"AvatarBaseType": "Rogue",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1224.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1224B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1224.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1224.png",
+		"Element" : "Imaginary",
+		"RankIDList" : [
 			122401,
 			122402,
 			122403,
@@ -1292,7 +1291,8 @@ export default {
 			122405,
 			122406
 		],
-		"SkillList": [
+		"Rarity" : 4,
+		"SkillList" : [
 			122401,
 			122402,
 			122403,
@@ -1302,20 +1302,19 @@ export default {
 			122408
 		]
 	},
-	"1225": {
-		"AvatarName": {
-			"Hash": "3056810111125476882"
+	"1225" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1225B.png",
+		"AvatarBaseType" : "Warlock",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1225.png",
+		"AvatarFullName" : {
+			"Hash" : "5639957615682679791"
 		},
-		"AvatarFullName": {
-			"Hash": "5639957615682679791"
+		"AvatarName" : {
+			"Hash" : "3056810111125476882"
 		},
-		"Rarity": 5,
-		"Element": "Fire",
-		"AvatarBaseType": "Warlock",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1225.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1225B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1225.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1225.png",
+		"Element" : "Fire",
+		"RankIDList" : [
 			122501,
 			122502,
 			122503,
@@ -1323,7 +1322,8 @@ export default {
 			122505,
 			122506
 		],
-		"SkillList": [
+		"Rarity" : 5,
+		"SkillList" : [
 			122501,
 			122502,
 			122503,
@@ -1333,20 +1333,19 @@ export default {
 			122508
 		]
 	},
-	"1301": {
-		"AvatarName": {
-			"Hash": "6816343973270607908"
+	"1301" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1301B.png",
+		"AvatarBaseType" : "Priest",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1301.png",
+		"AvatarFullName" : {
+			"Hash" : "9976087090473181803"
 		},
-		"AvatarFullName": {
-			"Hash": "9976087090473181803"
+		"AvatarName" : {
+			"Hash" : "6816343973270607908"
 		},
-		"Rarity": 4,
-		"Element": "Fire",
-		"AvatarBaseType": "Priest",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1301.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1301B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1301.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1301.png",
+		"Element" : "Fire",
+		"RankIDList" : [
 			130101,
 			130102,
 			130103,
@@ -1354,7 +1353,8 @@ export default {
 			130105,
 			130106
 		],
-		"SkillList": [
+		"Rarity" : 4,
+		"SkillList" : [
 			130101,
 			130102,
 			130103,
@@ -1364,20 +1364,19 @@ export default {
 			130108
 		]
 	},
-	"1302": {
-		"AvatarName": {
-			"Hash": "16607369145002760691"
+	"1302" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1302B.png",
+		"AvatarBaseType" : "Mage",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1302.png",
+		"AvatarFullName" : {
+			"Hash" : "869909810382854550"
 		},
-		"AvatarFullName": {
-			"Hash": "869909810382854550"
+		"AvatarName" : {
+			"Hash" : "16607369145002760691"
 		},
-		"Rarity": 5,
-		"Element": "Physical",
-		"AvatarBaseType": "Mage",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1302.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1302B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1302.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1302.png",
+		"Element" : "Physical",
+		"RankIDList" : [
 			130201,
 			130202,
 			130203,
@@ -1385,7 +1384,8 @@ export default {
 			130205,
 			130206
 		],
-		"SkillList": [
+		"Rarity" : 5,
+		"SkillList" : [
 			130201,
 			130202,
 			130203,
@@ -1395,20 +1395,19 @@ export default {
 			130214
 		]
 	},
-	"1303": {
-		"AvatarName": {
-			"Hash": "6427183216833446662"
+	"1303" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1303B.png",
+		"AvatarBaseType" : "Shaman",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1303.png",
+		"AvatarFullName" : {
+			"Hash" : "16599253304220206153"
 		},
-		"AvatarFullName": {
-			"Hash": "16599253304220206153"
+		"AvatarName" : {
+			"Hash" : "6427183216833446662"
 		},
-		"Rarity": 5,
-		"Element": "Ice",
-		"AvatarBaseType": "Shaman",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1303.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1303B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1303.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1303.png",
+		"Element" : "Ice",
+		"RankIDList" : [
 			130301,
 			130302,
 			130303,
@@ -1416,7 +1415,8 @@ export default {
 			130305,
 			130306
 		],
-		"SkillList": [
+		"Rarity" : 5,
+		"SkillList" : [
 			130301,
 			130302,
 			130303,
@@ -1425,20 +1425,19 @@ export default {
 			130307
 		]
 	},
-	"1304": {
-		"AvatarName": {
-			"Hash": "1512189965928596940"
+	"1304" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1304B.png",
+		"AvatarBaseType" : "Knight",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1304.png",
+		"AvatarFullName" : {
+			"Hash" : "7120301855670242165"
 		},
-		"AvatarFullName": {
-			"Hash": "7120301855670242165"
+		"AvatarName" : {
+			"Hash" : "1512189965928596940"
 		},
-		"Rarity": 5,
-		"Element": "Imaginary",
-		"AvatarBaseType": "Knight",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1304.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1304B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1304.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1304.png",
+		"Element" : "Imaginary",
+		"RankIDList" : [
 			130401,
 			130402,
 			130403,
@@ -1446,7 +1445,8 @@ export default {
 			130405,
 			130406
 		],
-		"SkillList": [
+		"Rarity" : 5,
+		"SkillList" : [
 			130401,
 			130402,
 			130403,
@@ -1455,20 +1455,19 @@ export default {
 			130407
 		]
 	},
-	"1305": {
-		"AvatarName": {
-			"Hash": "5574869376996182732"
+	"1305" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1305B.png",
+		"AvatarBaseType" : "Rogue",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1305.png",
+		"AvatarFullName" : {
+			"Hash" : "10016468331538463171"
 		},
-		"AvatarFullName": {
-			"Hash": "10016468331538463171"
+		"AvatarName" : {
+			"Hash" : "5574869376996182732"
 		},
-		"Rarity": 5,
-		"Element": "Imaginary",
-		"AvatarBaseType": "Rogue",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1305.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1305B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1305.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1305.png",
+		"Element" : "Imaginary",
+		"RankIDList" : [
 			130501,
 			130502,
 			130503,
@@ -1476,7 +1475,8 @@ export default {
 			130505,
 			130506
 		],
-		"SkillList": [
+		"Rarity" : 5,
+		"SkillList" : [
 			130501,
 			130502,
 			130503,
@@ -1485,20 +1485,19 @@ export default {
 			130507
 		]
 	},
-	"1306": {
-		"AvatarName": {
-			"Hash": "1154772689835031402"
+	"1306" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1306B.png",
+		"AvatarBaseType" : "Shaman",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1306.png",
+		"AvatarFullName" : {
+			"Hash" : "4690715708837184285"
 		},
-		"AvatarFullName": {
-			"Hash": "4690715708837184285"
+		"AvatarName" : {
+			"Hash" : "1154772689835031402"
 		},
-		"Rarity": 5,
-		"Element": "Quantum",
-		"AvatarBaseType": "Shaman",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1306.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1306B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1306.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1306.png",
+		"Element" : "Quantum",
+		"RankIDList" : [
 			130601,
 			130602,
 			130603,
@@ -1506,7 +1505,8 @@ export default {
 			130605,
 			130606
 		],
-		"SkillList": [
+		"Rarity" : 5,
+		"SkillList" : [
 			130601,
 			130602,
 			130603,
@@ -1515,20 +1515,19 @@ export default {
 			130607
 		]
 	},
-	"1307": {
-		"AvatarName": {
-			"Hash": "5006907115971129934"
+	"1307" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1307B.png",
+		"AvatarBaseType" : "Warlock",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1307.png",
+		"AvatarFullName" : {
+			"Hash" : "13204313422718342644"
 		},
-		"AvatarFullName": {
-			"Hash": "13204313422718342644"
+		"AvatarName" : {
+			"Hash" : "5006907115971129934"
 		},
-		"Rarity": 5,
-		"Element": "Wind",
-		"AvatarBaseType": "Warlock",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1307.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1307B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1307.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1307.png",
+		"Element" : "Wind",
+		"RankIDList" : [
 			130701,
 			130702,
 			130703,
@@ -1536,7 +1535,8 @@ export default {
 			130705,
 			130706
 		],
-		"SkillList": [
+		"Rarity" : 5,
+		"SkillList" : [
 			130701,
 			130702,
 			130703,
@@ -1545,20 +1545,19 @@ export default {
 			130707
 		]
 	},
-	"1308": {
-		"AvatarName": {
-			"Hash": "15302882570557665677"
+	"1308" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1308B.png",
+		"AvatarBaseType" : "Warlock",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1308.png",
+		"AvatarFullName" : {
+			"Hash" : "13552546598161712110"
 		},
-		"AvatarFullName": {
-			"Hash": "13552546598161712110"
+		"AvatarName" : {
+			"Hash" : "15302882570557665677"
 		},
-		"Rarity": 5,
-		"Element": "Thunder",
-		"AvatarBaseType": "Warlock",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1308.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1308B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1308.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1308.png",
+		"Element" : "Thunder",
+		"RankIDList" : [
 			130801,
 			130802,
 			130803,
@@ -1566,7 +1565,8 @@ export default {
 			130805,
 			130806
 		],
-		"SkillList": [
+		"Rarity" : 5,
+		"SkillList" : [
 			130801,
 			130802,
 			130803,
@@ -1579,20 +1579,19 @@ export default {
 			130817
 		]
 	},
-	"1309": {
-		"AvatarName": {
-			"Hash": "16319070348582555665"
+	"1309" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1309B.png",
+		"AvatarBaseType" : "Shaman",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1309.png",
+		"AvatarFullName" : {
+			"Hash" : "13708130003328337085"
 		},
-		"AvatarFullName": {
-			"Hash": "13708130003328337085"
+		"AvatarName" : {
+			"Hash" : "16319070348582555665"
 		},
-		"Rarity": 5,
-		"Element": "Physical",
-		"AvatarBaseType": "Shaman",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1309.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1309B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1309.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1309.png",
+		"Element" : "Physical",
+		"RankIDList" : [
 			130901,
 			130902,
 			130903,
@@ -1600,7 +1599,8 @@ export default {
 			130905,
 			130906
 		],
-		"SkillList": [
+		"Rarity" : 5,
+		"SkillList" : [
 			130901,
 			130902,
 			130903,
@@ -1609,20 +1609,19 @@ export default {
 			130907
 		]
 	},
-	"1310": {
-		"AvatarName": {
-			"Hash": "17277451216686117891"
+	"1310" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1310B.png",
+		"AvatarBaseType" : "Warrior",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1310.png",
+		"AvatarFullName" : {
+			"Hash" : "17348010303840328548"
 		},
-		"AvatarFullName": {
-			"Hash": "17348010303840328548"
+		"AvatarName" : {
+			"Hash" : "17277451216686117891"
 		},
-		"Rarity": 5,
-		"Element": "Fire",
-		"AvatarBaseType": "Warrior",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1310.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1310B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1310.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1310.png",
+		"Element" : "Fire",
+		"RankIDList" : [
 			131001,
 			131002,
 			131003,
@@ -1630,7 +1629,8 @@ export default {
 			131005,
 			131006
 		],
-		"SkillList": [
+		"Rarity" : 5,
+		"SkillList" : [
 			131001,
 			131002,
 			131003,
@@ -1641,20 +1641,19 @@ export default {
 			131009
 		]
 	},
-	"1312": {
-		"AvatarName": {
-			"Hash": "15577682837980439839"
+	"1312" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1312B.png",
+		"AvatarBaseType" : "Warrior",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1312.png",
+		"AvatarFullName" : {
+			"Hash" : "5528849477405299386"
 		},
-		"AvatarFullName": {
-			"Hash": "5528849477405299386"
+		"AvatarName" : {
+			"Hash" : "15577682837980439839"
 		},
-		"Rarity": 4,
-		"Element": "Ice",
-		"AvatarBaseType": "Warrior",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1312.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1312B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1312.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1312.png",
+		"Element" : "Ice",
+		"RankIDList" : [
 			131201,
 			131202,
 			131203,
@@ -1662,7 +1661,8 @@ export default {
 			131205,
 			131206
 		],
-		"SkillList": [
+		"Rarity" : 4,
+		"SkillList" : [
 			131201,
 			131202,
 			131203,
@@ -1671,20 +1671,19 @@ export default {
 			131207
 		]
 	},
-	"1313": {
-		"AvatarName": {
-			"Hash": "7913253176711977067"
+	"1313" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1313B.png",
+		"AvatarBaseType" : "Shaman",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1313.png",
+		"AvatarFullName" : {
+			"Hash" : "12376678529046609582"
 		},
-		"AvatarFullName": {
-			"Hash": "12376678529046609582"
+		"AvatarName" : {
+			"Hash" : "7913253176711977067"
 		},
-		"Rarity": 5,
-		"Element": "Imaginary",
-		"AvatarBaseType": "Shaman",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1313.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1313B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1313.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1313.png",
+		"Element" : "Imaginary",
+		"RankIDList" : [
 			131301,
 			131302,
 			131303,
@@ -1692,7 +1691,8 @@ export default {
 			131305,
 			131306
 		],
-		"SkillList": [
+		"Rarity" : 5,
+		"SkillList" : [
 			131301,
 			131302,
 			131303,
@@ -1701,20 +1701,19 @@ export default {
 			131307
 		]
 	},
-	"1314": {
-		"AvatarName": {
-			"Hash": "2887610941167968962"
+	"1314" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1314B.png",
+		"AvatarBaseType" : "Mage",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1314.png",
+		"AvatarFullName" : {
+			"Hash" : "3376021538075502564"
 		},
-		"AvatarFullName": {
-			"Hash": "3376021538075502564"
+		"AvatarName" : {
+			"Hash" : "2887610941167968962"
 		},
-		"Rarity": 5,
-		"Element": "Quantum",
-		"AvatarBaseType": "Mage",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1314.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1314B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1314.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1314.png",
+		"Element" : "Quantum",
+		"RankIDList" : [
 			131401,
 			131402,
 			131403,
@@ -1722,7 +1721,8 @@ export default {
 			131405,
 			131406
 		],
-		"SkillList": [
+		"Rarity" : 5,
+		"SkillList" : [
 			131401,
 			131402,
 			131403,
@@ -1731,20 +1731,19 @@ export default {
 			131407
 		]
 	},
-	"1315": {
-		"AvatarName": {
-			"Hash": "6424512602058263868"
+	"1315" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1315B.png",
+		"AvatarBaseType" : "Rogue",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1315.png",
+		"AvatarFullName" : {
+			"Hash" : "8088750835701923647"
 		},
-		"AvatarFullName": {
-			"Hash": "8088750835701923647"
+		"AvatarName" : {
+			"Hash" : "6424512602058263868"
 		},
-		"Rarity": 5,
-		"Element": "Physical",
-		"AvatarBaseType": "Rogue",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1315.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1315B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1315.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1315.png",
+		"Element" : "Physical",
+		"RankIDList" : [
 			131501,
 			131502,
 			131503,
@@ -1752,7 +1751,8 @@ export default {
 			131505,
 			131506
 		],
-		"SkillList": [
+		"Rarity" : 5,
+		"SkillList" : [
 			131501,
 			131502,
 			131503,
@@ -1762,20 +1762,19 @@ export default {
 			131508
 		]
 	},
-	"1317": {
-		"AvatarName": {
-			"Hash": "9807064938372011036"
+	"1317" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1317B.png",
+		"AvatarBaseType" : "Mage",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1317.png",
+		"AvatarFullName" : {
+			"Hash" : "14170717352152412638"
 		},
-		"AvatarFullName": {
-			"Hash": "14170717352152412638"
+		"AvatarName" : {
+			"Hash" : "9807064938372011036"
 		},
-		"Rarity": 5,
-		"Element": "Imaginary",
-		"AvatarBaseType": "Mage",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1317.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1317B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1317.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1317.png",
+		"Element" : "Imaginary",
+		"RankIDList" : [
 			131701,
 			131702,
 			131703,
@@ -1783,7 +1782,8 @@ export default {
 			131705,
 			131706
 		],
-		"SkillList": [
+		"Rarity" : 5,
+		"SkillList" : [
 			131701,
 			131702,
 			131703,
@@ -1796,20 +1796,19 @@ export default {
 			131718
 		]
 	},
-	"1401": {
-		"AvatarName": {
-			"Hash": "4559632095226063367"
+	"1401" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1401B.png",
+		"AvatarBaseType" : "Mage",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1401.png",
+		"AvatarFullName" : {
+			"Hash" : "10277480450199268137"
 		},
-		"AvatarFullName": {
-			"Hash": "10277480450199268137"
+		"AvatarName" : {
+			"Hash" : "4559632095226063367"
 		},
-		"Rarity": 5,
-		"Element": "Ice",
-		"AvatarBaseType": "Mage",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1401.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1401B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1401.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1401.png",
+		"Element" : "Ice",
+		"RankIDList" : [
 			140101,
 			140102,
 			140103,
@@ -1817,7 +1816,8 @@ export default {
 			140105,
 			140106
 		],
-		"SkillList": [
+		"Rarity" : 5,
+		"SkillList" : [
 			140101,
 			140102,
 			140103,
@@ -1827,20 +1827,19 @@ export default {
 			140109
 		]
 	},
-	"1402": {
-		"AvatarName": {
-			"Hash": "764283421684818925"
+	"1402" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1402B.png",
+		"AvatarBaseType" : "Memory",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1402.png",
+		"AvatarFullName" : {
+			"Hash" : "6742128773131150834"
 		},
-		"AvatarFullName": {
-			"Hash": "6742128773131150834"
+		"AvatarName" : {
+			"Hash" : "764283421684818925"
 		},
-		"Rarity": 5,
-		"Element": "Thunder",
-		"AvatarBaseType": "Memory",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1402.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1402B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1402.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1402.png",
+		"Element" : "Thunder",
+		"RankIDList" : [
 			140201,
 			140202,
 			140203,
@@ -1848,7 +1847,8 @@ export default {
 			140205,
 			140206
 		],
-		"SkillList": [
+		"Rarity" : 5,
+		"SkillList" : [
 			140201,
 			140202,
 			140203,
@@ -1859,20 +1859,19 @@ export default {
 			140209
 		]
 	},
-	"1403": {
-		"AvatarName": {
-			"Hash": "15410848306228341212"
+	"1403" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1403B.png",
+		"AvatarBaseType" : "Shaman",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1403.png",
+		"AvatarFullName" : {
+			"Hash" : "4476479345548480464"
 		},
-		"AvatarFullName": {
-			"Hash": "4476479345548480464"
+		"AvatarName" : {
+			"Hash" : "15410848306228341212"
 		},
-		"Rarity": 5,
-		"Element": "Quantum",
-		"AvatarBaseType": "Shaman",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1403.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1403B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1403.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1403.png",
+		"Element" : "Quantum",
+		"RankIDList" : [
 			140301,
 			140302,
 			140303,
@@ -1880,7 +1879,8 @@ export default {
 			140305,
 			140306
 		],
-		"SkillList": [
+		"Rarity" : 5,
+		"SkillList" : [
 			140301,
 			140302,
 			140303,
@@ -1889,20 +1889,19 @@ export default {
 			140307
 		]
 	},
-	"1404": {
-		"AvatarName": {
-			"Hash": "13777984539817850592"
+	"1404" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1404B.png",
+		"AvatarBaseType" : "Warrior",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1404.png",
+		"AvatarFullName" : {
+			"Hash" : "5512403484495660673"
 		},
-		"AvatarFullName": {
-			"Hash": "5512403484495660673"
+		"AvatarName" : {
+			"Hash" : "13777984539817850592"
 		},
-		"Rarity": 5,
-		"Element": "Imaginary",
-		"AvatarBaseType": "Warrior",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1404.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1404B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1404.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1404.png",
+		"Element" : "Imaginary",
+		"RankIDList" : [
 			140401,
 			140402,
 			140403,
@@ -1910,7 +1909,8 @@ export default {
 			140405,
 			140406
 		],
-		"SkillList": [
+		"Rarity" : 5,
+		"SkillList" : [
 			140401,
 			140402,
 			140403,
@@ -1921,20 +1921,80 @@ export default {
 			140411
 		]
 	},
-	"8001": {
-		"AvatarName": {
-			"Hash": "15351791685587679468"
+	"1405" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1405B.png",
+		"AvatarBaseType" : "Mage",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1405.png",
+		"AvatarFullName" : {
+			"Hash" : "5840934936952395343"
 		},
-		"AvatarFullName": {
-			"Hash": "1889615116897637623"
+		"AvatarName" : {
+			"Hash" : "14399225845844956184"
 		},
-		"Rarity": 5,
-		"Element": "Physical",
-		"AvatarBaseType": "Warrior",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/8001.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/8001B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/8001.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1405.png",
+		"Element" : "Wind",
+		"RankIDList" : [
+			140501,
+			140502,
+			140503,
+			140504,
+			140505,
+			140506
+		],
+		"Rarity" : 5,
+		"SkillList" : [
+			140501,
+			140502,
+			140503,
+			140504,
+			140506,
+			140507
+		]
+	},
+	"1407" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1407B.png",
+		"AvatarBaseType" : "Memory",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1407.png",
+		"AvatarFullName" : {
+			"Hash" : "8148736795739493904"
+		},
+		"AvatarName" : {
+			"Hash" : "6284038990417808171"
+		},
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1407.png",
+		"Element" : "Quantum",
+		"RankIDList" : [
+			140701,
+			140702,
+			140703,
+			140704,
+			140705,
+			140706
+		],
+		"Rarity" : 5,
+		"SkillList" : [
+			140701,
+			140702,
+			140703,
+			140704,
+			140706,
+			140707,
+			140709
+		]
+	},
+	"8001" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/8001B.png",
+		"AvatarBaseType" : "Warrior",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/8001.png",
+		"AvatarFullName" : {
+			"Hash" : "1889615116897637623"
+		},
+		"AvatarName" : {
+			"Hash" : "15351791685587679468"
+		},
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/8001.png",
+		"Element" : "Physical",
+		"RankIDList" : [
 			800101,
 			800102,
 			800103,
@@ -1942,7 +2002,8 @@ export default {
 			800105,
 			800106
 		],
-		"SkillList": [
+		"Rarity" : 5,
+		"SkillList" : [
 			800101,
 			800102,
 			800103,
@@ -1953,20 +2014,19 @@ export default {
 			800109
 		]
 	},
-	"8002": {
-		"AvatarName": {
-			"Hash": "915414112326692585"
+	"8002" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/8002B.png",
+		"AvatarBaseType" : "Warrior",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/8002.png",
+		"AvatarFullName" : {
+			"Hash" : "10220350920306746709"
 		},
-		"AvatarFullName": {
-			"Hash": "10220350920306746709"
+		"AvatarName" : {
+			"Hash" : "915414112326692585"
 		},
-		"Rarity": 5,
-		"Element": "Physical",
-		"AvatarBaseType": "Warrior",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/8002.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/8002B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/8002.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/8002.png",
+		"Element" : "Physical",
+		"RankIDList" : [
 			800201,
 			800202,
 			800203,
@@ -1974,7 +2034,8 @@ export default {
 			800205,
 			800206
 		],
-		"SkillList": [
+		"Rarity" : 5,
+		"SkillList" : [
 			800201,
 			800202,
 			800203,
@@ -1985,20 +2046,19 @@ export default {
 			800209
 		]
 	},
-	"8003": {
-		"AvatarName": {
-			"Hash": "1401066943349888144"
+	"8003" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/8003B.png",
+		"AvatarBaseType" : "Knight",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/8003.png",
+		"AvatarFullName" : {
+			"Hash" : "1889615116897637623"
 		},
-		"AvatarFullName": {
-			"Hash": "1889615116897637623"
+		"AvatarName" : {
+			"Hash" : "1401066943349888144"
 		},
-		"Rarity": 5,
-		"Element": "Fire",
-		"AvatarBaseType": "Knight",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/8003.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/8003B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/8003.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/8003.png",
+		"Element" : "Fire",
+		"RankIDList" : [
 			800301,
 			800302,
 			800303,
@@ -2006,7 +2066,8 @@ export default {
 			800305,
 			800306
 		],
-		"SkillList": [
+		"Rarity" : 5,
+		"SkillList" : [
 			800301,
 			800302,
 			800303,
@@ -2016,20 +2077,19 @@ export default {
 			800308
 		]
 	},
-	"8004": {
-		"AvatarName": {
-			"Hash": "12002536695852490847"
+	"8004" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/8004B.png",
+		"AvatarBaseType" : "Knight",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/8004.png",
+		"AvatarFullName" : {
+			"Hash" : "10220350920306746709"
 		},
-		"AvatarFullName": {
-			"Hash": "10220350920306746709"
+		"AvatarName" : {
+			"Hash" : "12002536695852490847"
 		},
-		"Rarity": 5,
-		"Element": "Fire",
-		"AvatarBaseType": "Knight",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/8004.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/8004B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/8004.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/8004.png",
+		"Element" : "Fire",
+		"RankIDList" : [
 			800401,
 			800402,
 			800403,
@@ -2037,7 +2097,8 @@ export default {
 			800405,
 			800406
 		],
-		"SkillList": [
+		"Rarity" : 5,
+		"SkillList" : [
 			800401,
 			800402,
 			800403,
@@ -2047,20 +2108,19 @@ export default {
 			800408
 		]
 	},
-	"8005": {
-		"AvatarName": {
-			"Hash": "10447948767909792082"
+	"8005" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/8005B.png",
+		"AvatarBaseType" : "Shaman",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/8005.png",
+		"AvatarFullName" : {
+			"Hash" : "1889615116897637623"
 		},
-		"AvatarFullName": {
-			"Hash": "1889615116897637623"
+		"AvatarName" : {
+			"Hash" : "10447948767909792082"
 		},
-		"Rarity": 5,
-		"Element": "Imaginary",
-		"AvatarBaseType": "Shaman",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/8005.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/8005B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/8005.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/8005.png",
+		"Element" : "Imaginary",
+		"RankIDList" : [
 			800501,
 			800502,
 			800503,
@@ -2068,7 +2128,8 @@ export default {
 			800505,
 			800506
 		],
-		"SkillList": [
+		"Rarity" : 5,
+		"SkillList" : [
 			800501,
 			800502,
 			800503,
@@ -2077,20 +2138,19 @@ export default {
 			800507
 		]
 	},
-	"8006": {
-		"AvatarName": {
-			"Hash": "10393121115260878389"
+	"8006" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/8006B.png",
+		"AvatarBaseType" : "Shaman",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/8006.png",
+		"AvatarFullName" : {
+			"Hash" : "10220350920306746709"
 		},
-		"AvatarFullName": {
-			"Hash": "10220350920306746709"
+		"AvatarName" : {
+			"Hash" : "10393121115260878389"
 		},
-		"Rarity": 5,
-		"Element": "Imaginary",
-		"AvatarBaseType": "Shaman",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/8006.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/8006B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/8006.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/8006.png",
+		"Element" : "Imaginary",
+		"RankIDList" : [
 			800601,
 			800602,
 			800603,
@@ -2098,7 +2158,8 @@ export default {
 			800605,
 			800606
 		],
-		"SkillList": [
+		"Rarity" : 5,
+		"SkillList" : [
 			800601,
 			800602,
 			800603,
@@ -2107,20 +2168,19 @@ export default {
 			800607
 		]
 	},
-	"8007": {
-		"AvatarName": {
-			"Hash": "16176654588635246657"
+	"8007" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/8007B.png",
+		"AvatarBaseType" : "Memory",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/8007.png",
+		"AvatarFullName" : {
+			"Hash" : "1889615116897637623"
 		},
-		"AvatarFullName": {
-			"Hash": "1889615116897637623"
+		"AvatarName" : {
+			"Hash" : "16176654588635246657"
 		},
-		"Rarity": 5,
-		"Element": "Ice",
-		"AvatarBaseType": "Memory",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/8007.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/8007B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/8007.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/8007.png",
+		"Element" : "Ice",
+		"RankIDList" : [
 			800701,
 			800702,
 			800703,
@@ -2128,7 +2188,8 @@ export default {
 			800705,
 			800706
 		],
-		"SkillList": [
+		"Rarity" : 5,
+		"SkillList" : [
 			800701,
 			800702,
 			800703,
@@ -2138,20 +2199,19 @@ export default {
 			800709
 		]
 	},
-	"8008": {
-		"AvatarName": {
-			"Hash": "4088185837206355760"
+	"8008" : {
+		"ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/8008B.png",
+		"AvatarBaseType" : "Memory",
+		"AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/8008.png",
+		"AvatarFullName" : {
+			"Hash" : "10220350920306746709"
 		},
-		"AvatarFullName": {
-			"Hash": "10220350920306746709"
+		"AvatarName" : {
+			"Hash" : "4088185837206355760"
 		},
-		"Rarity": 5,
-		"Element": "Ice",
-		"AvatarBaseType": "Memory",
-		"AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/8008.png",
-		"ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/8008B.png",
-		"AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/8008.png",
-		"RankIDList": [
+		"AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/8008.png",
+		"Element" : "Ice",
+		"RankIDList" : [
 			800801,
 			800802,
 			800803,
@@ -2159,7 +2219,8 @@ export default {
 			800805,
 			800806
 		],
-		"SkillList": [
+		"Rarity" : 5,
+		"SkillList" : [
 			800801,
 			800802,
 			800803,

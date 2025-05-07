@@ -188,10 +188,10 @@ export default {
         "SkillOrder": [10231, 10232, 10235],
         "Skills": {"10231": "Skill_A_03", "10232": "Skill_S_Xiangling_01", "10235": "Skill_E_Xiangling_01"},
         "ProudMap": {"10231": 2331, "10232": 2332, "10235": 2339},
-        "NameTextMapHash": 3293134650,
-        "SideIconName": "UI_AvatarIcon_Side_Mavuika",
-        "QualityType": "QUALITY_ORANGE",
-        "WeaponType": "WEAPON_CLAYMORE",
+        "NameTextMapHash": 1130996346,
+        "SideIconName": "UI_AvatarIcon_Side_Xiangling",
+        "QualityType": "QUALITY_PURPLE",
+        "WeaponType": "WEAPON_POLE",
         "Costumes": {
             "202301": {
                 "sideIconName": "UI_AvatarIcon_Side_XianglingCostumeWinter",
@@ -491,7 +491,7 @@ export default {
         "SkillOrder": [10461, 10462, 10463],
         "Skills": {"10461": "Skill_A_03", "10462": "Skill_S_Hutao_01", "10463": "Skill_E_Hutao_01"},
         "ProudMap": {"10461": 4631, "10462": 4632, "10463": 4639},
-        "NameTextMapHash": 853394138,
+        "NameTextMapHash": 1940919994,
         "SideIconName": "UI_AvatarIcon_Side_Hutao",
         "QualityType": "QUALITY_ORANGE",
         "WeaponType": "WEAPON_POLE",
@@ -1250,6 +1250,61 @@ export default {
         "SideIconName": "UI_AvatarIcon_Side_Varesa",
         "QualityType": "QUALITY_ORANGE",
         "WeaponType": "WEAPON_CATALYST"
+    },
+    "10000112": {
+        "Element": "Ice",
+        "Consts": ["UI_Talent_S_Escoffier_01", "UI_Talent_S_Escoffier_02", "UI_Talent_U_Escoffier_01", "UI_Talent_S_Escoffier_03", "UI_Talent_U_Escoffier_02", "UI_Talent_S_Escoffier_04"],
+        "SkillOrder": [11121, 11122, 11125],
+        "Skills": {"11121": "Skill_A_03", "11122": "Skill_S_Escoffier_01", "11125": "Skill_E_Escoffier_01"},
+        "ProudMap": {"11121": 11231, "11122": 11232, "11125": 11239},
+        "NameTextMapHash": 4035850498,
+        "SideIconName": "UI_AvatarIcon_Side_Escoffier",
+        "QualityType": "QUALITY_ORANGE",
+        "WeaponType": "WEAPON_POLE"
+    },
+    "10000113": {
+        "Element": "Wind",
+        "Consts": ["UI_Talent_S_Ifa_01", "UI_Talent_S_Ifa_02", "UI_Talent_U_Ifa_01", "UI_Talent_S_Ifa_03", "UI_Talent_U_Ifa_02", "UI_Talent_S_Ifa_04"],
+        "SkillOrder": [11131, 11132, 11135],
+        "Skills": {"11131": "Skill_A_Catalyst_MD", "11132": "Skill_S_Ifa_01", "11135": "Skill_E_Ifa_01"},
+        "ProudMap": {"11131": 11331, "11132": 11332, "11135": 11339},
+        "NameTextMapHash": 3398665018,
+        "SideIconName": "UI_AvatarIcon_Side_Ifa",
+        "QualityType": "QUALITY_PURPLE",
+        "WeaponType": "WEAPON_CATALYST"
+    },
+    "10000901": {
+        "Element": "Fire",
+        "Consts": ["UI_Talent_S_Xiangling_01", "UI_Talent_S_Xiangling_02", "UI_Talent_U_Xiangling_02", "UI_Talent_S_Xiangling_03", "UI_Talent_U_Xiangling_01", "UI_Talent_S_Xiangling_04"],
+        "SkillOrder": [10231, 10232, 10235],
+        "Skills": {"10231": "Skill_A_03", "10232": "Skill_S_Xiangling_01", "10235": "Skill_E_Xiangling_01"},
+        "ProudMap": {"10231": 2331, "10232": 2332, "10235": 2339},
+        "NameTextMapHash": 3293134650,
+        "SideIconName": "UI_AvatarIcon_Side_Mavuika",
+        "QualityType": "QUALITY_ORANGE",
+        "WeaponType": "WEAPON_CLAYMORE"
+    },
+    "10000902": {
+        "Element": "Fire",
+        "Consts": ["UI_Talent_S_Hutao_03", "UI_Talent_S_Hutao_01", "UI_Talent_U_Hutao_01", "UI_Talent_S_Hutao_02", "UI_Talent_U_Hutao_02", "UI_Talent_S_Hutao_04"],
+        "SkillOrder": [10461, 10462, 10463],
+        "Skills": {"10461": "Skill_A_03", "10462": "Skill_S_Hutao_01", "10463": "Skill_E_Hutao_01"},
+        "ProudMap": {"10461": 4631, "10462": 4632, "10463": 4639},
+        "NameTextMapHash": 853394138,
+        "SideIconName": "UI_AvatarIcon_Side_Hutao",
+        "QualityType": "QUALITY_ORANGE",
+        "WeaponType": "WEAPON_POLE"
+    },
+    "11000046": {
+        "Element": "Ice",
+        "Consts": ["UI_Talent_S_Kaeya_01", "UI_Talent_S_Kaeya_02", "UI_Talent_U_Kaeya_01", "UI_Talent_S_Kaeya_03", "UI_Talent_U_Kaeya_02", "UI_Talent_S_Kaeya_04"],
+        "SkillOrder": [10073, 10074, 10075],
+        "Skills": {"10073": "Skill_A_01", "10074": "Skill_S_Kaeya_01", "10075": "Skill_E_Kaeya_01"},
+        "ProudMap": {"10073": 1531, "10074": 1532, "10075": 1539},
+        "NameTextMapHash": 3986000746,
+        "SideIconName": "UI_AvatarIcon_Side_Qin",
+        "QualityType": "QUALITY_PURPLE",
+        "WeaponType": "WEAPON_CLAYMORE"
     },
     "10000005-502": {
         "Element": "Fire",

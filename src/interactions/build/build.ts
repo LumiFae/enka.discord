@@ -134,7 +134,7 @@ export default {
                 const character = await API.character(name, hoyo, characterId);
                 if(!character) return [];
                 return character.filter(build => build.name.includes(focused.value)).map(build => ({
-                    name: build.name,
+                    name: build.name || locale.get(lang => lang.build.live_build),
                     value: String(build.id)
                 }))
             }

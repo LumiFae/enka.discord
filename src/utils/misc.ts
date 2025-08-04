@@ -235,7 +235,7 @@ export async function chatInputAnalyticsSend(commandName: string, success: boole
                 ]
             }
         ]
-    })
+    }).catch(console.error)
 }
 
 export async function customIdAnalyticsSend(customId: string, error: unknown) {
@@ -257,5 +257,5 @@ export async function customIdAnalyticsSend(customId: string, error: unknown) {
         headers: {
             "Content-Type": "application/json"
         }
-    })
+    }).catch(console.error)
 }

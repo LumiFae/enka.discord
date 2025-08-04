@@ -66,7 +66,7 @@ connect:
       To connect your Discord account to {username}, please include the following code inside your bio ([User Settings](https://enka.network/profile/settings/)): {code}
       
       Once this has been completed, click the `Verify` button below.
-      To cancel, click the `Cancel` button."
+      To cancel, click the `Cancel` button.
     footer: "This code will expire in 5 minutes."
 disconnect:
   no_account: "You don't have an account connected."

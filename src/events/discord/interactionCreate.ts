@@ -18,13 +18,14 @@ export default async function (client: Client) {
         if (!command) return;
         console.log(`Executing interaction ${finder}...`);
         try {
+            const locale = Locales.get((await db.query.users.findFirst({where: eq(users.id, interaction.user.id)}))?.locale ?? getFromInteraction(interaction))
             if(interaction.isAutocomplete() && command.role === "CHAT_INPUT") {
-                command.autocomplete ? await command.autocomplete(interaction) : console.error("Couldn't complete autocomplete interaction");
+                command.autocomplete ? interaction.respond(await command.autocomplete(interaction, locale)) : console.error("Couldn't complete autocomplete interaction");
                 return;
             }
             await command.run(
                 interaction as never,
-                Locales.get((await db.query.users.findFirst({where: eq(users.id, interaction.user.id)}))?.locale ?? getFromInteraction(interaction))
+                locale
             );
             console.log(`Interaction ${finder} executed successfully!`);
             if(command.role === "CHAT_INPUT") {

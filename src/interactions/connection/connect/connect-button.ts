@@ -20,11 +20,13 @@ export default {
         await interaction.deferUpdate();
 
         const code = userVerifCodes.get(interaction.user.id);
+        console.log(code)
         if (!code) {
             await interaction.editReply({ content: locale.get(l => l.connect.code_expire), embeds: [], components: [] });
             return;
         }
         const response = await API.profile(code.name);
+        console.log(response)
         if (!response) {
             await interaction.editReply({ content: locale.get(l => l.connect.not_found), embeds: [], components: [] });
             return;

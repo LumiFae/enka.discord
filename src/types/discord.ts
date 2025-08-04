@@ -24,7 +24,7 @@ export type Command =
           nsfw?: boolean;
           integration_types?: number[];
           contexts?: number[];
-          autocomplete?: (interaction: AutocompleteInteraction) => unknown;
+          autocomplete?: (interaction: AutocompleteInteraction, locale: Locales) => Promise<{ name: string; value: string | number }[]>;
       }
     | {
           role: "MESSAGE_CONTEXT_MENU";

@@ -42,70 +42,12 @@ export default async function (client: Client) {
         const rest = new REST({ version: "10" }).setToken(
             process.env.TOKEN as string,
         );
-        const commands_ = await rest.get(
+        await rest.put(
             Routes.applicationCommands(process.env.CLIENT_ID as string),
+            { body: loadedCommands },
         );
-        if (
-            !compareCommands(
-                loadedCommands,
-                commands_ as Record<string, unknown>[],
-            )
-        ) {
-            await rest.put(
-                Routes.applicationCommands(process.env.CLIENT_ID as string),
-                { body: loadedCommands },
-            );
-        }
         console.log(
             `Logged in as ${client.user?.tag}! Loaded ${commands.size} interactions.`,
         );
     });
-}
-
-function compareCommands(
-    commands1: Record<string, unknown>[],
-    commands2: Record<string, unknown>[],
-): boolean {
-    if (commands1.length !== commands2.length) return false;
-    for (const command in commands1) {
-        if (!isDeepEqual(commands1[command], commands2[command])) return false;
-    }
-    return true;
-}
-
-const isDeepEqual = (
-    object1: Record<string, unknown>,
-    object2: Record<string, unknown>,
-) => {
-    const objKeys1 = Object.keys(object1);
-    const objKeys2 = Object.keys(object2);
-
-    if (objKeys1.length !== objKeys2.length) return false;
-
-    for (const key of objKeys1) {
-        const value1 = object1[key];
-        const value2 = object2[key];
-
-        const isObjects = isObject(value1) && isObject(value2);
-
-        if (
-            (isObjects &&
-                !isDeepEqual(
-                    value1 as Record<string, unknown>,
-                    value2 as Record<string, unknown>,
-                )) ||
-            (!isObjects && value1 !== value2)
-        ) {
-            return false;
-        }
-    }
-    return true;
-};
-
-const isObject = (object: unknown) => {
-    return object != null && typeof object === "object";
-};
-
-function cwd() {
-    return __dirname.split("/").slice(0, -2).join("/");
 }

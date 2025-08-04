@@ -1,20 +1,19 @@
 import {Command} from "../../types/discord";
 import {
     ActionRowBuilder,
-    ApplicationCommandOptionType,
-    ChatInputCommandInteraction, InteractionReplyOptions, MessageFlagsBitField,
+    ApplicationCommandOptionType, AttachmentBuilder, AutocompleteInteraction,
+    ChatInputCommandInteraction, ComponentType, InteractionReplyOptions, MessageFlagsBitField,
     StringSelectMenuBuilder,
-    StringSelectMenuOptionBuilder
 } from "discord.js"
-import {generateBuildEmbed, EmbedBuilder, generateUidBuildEmbed} from "../../utils/embeds";
+import {EmbedBuilder, generateUidBuildEmbed, generateCardEmbed} from "../../utils/embeds";
 import API from "../../utils/api";
 import {db} from "../../utils/db";
 import {eq} from "drizzle-orm";
 import {users} from "../../schema";
-import {getFromType} from "../../utils/misc";
-import {selectCharacter} from "../../utils/select-menus";
+import {getBuffer, getCharacter, getFromType} from "../../utils/misc";
+import {selectUidCharacter} from "../../utils/select-menus";
 import Locales from "../../utils/locales";
-import {DjBuild, DjHoyoProfile, HoyoType} from "../../types/models";
+import {HoyoType_T} from "../../types/models";
 
 export default {
     name: "build",
@@ -31,6 +30,26 @@ export default {
                     name: "uid",
                     description: "The UID of the account",
                     required: true
+                },
+                {
+                    type: ApplicationCommandOptionType.Number,
+                    name: "game",
+                    description: "The game",
+                    required: true,
+                    choices: [
+                        {
+                            name: "Genshin Impact",
+                            value: 0,
+                        },
+                        {
+                            name: "Honkai: Star Rail",
+                            value: 1
+                        },
+                        {
+                            name: "Zenless Zone Zero",
+                            value: 2
+                        }
+                    ]
                 }
             ]
         },
@@ -41,8 +60,29 @@ export default {
             options: [
                 {
                     type: ApplicationCommandOptionType.String,
+                    name: "profile",
+                    description: "The name of the profile",
+                    autocomplete: true,
+                    required: true
+                },
+                {
+                    type: ApplicationCommandOptionType.String,
+                    name: "character",
+                    description: "The character name",
+                    autocomplete: true,
+                    required: true,
+                },
+                {
+                    type: ApplicationCommandOptionType.String,
+                    name: "build",
+                    description: "The build name",
+                    autocomplete: true,
+                    required: true
+                },
+                {
+                    type: ApplicationCommandOptionType.String,
                     name: "name",
-                    description: "The profile name",
+                    description: "The name of the enka.network account",
                     required: false
                 }
             ]
@@ -50,7 +90,7 @@ export default {
     ],
     contexts: [0, 1, 2],
     integration_types: [0, 1],
-    run: async (interaction: ChatInputCommandInteraction, locale) => {
+    run: async (interaction, locale) => {
         const subcommand = interaction.options.getSubcommand()
         switch (subcommand) {
             case "uid":
@@ -58,6 +98,48 @@ export default {
             default:
                 return await profile(interaction, locale);
         }
+    },
+    autocomplete: async (interaction, locale) => {
+        const focused = interaction.options.getFocused(true);
+        switch (focused.name) {
+            case 'profile': {
+                const name = await getName(interaction);
+                if(!name) return [];
+                const hoyos = await API.hoyos(name);
+                if(!hoyos) return [];
+                return Object.values(hoyos).filter(h => h.name.includes(focused.value) && h.hash).map(h => ({
+                    name: `${h.name} | ${h.gameName}`,
+                    value: h.hash!
+                }))
+            }
+            case 'character': {
+                const name = await getName(interaction);
+                if(!name) return [];
+                const hoyo = interaction.options.getString("profile", true);
+                const builds = await API.builds(name, hoyo);
+                if(!builds) return [];
+                const hoyoType = Object.values(builds)[0]?.[0].hoyo_type;
+                if(hoyoType === undefined) return [];
+                const characters = Object.keys(builds).map(av => getCharacter(locale, hoyoType, av)).filter(character => character.name.includes(focused.value));
+                return characters.map(char => ({
+                    name: char.name,
+                    value: char.id
+                }))
+            }
+            case 'build': {
+                const name = await getName(interaction);
+                if(!name) return [];
+                const hoyo = interaction.options.getString("profile", true);
+                const characterId = interaction.options.getString("character", true);
+                const character = await API.character(name, hoyo, characterId);
+                if(!character) return [];
+                return character.filter(build => build.name.includes(focused.value)).map(build => ({
+                    name: build.name,
+                    value: String(build.id)
+                }))
+            }
+        }
+        return [];
     }
 } satisfies Command;
 
@@ -71,86 +153,97 @@ async function profile(interaction: ChatInputCommandInteraction, locale: Locales
         await interaction.reply(userNotFound);
         return;
     }
-    const hoyos = await API.hoyos(name)
-    if (!hoyos) {
-        await interaction.reply(userNotFound);
-        return;
-    }
 
     await interaction.deferReply();
 
-    const arr: DjHoyoProfile[] = [];
-    const buildsSaved: Record<string, DjBuild[]>[] = [];
-    for (let [hoyo, hoyoInfo] of Object.entries(hoyos)) {
-        const builds = await API.builds(name, hoyo);
-        if(!builds) continue;
-        if(Object.keys(builds).length === 0) continue;
-        buildsSaved.push(builds);
-        arr.push(hoyoInfo);
-    }
+    const profile = interaction.options.getString("profile", true);
+    const character = interaction.options.getString("character", true);
+    const build = interaction.options.getString("build", true);
 
-    if (arr.length === 0) {
-        await interaction.editReply({
-            content: locale.get(l => l.build.name.no_profiles),
-        });
+    const data = await API.build(name, profile, character, build);
+
+    if(!data) {
+        await interaction.editReply(locale.get(lang => lang.build.name.no_profiles))
         return;
     }
 
-    const embed = generateBuildEmbed(name, locale);
+    const [embed, attachment] = await generateCardEmbed(name, profile, data, locale);
 
-    const rows: ActionRowBuilder<StringSelectMenuBuilder>[] = []
-
-    const selectMenu = new StringSelectMenuBuilder()
-        .setMinValues(1)
-        .setMaxValues(1)
-        .setCustomId("select_profile")
-        .setPlaceholder(locale.get(l => l.build.name.select_profile))
-        .setOptions(arr.map(h =>
-            new StringSelectMenuOptionBuilder()
-                .setLabel('nickname' in h.player_info ? h.player_info.nickname : h.player_info.ProfileDetail.Nickname)
-                .setValue(h.hash!)
-                .setEmoji(getFromType(h.hoyo_type, "1296399185691676734", "1296399188313247774", "1334169563599863819"))
-                .setDescription(getFromType(h.hoyo_type, "Genshin Impact", "Honkai: Star Rail", "Zenless Zone Zero"))
-        ));
-
-    if(arr.length === 1) {
-        selectMenu.setDisabled(true);
-        selectMenu.options[0].setDefault(true);
-        rows.push(new ActionRowBuilder<StringSelectMenuBuilder>().addComponents(selectMenu))
-
-        const selectCharacterSelect = selectCharacter(buildsSaved[0], locale);
-
-        rows.push(new ActionRowBuilder<StringSelectMenuBuilder>().addComponents(selectCharacterSelect))
-    } else {
-        rows.push(new ActionRowBuilder<StringSelectMenuBuilder>().addComponents(selectMenu))
-    }
-
-    await interaction.editReply({ embeds: [embed], components: rows })
+    await interaction.editReply({
+        embeds: [embed],
+        files: [attachment]
+    })
 }
 
 async function uid(interaction: ChatInputCommandInteraction, locale: Locales) {
-    const selectMenu = new StringSelectMenuBuilder().setMaxValues(1).setMinValues(1)
-        .setCustomId("uid_select_game")
-        .setPlaceholder(locale.get(l => l.build.uid.select_game))
-        .addOptions(
-            new StringSelectMenuOptionBuilder()
-                .setLabel("Genshin Impact")
-                .setValue("0")
-                .setDescription(locale.get(l => l.build.uid.genshin_uid))
-                .setEmoji("1296399185691676734"),
-            new StringSelectMenuOptionBuilder()
-                .setLabel("Honkai: Star Rail")
-                .setValue("1")
-                .setDescription(locale.get(l => l.build.uid.honkai_uid))
-                .setEmoji("1296399188313247774"),
-            new StringSelectMenuOptionBuilder()
-                .setLabel("Zenless Zone Zero")
-                .setValue("2")
-                .setDescription(locale.get(l => l.build.uid.zenless_uid))
-                .setEmoji("1334169563599863819")
-        )
+    const hoyoType = interaction.options.getNumber("game", true) as HoyoType_T;
 
-    const row = new ActionRowBuilder<StringSelectMenuBuilder>().addComponents(selectMenu);
+    await interaction.deferReply();
 
-    return await interaction.reply({ embeds: [generateUidBuildEmbed(interaction.options.getString("uid", true), locale)], components: [row] })
+    const uid = interaction.options.getString("uid", true)
+
+    const data = await API.uid(hoyoType, uid, locale)
+
+    if (!data) {
+        await interaction.editReply(locale.get(lang => lang.build.uid.no_found_uid))
+        return;
+    }
+
+    const comps = [new ActionRowBuilder<StringSelectMenuBuilder>().addComponents(selectUidCharacter(data, locale))]
+
+    const msg = await interaction.editReply({
+        content: '',
+        files: [],
+        embeds: [generateUidBuildEmbed(data.uid, locale)],
+        components: comps
+    })
+
+    let waiting = true;
+
+    while(waiting) {
+        try {
+            const select = await msg.awaitMessageComponent({
+                filter: (i) => {
+                    i.deferUpdate();
+                    return i.user.id === interaction.user.id
+                },
+                componentType: ComponentType.StringSelect,
+                time: 60_000
+            });
+
+            const characterId = select.values[0];
+
+            const url = `https://cards.enka.network/${getFromType(hoyoType, "u", "hsr", "zzz")}/${uid}/${characterId}/image?lang=${locale.locale}`
+
+            const image = await getBuffer(url);
+
+            const imgName = `${uid}-${characterId}.png`;
+
+            const attachment = new AttachmentBuilder(image, {name: imgName});
+
+            const character = data.getCharacter(characterId);
+
+            if (!character) return await interaction.editReply({
+                content: locale.get(lang => lang.error)
+            })
+
+            const embed = new EmbedBuilder()
+                .setTitle(locale.get(l => l.build.uid.character_embed_title).replace("{nickname}", data.nickname).replace("{name}", character.name))
+                .setColor(character.colorFromElement)
+                .setImage(`attachment://${imgName}`)
+
+            await interaction.editReply({
+                content: '',
+                files: [attachment],
+                embeds: [embed],
+                components: comps
+            })
+        } catch(err) {
+            waiting = false;
+        }
+    }
+}
+
+async function getName(interaction: AutocompleteInteraction | ChatInputCommandInteraction) {
+    return interaction.options.getString("name") ?? (await db.query.users.findFirst({where: eq(users.id, interaction.user.id)}))?.enka_name ?? null
 }

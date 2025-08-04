@@ -43,4 +43,8 @@ export default class UID {
     getCharacter(id: string) {
         return this.avatars.find(avatar => avatar.id === id);
     }
+
+    get uid() {
+        return this.data.uid;
+    }
 }

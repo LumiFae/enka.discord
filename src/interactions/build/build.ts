@@ -110,7 +110,7 @@ export default {
                 return Object.values(hoyos).filter(h => h.name.includes(focused.value) && h.hash).map(h => ({
                     name: `${h.name} | ${h.gameName}`,
                     value: h.hash!
-                }))
+                })).slice(0, 25)
             }
             case 'character': {
                 const name = await getName(interaction);
@@ -124,7 +124,7 @@ export default {
                 return characters.map(char => ({
                     name: char.name,
                     value: char.id
-                }))
+                })).slice(0, 25)
             }
             case 'build': {
                 const name = await getName(interaction);
@@ -136,7 +136,7 @@ export default {
                 return character.filter(build => build.name.includes(focused.value)).map(build => ({
                     name: build.name || locale.get(lang => lang.build.live_build),
                     value: String(build.id)
-                }))
+                })).slice(0, 25)
             }
         }
         return [];

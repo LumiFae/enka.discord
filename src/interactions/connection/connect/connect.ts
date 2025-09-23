@@ -34,7 +34,6 @@ export default {
             code,
             name
         });
-        console.log(userVerifCodes.get(interaction.user.id))
         const embed = connectAccountEmbed(response.username, code, locale);
 
         const verifyButton = new ButtonBuilder()
